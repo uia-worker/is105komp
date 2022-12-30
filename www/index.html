@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>IS-105</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <style>
+      body {
+        background-color: #00203FFF; /* #240d20 */
+        color: #ABECE1; /* #fbdcc4 074989 #ADEFD1FF */
+        font-family: 'IBM Plex Serif', 'Georgia', Times, serif;
+      }
+      a:link, a:hover, a:active, a:visited {
+        color: #fbd46d;
+      }
+      .maincolumn {
+        width: 38em;
+        margin-right: -40em;
+        margin-left: 15em;
+        line-height: 1.6em;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid #bc9000;
+        padding: 10px 20px;
+      }
+      pre {
+        background-color: #cfd1a7;
+        overflow: auto;
+        font-family: 'Monaco', monospace;
+        padding: 0 1em;
+        font-size: 0.9em;
+      }
+      code {
+        font-family: Monaco, monospace;
+        line-height: 100%;
+        color: #636262;
+        padding: 0.2em;
+        letter-spacing: -0.05em;
+        word-break: normal;
+        /border-radius: 5px;/
+      }
+      /* Tekstbokser på høyre side av hovedkolonnen */
+      .refelem, .refcolumn, .refcontent {
+        background-color: #002F5D;
+        color: #C57500; /* #eeeeee */
+        border-color: black;
+        font-family: 'IBM Plex Serif';
+      }
+      .refpara, .refelem {
+        position: relative;
+        float: right;
+        left: 2em;
+        height: 0em;
+        width: 13em;
+        margin: 0em -13em 0em 0em;
+      }
+      .refcolumn {
+        background-color: #002F5D; /* #F5F5DC */
+        display: block;
+        position: relative;
+        width: 13em;
+        font-size: 85%;
+        border: 0.5em solid #002F5D;
+        margin: 0 0 0 0;
+        white-space: normal;
+      }
+      .refcontent {
+        margin: 0 0 0 0;
+      }
+      /* Innholdsfortegnelse på venstre side av hovedkolonnen */
+      .tocset {
+        position: relative;
+        float: left;
+        width: 12.5em;
+        margin-right: 2em;
+      }
+      .tocview, .tocsub {
+        background-color: #4f8a8b;
+      }
+      .tocviewlisttopspace {
+        margin-bottom: 1em;
+      }
+      .tocviewlist, .tocsublist {
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+      }
+      .tocviewtitle * {
+        font-weight: bold;
+      }
+      .tocviewsublist, .tocviewsublistonly, .tocviewsublisttop, .tocviewsublistbottom {
+        margin-left: 0.4em;
+        border-left: 1px solid #bbf;
+        padding-left: 0.8em;
+      }
+      .tocviewtoggle {
+        text-decoration: none;
+        color: blue;
+        font-size: 75%;
+      }
+    </style>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <a class="tocviewtoggle" href="index.html">IS-105 våren 2023</a>
+        </div>
+      </div>
+    </div>
+    <div class="tocsub">
+      <a class="tocviewtoggle" href="impl.html">Implementasjon</a><br />
+      <a class="tocviewtoggle" href="tema01.html">Introduksjon</a>
+    </div>
+  </div>
+  <div class="maincolumn">
+    <h2>Generell informasjon</h2>
+    <p>
+    Følg disse lenkene for relevant informasjon:
+    <ul>
+      <li>__studiehåndbok__</li>
+      <li>__veileder__</li>
+      <li>__arbeidsplan__</li>
+    </ul>
+    </p>
+      <strong>Læringsmål:</strong>
+
+      <ol>
+        <li>Kjenne til hvordan informasjon er representert i en datamaskin</li>
+        <li>Kjenne til grunnleggende begreper om operativsystem</li>
+        <li>Kjenne til sikkerhetsmessige utfordringer med operativsystemer og datakommunikasjon</li>
+        <li>Kunne gjenskape og lage programmer basert på forståelse av grunnleggende prinsipper i operativsystem og datakommunikasjon</li>
+        <li>Kunne forklare protokoller for datakommunikasjon og hvordan ulike kommunikasjonslag samarbeider i en kommunikasjonsprosess</li>
+        <li>Kunne vise til forskjeller mellom proprietære og fri programvare</li>
+        <li>Kunne forklare muligheter utvikling av kommunikasjonsteknologi gir for virksomheter og eventuelle implikasjoner for bærekraft</li>
+        <li>Kjenne til etiske problemstillinger med bruk av Internett</li>
+        </ol>
+        <strong>Tidskrav: </strong>det er forventet at man arbeider rundt 13 timer per uke, inkludert de organiserte aktivitetene (felles samlinger).
+
+  <h2>Holde seg oppdatert og kontakte lærere</h2>
+  <p>Studenten må følge med i applikasjonen Canvas, som er administrert av UiA. Hovedsiden i Canvas er et inngangsportal for all informasjon. All faglig informasjon, som ikke inneholder sensitiv informasjon om personer, organisasjoner, eller evaluering, vil være publisert på en ekstern server og være offentlig tilgjengelig (blant annet dette dokumentet, som du leser nå). De eksterne sidene skal oppdateres ofte i løpet av vårsemesteret 2023, så det er studentens ansvar å holde seg oppdatert. Frister for innleveringene vil også publiseres i Canvas. <strong>Det er frister i Canvas, som har høyere prioritet enn frister nevnt i de eksterne websidene.</strong></p>
+  <p>Studenten vil finne kontaktinformasjon for lærer og læringsassistenter (LA) i Canvas. Det er sterkt anbefalt å kontakte lærer og LA-ene ved enhver tvil å kursets regler, frister, krav eller den publiserte informasjonen. Ta umiddelbart kontakt, hvis du finner feilaktig eller inkorrekt informasjon i våre dokumenter (både i Canvas og på ekstern server).</p>
+
+  <h2>Møtetider</h2>
+  <p>Se <a href="https://cloud.timeedit.net/uia/web/tp/ri167XQQ777Z50QvY1057gZ6y5Y50017QY.html" target="_blank"> timeplan</a> og <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">kursets plan</a> for møtedager og møtetid.</p>
+  <p>Studenten vil få mest ut av emnet, hvis studentene møter opp fysisk, men vi kan forstå at ikke alle har anledning til å gjøre det hver gang (og omstendighetene kan også endres i løpet av semester). Derfor, skal vi ta opp samlingene og legge opptakene ut i Canvas under "Emnets videoer". Vi tar forbehold om tekniske problemer i forbindelse med opptak, slik at studenten kan ikke regne med å få med seg opptak av alle samlingene. Hvis opptaket ikke finnes, blir studentene informert om det og om eventuelle andre kilder for informasjon som kan være aktuelt for å opprettholde progresjon.</p>
+  <p>Dette emne kan ikke taes fullstendig digitalt, siden det vil være 3 obligatoriske seminarer. Hver seminar skal være på 8 timer, og oppmøte skal registreres. Under seminarene må studentene medbringe sin datamaskin.</p>
+
+  <h2>Oppgaver og eksamen</h2>
+  <p><strong>Eksamen: </strong>Skriftlig eksamen (5 timer) i den ordinære eksamensperioden Mai-Juni (Tirsdag 9. mai 2023).</p>
+  <p><strong>Eksamenskrav: </strong>Det består av quizer, hjemmeoppgaver, aktiviteter i klasserommet og et prosjekt. Alle delene må være godkjent for å kunne ta eksamen. Se <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing target="_blank"">kursets plan</a>.</p>
+  <table>
+    <tbody>
+    <tr>
+      <td>Quizer</td>
+      <td>Ukentlige quizer relatert til ukentlig studiet av kursmaterialer. Quizene har mellom 10 og 15 spørsmål. For å få godkjent en quiz, må 75% av alle svarene være korrekte. Man må gjennomføre og bestå 10 av 13 quizer.</td>
+    </tr>
+    <tr>
+    <td>Hjemmeoppgaver</td>
+    <td><i>Med poeng:</i> Testing, Filsystem, Prosess, Profilering, Klient/Server, Prosjekt<br />
+    <i>Godkjent/Ikke godkjent:</i> Automater, Minne, Huffman koding<br />
+    <i>Tolkning av kode (godkjent/ikke godkjent):</i> Variabler, Kontrollstrukturer, Datastrukturer, Systemkall, Stream, Samtidighet, Protokoller, HTTP, Sikkerhet/td>
+    </tr>
+    <tr>
+    <td>Aktiviteter i klassen</td>
+    <td>Tre seminarer (2x4 timer hver) har obligatorisk oppmøte. <br />Seminar I handler om CLI, go mod, Docker. <br />Seminar II er om profilering i Go. <br />Seminar III er om Sikkerhet (eventuelt noe om nettsky). <br />På seminarer skal studentene arbeide med oppgaver i klasserommet. Studentene må medbringe egne datamaskiner, som er konfigurert med Internett-tilgang. Alle oppgaver må være godkjent i klasserommet innen fredag den aktuelle uken. Seminarene gjennomføres i ukene 5 (eventuelt en økt i uke 4), 10 og 16.</td>
+    </tr>
+    <tr>
+      <td>Prosjekt</td>
+      <td>Det skal være et prosjekt på slutten av semesteret. Prosjektet skal publiseres Fredag 31. Mars (rett før påske) og ha innleveringsfrist Fredag 21. April.</td>
+    </tr>
+    <tbody>
+  </table>
+  <h3>Frister</h3>
+  <p>Tabellen med frister skal oppdateres fortløpende (se <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">kursets plan</a> for en fullstendig oversikt.)</p>
+  <p>
+  <span style="background-color: #006089; font-size: 0.6em; padding: 5px 5px;">TOLKE KODE</span>
+  <span style="background-color: #4501C2; font-size: 0.6em; padding: 5px 5px;">TESTE IMPLEMENTERE</span>
+  <span style="background-color: #011CC3; font-size: 0.6em; padding: 5px 5px;">LESE REFLEKTERE</span>
+  </p>
+  <table style="width: 90%;">
+      <thead>
+          <tr>
+              <th colspan="6">Detaljer om oppgaver</th>
+          </tr>
+          <tr>
+              <th>Tittel</th>
+              <th>Gruppe</th>
+              <th>Sen*</th>
+              <th>Evaluering</th>
+              <th>Publisert</th>
+              <th>Frist</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr style="background-color: #006089;">
+              <td>Variabler</td>
+              <td>Ja</td>
+              <td>Ja</td>
+              <td>g/ig</td>
+              <td>07.01.23</td>
+              <td>13.01.23</td>
+          </tr>
+          <tr style="background-color: #011CC3;">
+              <td>Quiz 1</td>
+              <td>Nei</td>
+              <td>Nei</td>
+              <td>g/ig (75%)</td>
+              <td>-</td>
+              <td>13.01.23</td>
+          </tr>
+          <tr style="background-color: #006089;">
+              <td>Kontroll</td>
+              <td>Ja</td>
+              <td>Ja</td>
+              <td>g/ig</td>
+              <td>13.01.23</td>
+              <td>20.01.23</td>
+          </tr>
+          <tr style="background-color: #011CC3;">
+              <td>Quiz 2</td>
+              <td>Nei</td>
+              <td>Nei</td>
+              <td>g/ig (75%)</td>
+              <td>-</td>
+              <td>20.01.23</td>
+          </tr>
+          <tr style="background-color: #006089;">
+              <td>Datastr.</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>g/ig</td>
+              <td>20.01.23</td>
+              <td>27.01.23</td>
+          </tr>
+          <tr style="background-color: #011CC3;">
+              <td>Quiz 3</td>
+              <td>Nei</td>
+              <td>Nei</td>
+              <td>g/ig (75%)</td>
+              <td>-</td>
+              <td>27.01.23</td>
+          </tr>
+          <tr style="background-color: #4501C2;">
+              <td>Testing</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>POENG</td>
+              <td>20.01.23</td>
+              <td>27.01.23</td>
+          </tr>
+      </tbody>
+  </table>
+  <p>
+    g/ig - godkjent/ikke godkjent<br />
+    * maksimalt 2 dager<br />
+  </p>
+
+  <h2>Anonymitet</h2>
+  <p>Vi ønsker å oppmyntre anonyme innleveringer, så lenge det ikke går utover studentenes læring. Grunnen til det er at anonyme innleveringer eliminerer både positive og negative skjevheter ved evaluering. Vi vil tilrettelegge for anonymitet (database i Canvas vil lenke deres navn med innleveringene), men studentene må selv passe på å ikke inkludere persondata eller andre data i sine innleveringer, som gjør det umulig å se på innleveringen som anonym. Dette er en prøveordning og både lærere og studenter har sikkert lite erfaring med det, så det er viktig at studentene har en fleksibel tilnærming til dette.</p>
+
+  <h2>Tidsbruk</h2>
+  <p>Forventet arbeidsbelastning på ca. 13 timer per uke, skal fordeles jevt på alle ukene i semesteret. Hvis studentene opplevere at enkelte oppgaver tar for mye tid, må studenten selv ta kontakt med lærer og/eller LA.</p>
+
+  <h2>Om samarbeid</h2>
+  <p>Semesteret er delt inn i tre perioder:
+<ul>
+  <li>Periode I: 04.01.23 - 05.02.23</li>
+  <li>Periode II: 06.02.23 - 12.03.23</li>
+  <li>Periode III: 13.3.23 - 24.04.23</li>
+</ul>
+  </p>
+
+  <h3>Periode 1</h3>
+  <p>I første eksamensperioden av emne (varer til 5. februar) er samarbeidsreglene relativt åpne.
+    <ul>
+      <li>Alle innleveringene i denne perioden er obligatoriske.</li>
+      <li>Studenten kan fritt snakke om oppgavene med hvem og hvor mange en ønsker. Studenten kan jobbe sammen med en venn eller med en eller flere fra klassen.</li>
+      <li>Reservedagene (sene dager) kan ikke brukes i denne perioden. Hvis innlevering skjer mer enn 2 dager etter fristen, vil den regnes som ikke godkjent. Innleveringer, som er innlevert mer enn 2 dager etter fristen, vil kun bli akseptert i tilfeller av sykdom eller eventuelt andre tungt veiende grunner (dokumentasjon må foreligge).</li>
+    </ul>
+    </p>
+    <p>I denne perioden er det viktig å komme godt i gang og oppnå en stor grad av mestring. I denne tidlige fasen er det essensielt å lære all materiale for å kunne lykkes.</p>
+    <p>Det er en liten fare (erfaringsmessig) for at studenten ikke tar de tidlige oppgavene seriøst nok. Det vil være ugunstig. Oppgavene i senere perioder vil bygge på oppgavene fra den første perioden, slik at det er spesielt viktig at du forstår dem godt på slutten av denne perioden, og kan gjøre de selv!</p>
+    <h3>Periode 2</h3>
+    <p>Denne perioden starter 6. februar. I denne fasen kan studenten arbeide sammen kun med EN medstudent. Det er ikke <i>et krav</i>, så studenten kan også jobbe alene.</p>
+    <p>Studenten kan kun samarbeide med en partner. De eneste ressursene som er tillatt er de som er spesifisert i emnet, dvs. informasjon fra samlinger, kompendiet (og eventuelle referanser i det), oppgavetekster og LA-ene. Formålet med denne perioden er å etablere en selvstendig arbeidsmønster. Studenten kan snakke med alle fra klassen generelt om kursets materialer, som ikke er direkte relatert til kommende innlevering. En slik diskusjon kan sikkert bidra til å løse den kommende oppgaven, men studenten må unngå og bevisst rette diskusjon mot en fullstendig løsning.</p>
+    <h3>Periode 3</h3>
+    <p>Denne perioden starter den 13. mars 2023. Perioden avsluttes med den endelige fristen for å få godkjent eksamenskrav den 24. april 2023. I denne perioden er det ikke tillatt å samarbeide med noen. Alt arbeid skal være individuelt.</p>
+
+    <h2>Eksamenskrav</h2>
+    <p>Alle oppgavene evalueres med GODKJENT / IKKE GOKJENT. For noen av oppgavene vil det være en transparent poengsystem, hvor et spesifikt antall poeng vil være grensen mellom GOKJENT og IKKE GODKJENT.</p>
+
+    <table style="table-layout: fixed; width: 90%; border-collapse: collapse; border: 1px solid #bc9000;">
+      <tbody>
+      <tr>
+        <td>Quizer (13)</td>
+        <td>Minst 10 quizer gjennomført med 75% riktige svar</td>
+      </tr>
+      <tr>
+      <td>Hjemmeoppgaver (5, 50 poeng per oppgave)</td>
+      <td>Minst 4 gjennomført og minst 150 poeng oppnådd</td>
+      </tr>
+      <tr>
+      <td>Hjemmeoppgaver (3, g/ig)</td>
+      <td>Minst 2 gjennomført og gokjent</td>
+      </tr>
+      <tr>
+      <td>Aktiviteter i klassen (3, g/ig)</td>
+      <td>Obligatorisk deltakelse på alle</td>
+      </tr>
+      <tr>
+        <td>Prosjekt 1</td>
+        <td>Obligatorisk, minst 35 poeng (av 50) oppnådd</td>
+      </tr>
+      </tr>
+      <tbody>
+    </table>
+    <p>g/ig - godkjent/ikke godkjent</p>
+
+    <h2>Hvem evaluerer innleveringene?</h2>
+    <p></p>
+
+    <h2>Kursets materialer</h2>
+    <p>Kompendiet, Golang programmeringsmiljøet, terminal, Docker (som forutsetter Windows Subsystem for Linux for brukere av MS Windows operativsystemet). Det skal ikke være nødvendig å kjøpe materialer for dette kurset. Vi skal bruke noen ressurser fra to bøker:
+<ul>
+  <li>Guerrieri, A. (2019). Hands-On System Programming with Go. Packt Publishing Ltd.</li>
+  <li>Woodbeck, A. (2021). Network programming with Go : code secure and reliable network services from scratch. No Starch Press.</li>
+</ul>
+Andre sentrale ressurser skal være:
+<ul>
+  <li><a href="https://go.dev/tour/list" target="_blank" style="color: #ffc42d;">A Tour of Go</a></li>
+  <li><a href="https://go.dev/play/" target="_blank" style="color: #ffc42d;">Go Playground</a></li>
+  <li><a href="https://docs.docker.com/" target="_blank">Docker Docs</a></li>
+</ul>
+I tillegg skal det refereres til ressurser både fra kompendiet og fra oppgavetekster. Det skal være klart markert, hvilke av ressursene er obligatoriske (dvs. at stoffet vil være aktuelt i eksamen).
+</p>
+<p>
+De nødvendige ressursene, for å besvare oppgavene, vil være tilgjengelig enten som lenker på WWW eller i Canvas som "Sider" eller PDF-dokumenter under "Filer".
+    </p>
+    <p>Hvis du oppdager noen form for aksessibilitetsproblemer i forhold til kursets materialer, vennligst ta kontakt med lærer eller LA.</p>
+    </div>
+</body>
+</html>
