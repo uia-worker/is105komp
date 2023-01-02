@@ -19,10 +19,12 @@
         margin-left: 15em;
         line-height: 1.6em;
       }
-      table {
+      .table1 {
         border-collapse: collapse;
+        /*table-layout: fixed;*/
+        /*width: 90%;*/
       }
-      td, th {
+      .table1 td, .table1 th {
         border: 1px solid #bc9000;
         padding: 10px 20px;
       }
@@ -71,6 +73,7 @@
         margin: 0 0 0 0;
       }
       /* Innholdsfortegnelse på venstre side av hovedkolonnen */
+      /* Innholdsfortegnelse på venstre side av hovedkolonnen */
       .tocset {
         position: relative;
         float: left;
@@ -89,8 +92,25 @@
         padding-top: 0.2em;
         padding-bottom: 0.2em;
       }
+      .tocviewlink {
+        text-decoration: none;
+        font-size: 82%;
+      }
+      .tocsubtitle {
+        font-size: 82%;
+        font-style: italic;
+        margin: 0.2em;
+      }
+      .tocsublinknumber {
+        font-size: 82%;
+      }
+      .tocsubseclink {
+        font-size: 82%;
+        text-decoration: none;
+      }
       .tocviewtitle * {
         font-weight: bold;
+        font-size: 90%;
       }
       .tocviewsublist, .tocviewsublistonly, .tocviewsublisttop, .tocviewsublistbottom {
         margin-left: 0.4em;
@@ -102,6 +122,9 @@
         color: blue;
         font-size: 75%;
       }
+      .tocviewselflink {
+        text-decoration: underline;
+      }
     </style>
 </head>
 <body>
@@ -109,26 +132,84 @@
     <div class="tocview">
       <div class="tocviewlist tocviewlisttopspace">
         <div class="tocviewtitle">
-          <a class="tocviewtoggle" href="index.html">IS-105 våren 2023</a>
+          <a href="" class="tocviewselflink" data-pltdoc="x">Vår 2023: IS-105</a>
         </div>
+        <!--
+        <div class="tocviewsublistonly" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right">
+                </td>
+                <td>
+                  <a href="tema01.html" class="tocviewlink" data-pltdoc="x">Introduksjon</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="virt.html" class="tocviewlink" data-pltdoc="x">Virtualisering</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      -->
       </div>
     </div>
     <div class="tocsub">
-      <a class="tocviewtoggle" href="impl.html">Implementasjon</a><br />
-      <a class="tocviewtoggle" href="tema01.html">Introduksjon</a>
+      <div class="tocsubtitle">På denne siden:</div>
+      <table class="tocsublist" cellspacing="0">
+        <tbody>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">1<tt>&nbsp;</tt></span>
+              <a href="#generellinfo" class="tocsubseclink" data-pltdoc="x">Generell informasjon</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
+              <a href="#oppdatert" class="tocsubseclink" data-pltdoc="x">Holde seg oppdatert ...</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
+              <a href="#motetider" class="tocsubseclink" data-pltdoc="x">Møtetider</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
+              <a href="#oppgeksamen" class="tocsubseclink" data-pltdoc="x">Oppgaver og eksamen</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">5<tt>&nbsp;</tt></span>
+              <a href="#frister" class="tocsubseclink" data-pltdoc="x">Om frister</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
   <div class="maincolumn">
-    <h2>Generell informasjon</h2>
+    <h2>
+      1 Generell informasjon
+      <a name="generellinfo"></a>
+    </h2>
     <p>
-    Følg disse lenkene for relevant informasjon:
+    Følg disse lenkene for relevant informasjon om IS-105:
     <ul>
-      <li>__studiehåndbok__</li>
-      <li>__veileder__</li>
-      <li>__arbeidsplan__</li>
+      <li><a href="https://www.uia.no/studieplaner/topic/IS-105-1?year=2022" target="_blank">UiA studiehånbok</a></li>
+      <li><a href="https://www.uia.no/kk/profil/janisg" target="_blank">Ansvarlig lærer</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">Kursets plan</a></li>
     </ul>
     </p>
-      <strong>Læringsmål:</strong>
+      <h3>Læringsmål:</h3>
 
       <ol>
         <li>Kjenne til hvordan informasjon er representert i en datamaskin</li>
@@ -142,19 +223,29 @@
         </ol>
         <strong>Tidskrav: </strong>det er forventet at man arbeider rundt 13 timer per uke, inkludert de organiserte aktivitetene (felles samlinger).
 
-  <h2>Holde seg oppdatert og kontakte lærere</h2>
-  <p>Studenten må følge med i applikasjonen Canvas, som er administrert av UiA. Hovedsiden i Canvas er et inngangsportal for all informasjon. All faglig informasjon, som ikke inneholder sensitiv informasjon om personer, organisasjoner, eller evaluering, vil være publisert på en ekstern server og være offentlig tilgjengelig (blant annet dette dokumentet, som du leser nå). De eksterne sidene skal oppdateres ofte i løpet av vårsemesteret 2023, så det er studentens ansvar å holde seg oppdatert. Frister for innleveringene vil også publiseres i Canvas. <strong>Det er frister i Canvas, som har høyere prioritet enn frister nevnt i de eksterne websidene.</strong></p>
-  <p>Studenten vil finne kontaktinformasjon for lærer og læringsassistenter (LA) i Canvas. Det er sterkt anbefalt å kontakte lærer og LA-ene ved enhver tvil å kursets regler, frister, krav eller den publiserte informasjonen. Ta umiddelbart kontakt, hvis du finner feilaktig eller inkorrekt informasjon i våre dokumenter (både i Canvas og på ekstern server).</p>
+  <h2>
+    2 Holde seg oppdatert og kontakte lærere
+    <a name="oppdatert"></a>
+  </h2>
+  <p>Studenten må følge med i applikasjonen Canvas, som er administrert av UiA. Hovedsiden i Canvas er et inngangsportal for all informasjon. All faglig informasjon, som ikke inneholder sensitiv informasjon om personer, organisasjoner, eller evaluering, vil være publisert på en ekstern server og være offentlig tilgjengelig (blant annet dette dokumentet, som du leser nå). De eksterne sidene skal oppdateres ofte i løpet av vårsemesteret 2023, og det er studentens ansvar å holde seg oppdatert. Frister for innleveringene vil også publiseres i Canvas. <strong>Det er frister i Canvas, som har høyere prioritet enn frister nevnt i de eksterne websidene.</strong></p>
+  <p>Studenten vil finne kontaktinformasjon for lærer og læringsassistenter (LA) i Canvas. Det er sterkt anbefalt å kontakte lærer og LA-ene ved enhver tvil om kursets regler, frister, krav eller den publiserte informasjonen. Ta umiddelbart kontakt, hvis du finner feilaktig eller inkorrekt informasjon i våre dokumenter (både i Canvas og på ekstern server).</p>
 
-  <h2>Møtetider</h2>
-  <p>Se <a href="https://cloud.timeedit.net/uia/web/tp/ri167XQQ777Z50QvY1057gZ6y5Y50017QY.html" target="_blank"> timeplan</a> og <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">kursets plan</a> for møtedager og møtetid.</p>
-  <p>Studenten vil få mest ut av emnet, hvis studentene møter opp fysisk, men vi kan forstå at ikke alle har anledning til å gjøre det hver gang (og omstendighetene kan også endres i løpet av semester). Derfor, skal vi ta opp samlingene og legge opptakene ut i Canvas under "Emnets videoer". Vi tar forbehold om tekniske problemer i forbindelse med opptak, slik at studenten kan ikke regne med å få med seg opptak av alle samlingene. Hvis opptaket ikke finnes, blir studentene informert om det og om eventuelle andre kilder for informasjon som kan være aktuelt for å opprettholde progresjon.</p>
-  <p>Dette emne kan ikke taes fullstendig digitalt, siden det vil være 3 obligatoriske seminarer. Hver seminar skal være på 8 timer, og oppmøte skal registreres. Under seminarene må studentene medbringe sin datamaskin.</p>
+  <h2>
+    3 Møtetider
+    <a name="motetider"></a>
+  </h2>
+  <p>Oppmøte er <span style="color:lightgreen;">mandager og fredager kl. 8:15 - 12:00</span>. De første 2 timene er avsatt til felles samling, mens de 2 siste for individuelt eller gruppearbeid (det er allokert et visst antall grupperom).</p>
+  <p>Se <a href="https://cloud.timeedit.net/uia/web/tp/ri167XQQ777Z50QvY1057gZ6y5Y50017QY.html" target="_blank"> timeplan</a> og <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">kursets plan</a> for detaljert informasjon om møtetid og emnets temaer.</p>
+  <p>Studenten vil få mest ut av emnet, hvis studenten møter opp fysisk, men vi forstår at ikke alle har anledning til å møte opp fysisk på alle aktivitetene, og omstendighetene kan også endres i løpet av et semester. Derfor skal vi ta opp samlingene og legge opptakene ut i Canvas under "Emnets videoer". Vi tar forbehold om tekniske problemer i forbindelse med opptak, slik at studenten ikke kan regne med å få tilgang på opptak fra alle samlingene. Hvis opptaket ikke finnes, blir studentene informert om det, og om eventuelle andre kilder for informasjon, som er relevante for å opprettholde en rimelig progresjon.</p>
+  <p>Dette emne kan ikke taes kun digitalt, siden det er 3 obligatoriske seminarer i kursets plan. Hvert seminar er på 8 timer (vanligvis 4 timer mandag plus 4 timer fredag), og oppmøte skal registreres. Under seminarene må studentene medbringe sin datamaskin.</p>
 
-  <h2>Oppgaver og eksamen</h2>
-  <p><strong>Eksamen: </strong>Skriftlig eksamen (5 timer) i den ordinære eksamensperioden Mai-Juni (Tirsdag 9. mai 2023).</p>
+  <h2>
+    4 Oppgaver og eksamen
+    <a name="oppgeksamen"></a>
+  </h2>
+  <p><strong>Eksamen: </strong>Skriftlig eksamen (5 timer) i den ordinære eksamensperioden Mai-Juni (<span style="color:lightgreen;">Tirsdag 9. mai 2023</span>).</p>
   <p><strong>Eksamenskrav: </strong>Det består av quizer, hjemmeoppgaver, aktiviteter i klasserommet og et prosjekt. Alle delene må være godkjent for å kunne ta eksamen. Se <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing target="_blank"">kursets plan</a>.</p>
-  <table>
+  <table class="table1">
     <tbody>
     <tr>
       <td>Quizer</td>
@@ -162,28 +253,77 @@
     </tr>
     <tr>
     <td>Hjemmeoppgaver</td>
-    <td><i>Med poeng:</i> Testing, Filsystem, Prosess, Profilering, Klient/Server, Prosjekt<br />
-    <i>Godkjent/Ikke godkjent:</i> Automater, Minne, Huffman koding<br />
-    <i>Tolkning av kode (godkjent/ikke godkjent):</i> Variabler, Kontrollstrukturer, Datastrukturer, Systemkall, Stream, Samtidighet, Protokoller, HTTP, Sikkerhet/td>
+    <td>
+      <ul>
+        <li style="list-style-type: none;">---TOLKNING---</li>
+        <li>Variabler</li>
+        <li>Kontrollstrukturer</li>
+        <li>Datastrukturer</li>
+        <li>Systemkall</li>
+        <li>Strøm</li>
+        <li>Samtidighet</li>
+        <li>Protokoller</li>
+        <li>HTTP</li>
+        <li>Sikkerhet</li>
+        <li style="list-style-type: none;">---TEST/IMPL---</li>
+        <li>Testing</li>
+        <li>Automater</li>
+        <li>Filsystem</li>
+        <li>Minne</li>
+        <li>Prosess</li>
+        <li>Profilering</li>
+        <li>Huffman koding</li>
+        <li>Klient/Server</li>
+        <li>Prosjekt</li>
+      </ul>
+    </td>
     </tr>
     <tr>
     <td>Aktiviteter i klassen</td>
-    <td>Tre seminarer (2x4 timer hver) har obligatorisk oppmøte. <br />Seminar I handler om CLI, go mod, Docker. <br />Seminar II er om profilering i Go. <br />Seminar III er om Sikkerhet (eventuelt noe om nettsky). <br />På seminarer skal studentene arbeide med oppgaver i klasserommet. Studentene må medbringe egne datamaskiner, som er konfigurert med Internett-tilgang. Alle oppgaver må være godkjent i klasserommet innen fredag den aktuelle uken. Seminarene gjennomføres i ukene 5 (eventuelt en økt i uke 4), 10 og 16.</td>
+    <td>Tre seminarer (2x4 timer hver) har obligatorisk oppmøte.
+      <ul>
+        <li>Seminar I handler om CLI, go mod, Docker.</li>
+        <li>Seminar II er om profilering ved hjelp av Go.</li>
+        <li>Seminar III er om Sikkerhet (eventuelt noe om nettsky).</li>
+      </ul>
+      På seminarer skal studentene arbeide med oppgaver i klasserommet. Studenten må medbringe egen datamaskin, som er konfigurert med Internett-tilgang. Det må være mulig å installere ekstern programvare på datamaskinen. Alle arbeidskrav for seminarene må godkjennes i klasserommet. Seminarene gjennomføres i <span style="color:lightgreen;">ukene 5, 10 og 16</span>. Det vil bli allokert en ekstraseminar <span style="color:lightgreen;">mandag 24. April 2023</<span> (på 3-4 timer) for de som av gyldige grunner ikke kunne møte opp i <span style="color:lightgreen;">ukene 5, 10 og 16.</span></td>
     </tr>
     <tr>
       <td>Prosjekt</td>
-      <td>Det skal være et prosjekt på slutten av semesteret. Prosjektet skal publiseres Fredag 31. Mars (rett før påske) og ha innleveringsfrist Fredag 21. April.</td>
+      <td>Den siste innleveringen i semesteret skal være et mindre prosjekt. Med "prosjekt" menes en oppgave som ikke har et fasitsvar. Prosjektet skal publiseres Fredag 31. Mars (rett før påske) og ha innleveringsfrist Fredag 21. April.</td>
+    </tr>
+    <tr>
+      <td>Eksamen</td>
+      <td>Det er 5 timers skriftlig eksamen <span style="color:lightgreen;">Tirsdag 9. mai 2023</span>. Eksamenssettet skal bestå av 30-40 flervalgsspørsmål og 3-4 åpne spørsmål.</td>
     </tr>
     <tbody>
   </table>
-  <h3>Frister</h3>
-  <p>Tabellen med frister skal oppdateres fortløpende (se <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">kursets plan</a> for en fullstendig oversikt.)</p>
+
+  <h2>
+    5 Om frister
+    <a name="frister"></a>
+  </h2>
+  <p>Dette emne har hyppige frister for oppgavene, som utgjør eksamenskravet, slik at studentene kan oppretholde en jevn arbeidsflyt gjennom hele semesteret. Flere av oppgavene bygger på hverdandre og en jevn progresjon er avgjørende for å nå læringsmål.</p>
+  <p>Det er også enklere for LA-ene å gå gjennom en innlevering samlet, slik at de ikke trenger å fokusere på evaluering av den samme oppgaven på nytt etter en lengre tidsperiode.</p>
+  <p>Grunnet dette, er det veldig viktig at studentene holder innleveringsfristene. Når det er sagt, så har vi forståelse for at ting ikke alltid går som planlagt og vi innfører noen ordninger for slike tilfeller.
+<ul>
+  <li>Hver student har mulighet til å levere tilsammen 6 dager for sent i løpet av semesteret. Slike dager kan brukes nesten på alle innleveringene (med noen unntak). Det er ikke nødvendig å si ifra når dere bruker disse dagene og det er heller ikke nødvendig å oppgi en grunn. Studenten kan selv velge når disse dagene brukes. Det er noen få regler og unntak:
+    <ol>
+      <li>Det er ikke mulig å bruke mer en 2 (to) sene dager for en innlevering. Vi skal begynne å evaluere innleveringene 2 dager etter fristen, slik at ingen innleveringer må evalueres på nytt.</li>
+      <li>Det er ikke mulig å bruke disse <i>sene dagene</i> på den siste innleveringen i semesteret.</li>
+      <li>Når en <i>sen dag</i> brukes, du kan også levere etter fristen selv om du har levert noe innen fristen (som tidligere nevnt, kommer vi ikke til å evaluere noe før 2 dager etter fristen).</li>
+    </ol>
+  </li>
+  <li>Godkjent fravær er når studenten har en dokumentert grunn (legeerklæring eller brev fra UiA administrasjonen). Godkjent fravær teller ikke som <i>sene dager</i>. Dette vanligvis gjelder krisesituasjoner. Prinsippet er "tilgivelse, ikke tillatelse". I en krisesituasjon, må fokuset være på egne behov og studenten kan kontakte oss senere. Uten noe bevis for krise, vil <i>sene dager</i> bli trykket fra.</li>
+</ul>
+  </p>
+  <p>Tabellen med frister skal oppdateres fortløpende (se <a href="https://docs.google.com/spreadsheets/d/1io4XCpkJOX_RkCNflaxQdgLZ-mW3O9__5FRaJwlQ9D4/edit?usp=sharing" target="_blank">kursets plan</a> for en fullstendig oversikt av fristene).</p>
   <p>
   <span style="background-color: #006089; font-size: 0.6em; padding: 5px 5px;">TOLKE KODE</span>
   <span style="background-color: #4501C2; font-size: 0.6em; padding: 5px 5px;">TESTE IMPLEMENTERE</span>
   <span style="background-color: #011CC3; font-size: 0.6em; padding: 5px 5px;">LESE REFLEKTERE</span>
   </p>
-  <table style="width: 90%;">
+  <table class="table1" style="width: 90%;">
       <thead>
           <tr>
               <th colspan="6">Detaljer om oppgaver</th>
@@ -261,27 +401,35 @@
     * maksimalt 2 dager<br />
   </p>
 
-  <h2>Anonymitet</h2>
-  <p>Vi ønsker å oppmyntre anonyme innleveringer, så lenge det ikke går utover studentenes læring. Grunnen til det er at anonyme innleveringer eliminerer både positive og negative skjevheter ved evaluering. Vi vil tilrettelegge for anonymitet (database i Canvas vil lenke deres navn med innleveringene), men studentene må selv passe på å ikke inkludere persondata eller andre data i sine innleveringer, som gjør det umulig å se på innleveringen som anonym. Dette er en prøveordning og både lærere og studenter har sikkert lite erfaring med det, så det er viktig at studentene har en fleksibel tilnærming til dette.</p>
+  <h2>
+    6 Om anonymitet
+    <a name="anonymitet"></a>
+  </h2>
+  <p>Vi ønsker å oppmyntre anonyme innleveringer, så lenge det ikke går utover studentenes læring. Grunnen til det er at anonyme innleveringer eliminerer både positive og negative skjevheter ved evaluering. Vi vil tilrettelegge for anonymitet (database i Canvas vil lenke deres navn med innleveringene), men studentene må selv passe på å ikke inkludere persondata eller andre data i sine innleveringer, som gjør det umulig å se på innleveringen som anonym. Dette er en prøveordning og både lærere og studenter har sikkert lite erfaring med det, så vi vil opprettholde en fortløpende dialog om dette.</p>
 
-  <h2>Tidsbruk</h2>
-  <p>Forventet arbeidsbelastning på ca. 13 timer per uke, skal fordeles jevt på alle ukene i semesteret. Hvis studentene opplevere at enkelte oppgaver tar for mye tid, må studenten selv ta kontakt med lærer og/eller LA.</p>
+  <h2>
+    7 Om tidsbruk
+    <a name="tidsbruk"></a>
+  </h2>
+  <p>Forventet arbeidsbelastning på ca. 13 timer per uke, skal fordeles jevt på alle ukene i semesteret. Hvis studenten opplevere at enkelte oppgaver tar for mye tid, må studenten selv ta kontakt med lærer og/eller LA.</p>
 
-  <h2>Om samarbeid</h2>
+  <h2>
+    8 Om samarbeid
+    <a name="samarbeid"></a>
+  </h2>
   <p>Semesteret er delt inn i tre perioder:
-<ul>
-  <li>Periode I: 04.01.23 - 05.02.23</li>
-  <li>Periode II: 06.02.23 - 12.03.23</li>
-  <li>Periode III: 13.3.23 - 24.04.23</li>
-</ul>
+    <ul>
+      <li>Periode I: <span style="color:lightgreen;">04.01.23 - 05.02.23</span></li>
+      <li>Periode II: <span style="color:lightgreen;">06.02.23 - 12.03.23</span></li>
+      <li>Periode III: <span style="color:lightgreen;">13.3.23 - 24.04.23</span></li>
+    </ul>
   </p>
 
   <h3>Periode 1</h3>
   <p>I første eksamensperioden av emne (varer til 5. februar) er samarbeidsreglene relativt åpne.
     <ul>
-      <li>Alle innleveringene i denne perioden er obligatoriske.</li>
       <li>Studenten kan fritt snakke om oppgavene med hvem og hvor mange en ønsker. Studenten kan jobbe sammen med en venn eller med en eller flere fra klassen.</li>
-      <li>Reservedagene (sene dager) kan ikke brukes i denne perioden. Hvis innlevering skjer mer enn 2 dager etter fristen, vil den regnes som ikke godkjent. Innleveringer, som er innlevert mer enn 2 dager etter fristen, vil kun bli akseptert i tilfeller av sykdom eller eventuelt andre tungt veiende grunner (dokumentasjon må foreligge).</li>
+      <li>Reservedagene (hver student har 6 sene dager) kan ikke brukes i denne perioden. Hvis innlevering skjer mer enn 2 dager etter fristen, vil den regnes som ikke godkjent. Innleveringer, som er innlevert mer enn 2 dager etter fristen, vil kun bli akseptert i tilfeller av sykdom eller eventuelt andre tungt veiende grunner (dokumentasjon må foreligge).</li>
     </ul>
     </p>
     <p>I denne perioden er det viktig å komme godt i gang og oppnå en stor grad av mestring. I denne tidlige fasen er det essensielt å lære all materiale for å kunne lykkes.</p>
@@ -292,10 +440,19 @@
     <h3>Periode 3</h3>
     <p>Denne perioden starter den 13. mars 2023. Perioden avsluttes med den endelige fristen for å få godkjent eksamenskrav den 24. april 2023. I denne perioden er det ikke tillatt å samarbeide med noen. Alt arbeid skal være individuelt.</p>
 
-    <h2>Eksamenskrav</h2>
+    <h2>
+      8 Eksamenskrav
+      <a name="eksamenskrav"></a>
+    </h2>
     <p>Alle oppgavene evalueres med GODKJENT / IKKE GOKJENT. For noen av oppgavene vil det være en transparent poengsystem, hvor et spesifikt antall poeng vil være grensen mellom GOKJENT og IKKE GODKJENT.</p>
 
-    <table style="table-layout: fixed; width: 90%; border-collapse: collapse; border: 1px solid #bc9000;">
+    <table class="table1">
+      <thead>
+        <tr>
+            <th>Oppgavetype</th>
+            <th>Krav for godkjenning</th>
+        </tr>
+      </thead>
       <tbody>
       <tr>
         <td>Quizer (13)</td>
@@ -307,7 +464,7 @@
       </tr>
       <tr>
       <td>Hjemmeoppgaver (3, g/ig)</td>
-      <td>Minst 2 gjennomført og gokjent</td>
+      <td>Minst 2 gjennomført og godkjent</td>
       </tr>
       <tr>
       <td>Aktiviteter i klassen (3, g/ig)</td>
@@ -322,27 +479,92 @@
     </table>
     <p>g/ig - godkjent/ikke godkjent</p>
 
-    <h2>Hvem evaluerer innleveringene?</h2>
-    <p></p>
+    <h2>
+      9 Hvem evaluerer innleveringene?
+      <a name="hvemevaluerer"></a>
+    </h2>
+    <p>I dette emne er det 4 læringsassistenter. Læringsassistenente har vært gjennom en søknadsprosess og har en god kompetanse, som er relevant for IS-105. Læringsassistentene vil evaluere innleveringene i tett samarbeid med den ansvarlige læreren. Evaluering innebærer å sette standarder, å sjekke rubrikker (spesifikke krav for enkelte oppgaver) og å gå gjennom arbeidet til studentene. Eksamenskravet skal godkjennes av den ansvarlige læreren.</p>
 
-    <h2>Kursets materialer</h2>
+    <h2>
+      10 Kursets materialer
+      <a name="materialer"></a>
+    </h2>
     <p>Kompendiet, Golang programmeringsmiljøet, terminal, Docker (som forutsetter Windows Subsystem for Linux for brukere av MS Windows operativsystemet). Det skal ikke være nødvendig å kjøpe materialer for dette kurset. Vi skal bruke noen ressurser fra to bøker:
-<ul>
-  <li>Guerrieri, A. (2019). Hands-On System Programming with Go. Packt Publishing Ltd.</li>
-  <li>Woodbeck, A. (2021). Network programming with Go : code secure and reliable network services from scratch. No Starch Press.</li>
-</ul>
-Andre sentrale ressurser skal være:
-<ul>
-  <li><a href="https://go.dev/tour/list" target="_blank" style="color: #ffc42d;">A Tour of Go</a></li>
-  <li><a href="https://go.dev/play/" target="_blank" style="color: #ffc42d;">Go Playground</a></li>
-  <li><a href="https://docs.docker.com/" target="_blank">Docker Docs</a></li>
-</ul>
-I tillegg skal det refereres til ressurser både fra kompendiet og fra oppgavetekster. Det skal være klart markert, hvilke av ressursene er obligatoriske (dvs. at stoffet vil være aktuelt i eksamen).
-</p>
-<p>
-De nødvendige ressursene, for å besvare oppgavene, vil være tilgjengelig enten som lenker på WWW eller i Canvas som "Sider" eller PDF-dokumenter under "Filer".
+      <ul>
+        <li>Guerrieri, A. (2019). Hands-On System Programming with Go. Packt Publishing Ltd.</li>
+        <li>Woodbeck, A. (2021). Network programming with Go : code secure and reliable network services from scratch. No Starch Press.</li>
+      </ul>
+      Andre sentrale ressurser skal være:
+      <ul>
+        <li><a href="https://go.dev/tour/list" target="_blank" style="color: #ffc42d;">A Tour of Go</a></li>
+        <li><a href="https://go.dev/play/" target="_blank" style="color: #ffc42d;">Go Playground</a></li>
+        <li><a href="https://docs.docker.com/" target="_blank">Docker Docs</a></li>
+      </ul>
+      I tillegg skal det refereres til ressurser både fra kompendiet og fra oppgavetekster. Det skal være klart markert, hvilke av ressursene er obligatoriske (dvs. at stoffet vil være aktuelt i eksamen).
     </p>
+    <p>De nødvendige ressursene, for å besvare oppgavene, vil være tilgjengelig enten som lenker på WWW eller i Canvas som "Sider" eller PDF-dokumenter under "Filer".</p>
     <p>Hvis du oppdager noen form for aksessibilitetsproblemer i forhold til kursets materialer, vennligst ta kontakt med lærer eller LA.</p>
+
+    <h2>
+      11 Temaer
+      <a name="temaer"></a>
+    </h2>
+    <p>Temaer er designet rundt to prinsipper:
+      <ul>
+        <li>Temaene skal være relevante i forhold til læringsmål i IS-105.</li>
+        <li>Temaene skal dekke kompetanseområder som er relevante i arbeidslivet.</li>
+        <li>Temaene skal introduseres både "top-down" og "bottom-up"</li>
+      </ul>
+      "top-down" - fra det abstrakte til det konkrete, eller fra det generelle til det spesielle (introduserer den overordnede strukturen og går videre til flere og flere detaljer)<br />
+      "bottom-up" - fra det konkrete til det abstrakte, eller fra det spesielle til det generelle (introduserer grunnleggende elementer, fakta eller detaljer, og danner abstraksjoner basert på disse)
+    </p>
+    <p>
+      Temaene dekker hovedsakelig "top-down" måten, mens oppgavene vil dekke "bottom-up" måten. Samtidig er det viktig å være klar over at disse konseptene (eller måter å utforske verden på) er også abstraksjoner, så det kan være utfordrende å skille mellom dem. Konseptene er en del av modellen for læring og overføring av læring. Kort sagt, er "top-down" bra for overføring og dårlig for læring, mens "bottom-up" er bra for læring og dårlig for overføring. "Oveføring" her betyr å kunne bruke tidligere tilegnet kunnskap og ferdigheter i nye lærings- eller problemløsningssituasjoner.
+    </p>
+    <p>Først introduseres en overordnet modell for hvordan datamaskiner (betraktes som autonome agenter), som er tilkoblet et nettverk, utveksler data. Videre ser vi på en modell for representasjon av data, som ligger bak all databehandling, - den binære modellen. Etter det ser vi på noen modeller for prosessering av data, dvs. data må lagres, hentes, endres og slettes. For å kunne beskrive disse modellen, introduserer vi begrepet "prosess". Prosess i vårt tilfelle er beskrevet at programmer, som utføres på en datamaskin og enhver prosess trenger minne. Etter at vi har avklart hva vi mener med prosess og minne, utforsker vi konkrete detaljer om disse på våre egne datamaskiner (profilering). Mot slutten av semesteret ser vi på hvordan våre datamaskiner sender informasjon til hverandre gjennom et nettverk.</p>
+    <p>
+      <ol>
+        <li>Informasjonsteori, bit, elektromagnetiske bølger, binær modell.</li>
+        <li>Endelige Automater.</li>
+        <li>Turingmaskin.</li>
+        <li>Datamaskinarkitektur (Von-Neumann).</li>
+        <li>Operativsystem (fil, minne, prosess, I/O).</li>
+        <li>Fil og strøm.</li>
+        <li>Modeller for minne.</li>
+        <li>Modeller for prosess.</li>
+        <li>Profilering.</li>
+        <li>Elektromagnetisme.</li>
+        <li>Datakommunikasjon og nettverk.</li>
+        <li>Protokoller, OSI-modellen, lag 3 og 4.</li>
+        <li>HyperText Transfer Protocol (1,2,3).</li>
+        <li>Kryptering.</li>
+        <li>Autorisering og autentisering.</li>
+        <li>Transport Layer Security, HTTPS.</li>
+      </ol>
+    </p>
+    <h2>
+      12 Akademisk Integritet
+      <a name="akintegr"></a>
+    </h2>
+    <p> Dokumentene  <a href="https://www.uia.no/student/eksamen/linkeblokksamling/under-eksamen/plagiat-og-fusk-paa-eksamen" target="_blank">Plagiat og fusk på eksamen</a> og <a href="https://www.uia.no/om-uia/etiske-retningslinjer-ved-uia" target="_blank">Etiske retningslinjer ved UiA</a> gjelder for alle emner, inkludert IS-105. Dokumentet om plagiat gjelder også for alle innleveringne som inngår i eksamnskravet. Alle studentene skal overholde det trofast og fullstendig.</p>
+    <p>Studenten må være forsiktig med bruken av ressurser fra Internett, utover de som er spesifikt lenket til fra kursets websidene (både de på ekstern server og de i Canvas). Det er legitimt å bruke referansemateriell, som, for eksempel, dokumentasjon av programmeringsspråk eller leksikon (Store Norske Leksikon, Oxford English Dictionary, Det Norske Akademis Ordbok). Vær oppmerksom på at et generelt søk på web eller bruken av maskinlæringsapplikasjoner (som chat fra OpenAI) kan returnere svar på oppgaver. Hvis studenten finner en løsning på denne måten, og velger å bruke den, så må det være klart spesifisert i besvarelsen. Det vil gi mindre uttelling, men det vil ikke klassifiseres som brudd på reglene (dvs. juks). Dette gjelder ikke når en del av oppgaven er å søke løsninger på Internett (det skal være klart spesifisert i oppgaven).</p>
+    <p>Hvis ikke noe annet er spesifisert, er alle oppgavene individuelle. Studenten kan diskutere alle deler av oppgavene med lærer og LA-ene. Studenten skal ikke diskutere løsninger med medstudenter eller venner. Hvis du er i tvil, hva du ka ta opp med andre, ta kontakt med lærer eller LA-ene.</p>
+    <p>Det er studentens ansvar å lagre alle filene som studenten arbeider med på en slik måte at ingen andre har tilgang til dem. Hvis studenten ikke klarer dette, vil det bli klassifisert som brudd på reglene. Alle Github repositoriene må være private. Studenten må invitere lærer og LA-ene som samarbeidspartnere i disse private Github repositoriene. Hvis det er tvil om hvordan dette gjøres, ta kontakt med lærer eller LA-ene. Studenten skal ikke publisere deler av eller hele løsninger i diskusjonsfora, som Discord, for eksempel.</p>
     </div>
 </body>
 </html>
+<!--
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <a class="tocviewtoggle" href="index.html">IS-105 våren 2023</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="tocsub">
+      <a class="tocviewtoggle" href="tema01.html">Introduksjon</a>
+    </div>
+  </div>
+  -->
