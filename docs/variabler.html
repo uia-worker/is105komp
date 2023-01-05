@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>IS-105 Oppgave 01</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
+    <script type="text/javascript" src="js/is105.js"></script>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 1em;">
+              <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="index.html" class="tocviewlink" data-pltdoc="x">Vår 2023: IS-105</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="index.html" class="tocviewlink" data-pltdoc="x">Beskrivelse og rettningslinjer</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="honnor.html" class="tocviewlink" data-pltdoc="x">Honnør</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="#leserefl" class="tocviewlink" data-pltdoc="x">Lese og reflektere</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="tolkekode.html" class="tocviewselflink" data-pltdoc="x">Tolke kode</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="#testimpl" class="tocviewlink" data-pltdoc="x">Teste og implementere</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="maincolumn">
+    <h1>
+      Variabler
+      <a name="variabler"></a>
+    </h1>
+
+    <h2>
+      Introduksjon
+      <a name="variabler"></a>
+    </h2>
+    <p>Velkommen til Go programmeringsspråk! Go er enkelt å lære og det er et verktøy som man kan bruke å programmere "alt" ("front-end", "back-end", smarttelefon "apps", IoT, nettsky, lavt-nivå, grafikk osv.).</p>
+    <p>Denne oppgaven er i kategorien <a href="tolkekode.html">"Tolke kode"</a>.</p>
+    <p>Formålet med denne oppgaven er å gjøre studenten kjent med bruken av variabler i programmeringsspråket Go. Oppgaven er basert på den nettbaserte introduksjonen av Go, som har tittelen <a href="https://go.dev/tour/list" target="_blank">"A Tour of Go"</a>. Selv om navnet på oppgaven er "Variabler", skal studenten også lære det grunnleggende om pakker (en. packages), funksjoner, datatyper (de primitive i denne omgangen) og konstanter, slik at etter denne oppgaven studenten har en forståelse hvordan en fullstendig program i Golang kan skrives.
+    <p>Som dere husker fra IS-114, så var variabler, kontrollstrukturer og løkker de tre grunnleggende elementer i alle dataprogrammer, uansett programmeringsspråk. Vi starter denne gangen også med variabler og lærer om de andre elementene senere.</p>
+
+    <h2>
+      Tidsbruk og tips
+      <a name="tidsbruk"></a>
+    </h2>
+    <p>Dette avsnittet er skrevet i 2. person for å formidle budskapet bedre.</p>
+    <p>Beregn ca. 2 timer for å gå gjennom guiden og ca. 1 timer for quizen. Du kan også go raskere gjennom guiden for første gang, notere vanskeligheter og gå gjennom flere ganger på et senere tidspunkt. Bruke kun dokumentajon fra <a href="https://pkg.go.dev/std" target="_blank">standarbiblioteket</a>. Unngå å søke opp andre kilder. Da vil du bli vandt til å alltid søke hjelp i de offisielle spesifikasjonene til Go.</p>
+    <p>Du kan samarbeide med andre på denne oppgaven, men unngå å bruke andres løsninger direkte (det er juks og du lurer deg selv). Du kan bruke andre for å sjekke din forståelse av ting og ikke for å få en ferdig løsning.</p>
+    <p>Quizen vil være tilgjengelig i Canvas <span style="color:lightgreen;">fredag 13. April 2023 10:15</span>. Hvis du må bruke mer tid en antydet både for studier og quizen, søk hjelp.</p>
+    <h2>
+      Mer om evaluering
+      <a name="evaluering"></a>
+    </h2>
+    <p>Husk at svarene dine som er feil, er av mye større verdi enn de som er riktig. Feil svar gir oss muligheten til å forstå hva du eventuelt har misforstått. Derfor skal vi evaluere oppgaven ved å se om du har fulgt våre anbefalinger om fremgangsmåten som beskrevet i <a href="tolkekode.html">"Tolke kode"</a>.</p>
+
+
+    <h2>
+      Tour of Go: "Welcome" og "Basics"
+      <a name="instruks"></a>
+    </h2>
+    <p>I avsnittet <a href="https://go.dev/tour/welcome/1" target="_blank">"Welcome"</a> er det fem sider. I avsnittet <a href="https://go.dev/tour/basics/1" target="_blank">"Basics"</a> er det 17 sider.</p>
+    <p>Du trenger ikke installere "Tour of Go" pakken lokalt, som anbefalt på side 3 i "Welcome". Vi kommer til gå gjennom installasjonen av Go programmeringsmiljø i en senere oppgave. For denne oppgaven kan du bruke "Tour of Go" online. Legg merke til at du kan endre koden og utføre den rett i din nettleser. Gjør små endringer i kode og se resultetet ved utføre koden med "Run" knappen. Hvis du prøver å utføre et program, som ikke klarer å avslutte på en korrekt måte (returnerer et forventet resultat eller en feilmelding), så vil "Run" knappen endre seg til "Kill" knappen, som da kan brukes for å stoppe programmet. Hvis du får utfordringer ved å bruke "Tour of Go", ta kontakt med lærerteamet.</p>
+
+    <ol>
+      <li>Gå gjennom sidene 1-5 i avsnitte "Welcome".</li>
+      <li>Gå gjennom sidene 1-17 i avsnittet "Basics".</li>
+    </ol>
+    <p>Pakkene fra standardbiblioteket som introduseres i denne oppgaven er:
+      <ul>
+        <li><a href="https://pkg.go.dev/fmt@go1.19.4" target="_blank">fmt</a></li>
+        <li><a href="https://pkg.go.dev/time@go1.19.4" target="_blank">time</a></li>
+        <li><a href="https://pkg.go.dev/math@go1.19.4" target="_blank">math</a></li>
+        <li><a href="https://pkg.go.dev/math/rand@go1.19.4" target="_blank">math/rand</a></li>
+        <li><a href="https://pkg.go.dev/math/cmplx@go1.19.4" target="_blank">math/cmplx</a></li>
+      </ul>
+
+    <h2>
+      Referanser
+      <a name="referanser"></a>
+    </h2>
+    <p>(A Tour of Go, 2022) <a href="https://go.dev/tour/list" style="color: #ffc42d;">A Tour of Go</a></p>
+    <!-- <p>(Go Playground - the Go Programming Language, 2022) <a href="https://go.dev/play/" style="color: #ffc42d;">Go Playground</a></p>-->
+
+  </div>
+</body>
+</html>
+<!-- Del 1, 2 denne lenken skal studenten finne
+Hey! Ho! Let’s Go! (2022). Google Open Source Blog. https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html
+
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<ol>
+  <li></li>
+  <li></li>
+  <li></li>
+</ol>
+
+<code style="color: #cfcecc;">...</code>
+
+<span style="color: #f48cff;">Individuelt (ekstra poeng)</span>
+
+<pre>
+    <code>
+import "fmt"
+import "os"</code>
+</pre>
+-->

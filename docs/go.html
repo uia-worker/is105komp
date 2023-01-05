@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>__title__</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
+    <script type="text/javascript" src="js/is105.js"></script>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 1em;">
+              <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="index.html" class="tocviewlink" data-pltdoc="x">Vår 2023: IS-105</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="index.html" class="tocviewlink" data-pltdoc="x">Beskrivelse og rettningslinjer</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="honnor.html" class="tocviewlink" data-pltdoc="x">Honnør</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="maincolumn">
+    <h1>
+      Hvorfor Go?
+      <a name="hvorforgo"></a>
+    </h1>
+
+
+    <p>Vi skal gjøre en god del programmering i programmeringsspårket <a href="https://go.dev/">Go</a>. Hvorfor har vi valg Go?</p> <p>Våre læringsmål dreier seg om å forstå hvordan en datamaskin funksjonerer. En av grunnleggende egenskaper til en datamaskin er at den kan programmeres. Det er kun gjennom å utføre programmer, at vi kan utnytte, teste og forstå alle de mulighetene som ligger i maskinvaren. I dette emne skal vi ikke lære å bruke spesifikke programmer (som en teksteditor, en nettleser eller et regnskapssystem), men heller lære om hvordan kan man lage programmer, som utnytter maskinvaren på en best mulig måte. Vi skal også lære om hvordan vi kan teste hvor effektive (eventuelt ineffektive) våre programmer er. Programmeringsspråket Go kan hjelpe oss med det fordi at:
+      <ul>
+        <li>Det er en bred oppslutning om at Go er enkelt å lære (!ta med en klype salt).</li>
+        <li>Programmer i Go <i>kompileres før de utføres</i>. Kompilator i Go er et meget avansert program, som kan skape en kode, som kan utnytte platformegenskapene* optimalt. For eksempel, man kan skrive et program i Go og kompilere det samme programmet slik at den kan utføres blant annet på MacOS, MS Windows og Linux operativsystemer på skriverbordsdatamaskiner (inkluder de bærbare) Go har også verktøy for å kompilere programmene til iOS og Android operativsystemer for smarttelefoner. Siden kompilator optimaliserer koden, utføres koden raskere enn, for eksempel, i Python, som er fortolket språk. Funksjoner (høyere-nivå), som Go programmeringsmiljøet tilbyr en programmerer, gjør Go egnet for å illustrere mange viktige aspekter ved operativsystemer og nettverk.</li>
+        <li>I moderne datamaskiner (2023) utføres mange prosesser samtidig. Go har en innebygd støtte for å skape mange lettvektsprosesser, som gir mulighet til å optimalt utnytte systemets ressurser og også potensielt utnytte systemer med flere prosessorer eller kjerner. Det gir også mulighet til å gjøre "samtidige" forespørsler nettverksressurser uten å vente på svar fra en kilde, før man gjør forespørsel til andre kilder.</li>
+        <li>Go har et statisk typesystem, som gjør at eventuelle <i>feil kan oppdages</i> under kompilering (i motsetning til JavaScript, som tillater stor frihet i bruken av typer, som dere erfarte i IS-114).</li>
+        <li>Go har et stort standardbibliotet.</li>
+        <li>Go er "open source" (BSD 3-Clause "New" or "Revised" License) med fritt tilgjengelig <a href="https://github.com/golang/go" target="_blank"></a> kildekode og har et stort felleskap av utviklere og brukere (nesten 2000 aktive bidragsytere).</li>
+        <li>Kasnkje du kan legge til flere grunner i slutten av semesteret?</li>
+        <br />
+        <li style="list-style-type: none;">* vi bruker platform her som et begrep for en kombinasjon av operativsystem og maskinvarearkitektur (Intels x86, Acorn Computer sin ARM (Advanced RISC Machine), RISC V)</li>
+      </ul>
+     </p>
+     <p>Se et <a href="https://evrone.com/rob-pike-interview" target="_blank">intervju</a> med et av designere av Go, Rob Pike.</p>
+
+  </div>
+
+</body>
+</html>
+
+<!--
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">The table header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The table body</td>
+            <td>with two columns</td>
+        </tr>
+    </tbody>
+</table>
+<div class="tocsub">
+  <div class="tocsubtitle">On this page:</div>
+  <table class="tocsublist" cellspacing="0">
+    <tbody>
+      <tr>
+        <td>
+          <span class="tocsublinknumber">1<tt>&nbsp;</tt></span>
+          <a href="#%28part._.Basic_.Course_.Information%29" class="tocsubseclink" data-pltdoc="x">Basic Course Information</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
+          <a href="#%28part._.Course_.Goals_and_.Learning_.Objectives%29" class="tocsubseclink" data-pltdoc="x">Course Goals and Learning Objectives</a>
+        </td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+  </div>
+-->
