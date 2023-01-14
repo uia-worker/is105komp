@@ -2,7 +2,7 @@
 <html lang="no-NB">
 <head>
     <meta charset="utf-8">
-    <title>IS-105 Oppgave 01</title>
+    <title>IS-105 Oppgave 02</title>
     <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
     <script type="text/javascript" src="js/is105.js"></script>
@@ -76,7 +76,7 @@
               <tr>
                 <td align="right"></td>
                 <td>
-                  <a href="leserefl.html" class="tocviewlink" data-pltdoc="x">Lese og reflektere</a>
+                  <a href="#leserefl" class="tocviewlink" data-pltdoc="x">Lese og reflektere</a>
                 </td>
               </tr>
               <tr>
@@ -116,13 +116,13 @@
               <tr>
                 <td align="right"></td>
                 <td>
-                  <a href="leserefl.html" class="tocviewselflink" data-pltdoc="x">Variabler</a>
+                  <a href="variabler.html" class="tocviewlink" data-pltdoc="x">Variabler</a>
                 </td>
               </tr>
               <tr>
                 <td align="right"></td>
                 <td>
-                  <a href="kontroll.html" class="tocviewlink" data-pltdoc="x">Kontrollstrukturer</a>
+                  <a href="#" class="tocviewselflink" data-pltdoc="x">Kontrollstrukturer</a>
                 </td>
               </tr>
               <tr>
@@ -175,18 +175,17 @@
   </div>
   <div class="maincolumn">
     <h1>
-      Variabler
-      <a name="variabler"></a>
+      Kontrollstrukturer
+      <a name="kontroll"></a>
     </h1>
 
     <h2>
       Introduksjon
       <a name="variabler"></a>
     </h2>
-    <p>Velkommen til Go programmeringsspråk! Go er enkelt å lære og det er et verktøy som man kan bruke å programmere "alt" ("front-end", "back-end", smarttelefon "apps", IoT, nettsky, lavt-nivå, grafikk osv.).</p>
+
     <p>Denne oppgaven er i kategorien <a href="tolkekode.html">"Tolke kode"</a>.</p>
-    <p>Formålet med denne oppgaven er å gjøre studenten kjent med bruken av variabler i programmeringsspråket Go. Oppgaven er basert på den nettbaserte introduksjonen av Go, som har tittelen <a href="https://go.dev/tour/list" target="_blank">"A Tour of Go"</a>. Selv om navnet på oppgaven er "Variabler", skal studenten også lære det grunnleggende om pakker (en. packages), funksjoner, datatyper (de primitive i denne omgangen) og konstanter, slik at etter denne oppgaven studenten har en forståelse hvordan en fullstendig program i Golang kan skrives.
-    <p>Som dere husker fra IS-114, så var variabler, kontrollstrukturer og løkker de tre grunnleggende elementer i alle dataprogrammer, uansett programmeringsspråk. Vi starter denne gangen også med variabler og lærer om de andre elementene senere.</p>
+    <p>Formålet med denne oppgaven er å bli kjent med kontrollstrukturer i Go. Oppgaven er basert på  <a href="https://go.dev/tour/flowcontrol/1" target="_blank">"A Tour of Go"</a> (avsnitt "Flow control statements: for, if, else, swicht and defer").</p>
 
     <h2>
       Tidsbruk og tips
@@ -195,7 +194,8 @@
     <p>Dette avsnittet er skrevet i 2. person for å formidle budskapet bedre.</p>
     <p>Beregn ca. 2 timer for å gå gjennom guiden og ca. 1 time for quizen. Du kan også gå raskere gjennom guiden for første gang, notere vanskeligheter og gå gjennom flere ganger på et senere tidspunkt. Bruk kun dokumentajon fra <a href="https://pkg.go.dev/std" target="_blank">standarbiblioteket</a> eller <a href="https://go.dev/doc/">brukerguider</a> til Go. Unngå å søke opp andre kilder. Da vil du bli vandt til å alltid søke hjelp i de offisielle spesifikasjonene til Go.</p>
     <p>Du kan samarbeide med andre på denne oppgaven, men unngå å bruke andres løsninger direkte (det er juks og du lurer deg selv). Du kan bruke andre for å sjekke din forståelse av ting og ikke for å få en ferdig løsning.</p>
-    <p>Quizen vil være tilgjengelig i Canvas <span style="color:lightgreen;">fredag 13. Januar 2023 10:15</span>. Hvis du må bruke mer tid en antydet både for studier og quizen, søk hjelp.</p>
+    <p>Quizen vil være tilgjengelig i Canvas <span style="color:lightgreen;">fredag 20. Januar 2023 10:15</span>. Hvis du må bruke mer tid en antydet både for studier og quizen, søk hjelp.</p>
+
     <h2>
       Mer om evaluering
       <a name="evaluering"></a>
@@ -204,23 +204,35 @@
 
 
     <h2>
-      Tour of Go: "Welcome" og "Basics"
+      Tour of Go: "Flow control statements: for, if, else, switch and defer"
       <a name="instruks"></a>
     </h2>
-    <p>I avsnittet <a href="https://go.dev/tour/welcome/1" target="_blank">"Welcome"</a> er det fem websider. I avsnittet <a href="https://go.dev/tour/basics/1" target="_blank">"Basics"</a> er det 17 websider.</p>
     <p>Du trenger ikke å installere "Tour of Go" pakken lokalt, som anbefalt på side 3 i "Welcome". Vi kommer til gå gjennom installasjonen av Go programmeringsmiljø i en senere oppgave. For denne oppgaven kan du bruke "Tour of Go" online. Legg merke til at du kan endre koden og utføre den rett i din nettleser. Gjør små endringer i kode og se resultetet ved å utføre koden med "Run" knappen. Hvis du prøver å utføre et program, som ikke klarer å avslutte på en korrekt måte (returnerer et forventet resultat eller en feilmelding), så vil "Run" knappen endre seg til "Kill" knappen, som da kan brukes for å stoppe programmet. Hvis du får utfordringer ved å bruke "Tour of Go", ta kontakt med lærerteamet.</p>
 
+    <p>I denne oppgaven skal du gå gjennom websidene 1-13 (legg merke til side nummer nederst i den venstre kolonnen på "Tour of Go" websiden) i avsnittet "Flow control statements: for, if, else, switch and defer".</p>
+
+    <p>Her er noen kommentarer for sidene i avsnittet <a href="https://go.dev/tour/flowcontrol/1" target="_blank">"Flow control statements: ..."</a>.</p>
     <ol>
-      <li>Gå gjennom websidene 1-5 i avsnitte "Welcome".</li>
-      <li>Gå gjennom websidene 1-17 i avsnittet "Basics".</li>
+      <li>Introduserer <code style="color: #cfcecc;">for</code> strukturen i Go. Med <code style="color: #cfcecc;">for</code> kan man implementere alle løkker i Go. Go har ikke en <code style="color: #cfcecc;">while</code> struktur , som, for eksempel, Java har. Eksperimenter med løkker som kan kun skrive ut partall eller oddetall. Prøv å telle ned med løkkevariabelen, istedenfor å telle opp. Prøv å bruke løkkevariabelen utenfor avgrensningen til <code style="color: #cfcecc;">for</code> strukturen.</li>
+      <li>Tenk selv ut tilfeller hvor det ikke er nødvendig med initialiserings- og post-setninger i <code style="color: #cfcecc;">for</code>.</li>
+      <li>Forstå hvordan kan <code style="color: #cfcecc;">for</code> brukes for å uttrykke det samme som <code style="color: #cfcecc;">while</code> uttrykker i JavaScript eller Java.</li>
+      <li>Forstå "uendelig" løkke. Hva skjer med et program som har definert en "uendelig" løkke?</li>
+      <li>Utforske <code style="color: #cfcecc;">if</code> strukturen.</li>
+      <li>Forstå hvordan en initiell setning kan brukes i <code style="color: #cfcecc;">if</code> strukturen.</li>
+      <li>Forsøk gjerne å løse oppgaven. Den illustrerer et meget viktig poeng i databehandling, - <em>approksimasjon</em>. Datamaskinens minne er endelig, derfor kan den ikke presentere uendelig store tall. Derfor mange matematiske problemer løses med løkker, hvor man gradvis nærmer seg en mer og mer presis løsning. I quizen vil du få mulighet til å tolke koden for denne oppgaven.</li>
+      <li>Eksperimeter med Go sin <code style="color: #cfcecc;">switch</code>. Prøv å forstå forskjell fra JavaScript. Prøv å tenke ut noen praktiske cases, hvor det er hensiktsmessig å bruke <code style="color: #cfcecc;">switch</code>.</li>
+      <li>Utforske <code style="color: #cfcecc;">switch</code>.</li>
+      <li>Utforske <code style="color: #cfcecc;">switch</code>.</li>
+      <li>Utforske <code style="color: #cfcecc;">defer</code>. Denne strukturen brukes ofte for å frigjøre ressurser. For eksempel, når man jobber med filer, så det å åpne en fil innebærer allokering av minne, samt å opprette et segl (<em>en. lock</em> og dette er en typisk funksjon som operativssytemets programmer tar seg av) slik at andre kan ikke bruke den samme filen hvis et program har allerede åpnet den. Da er det nyttig å kunne være sikker på at man frigjør filen, når man har behandlet det ferdig i programmet. <code style="color: #cfcecc;">defer</code> kan da tenkes på som å lage en huskelapp for noe som man ønsker å gjøre etter at man er ferdig med det man holder på med.</li>
+      <li>Eksperimenter med flere <code style="color: #cfcecc;">defer</code> setninger.</li>
     </ol>
+
     <p>Pakkene fra standardbiblioteket som introduseres i denne oppgaven er:
       <ul>
-        <li><a href="https://pkg.go.dev/fmt@go1.19.4" target="_blank">fmt</a></li>
-        <li><a href="https://pkg.go.dev/time@go1.19.4" target="_blank">time</a></li>
-        <li><a href="https://pkg.go.dev/math@go1.19.4" target="_blank">math</a></li>
-        <li><a href="https://pkg.go.dev/math/rand@go1.19.4" target="_blank">math/rand</a></li>
-        <li><a href="https://pkg.go.dev/math/cmplx@go1.19.4" target="_blank">math/cmplx</a></li>
+        <li><a href="https://pkg.go.dev/fmt" target="_blank">fmt</a></li>
+        <li><a href="https://pkg.go.dev/time" target="_blank">time</a></li>
+        <li><a href="https://pkg.go.dev/math" target="_blank">math</a></li>
+        <li><a href="https://pkg.go.dev/runtime" target="_blank">runtime</a></li>
       </ul>
 
     <h2>
@@ -228,33 +240,8 @@
       <a name="referanser"></a>
     </h2>
     <p>(A Tour of Go, 2022) <a href="https://go.dev/tour/list" style="color: #ffc42d;">A Tour of Go</a></p>
-    <!-- <p>(Go Playground - the Go Programming Language, 2022) <a href="https://go.dev/play/" style="color: #ffc42d;">Go Playground</a></p>-->
+
 
   </div>
 </body>
 </html>
-<!-- Del 1, 2 denne lenken skal studenten finne
-Hey! Ho! Let’s Go! (2022). Google Open Source Blog. https://opensource.googleblog.com/2009/11/hey-ho-lets-go.html
-
-<ul>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
-
-<ol>
-  <li></li>
-  <li></li>
-  <li></li>
-</ol>
-
-<code style="color: #cfcecc;">...</code>
-
-<span style="color: #f48cff;">Individuelt (ekstra poeng)</span>
-
-<pre>
-    <code>
-import "fmt"
-import "os"</code>
-</pre>
--->
