@@ -70,7 +70,9 @@ code {
 }
 /* Innholdsfortegnelse på venstre side av hovedkolonnen */
 .tocset {
-  position: relative;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   float: left;
   width: 12.5em;
   margin-right: 2em;
