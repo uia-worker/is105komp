@@ -332,8 +332,8 @@
 
       <p>Under hver <em>slice</em> ligger en array, som er den reelle allokeringen av minne. Man kan se på <em>slice</em> som en peker til et området i den underliggende array. Man kan definere en <em>slice</em> på flere måter:
         <pre><code>
-        var arr [3]int               // en array med "default" verdier
-        sliceArr := arr             // fra en predefinert array
+        var arr [3]int              // en array med "default" verdier
+        sliceArr := arr[:]          // fra en predefinert array
         sliceEx := []int{1,2,3}     // "bokstavelig" (en. slice literals)
         matrise := make([][]uint8, 3) // med det reserverte ordet make
         </code></pre>
