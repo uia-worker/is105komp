@@ -233,10 +233,10 @@
     func main() {
       var n int // vi kan finne verdien til n vha. av navn
       var p *int // definerer en peker-variabel
-      p = &n    // peker-variabel holder adressen til i
+      p = &n    // peker-variabel holder adressen til n
       // forrige to linjer er ekvivalent med 'p := &n'
       fmt.Println(*p) // finner verdien pekeren p peker på
-      fmt.Println(n) // finner i ved å bruke navn til variabelen direkte
+      fmt.Println(n) // finner verdien ved å bruke navn (n) til variabelen direkte
     }
     </code></pre>
     <p>Kodefragment 1. Hva er en peker i Go?</p>
@@ -340,7 +340,7 @@
         <p>Kodefragment 8. Allokering av slice.</p>
       </p>
 
-      <p>Man kan utvide <em>slice</em> med en innebygd funksjon i Go, som heter <a href="https://pkg.go.dev/builtin#append">append</a>. Funksjonen utvider en <em>slice</em>, hvis den underliggende array har plass. Hvis den underliggende array ikke har plass, så lages det en ny <em>slice</em>, som ikke lenger er knyttet til den underliggende array. Den nye <em>slice</em> peker på en ny underliggende array.</p>
+      <p>Man kan utvide <em>slice</em> med en innebygd funksjon i Go, som heter <a href="https://pkg.go.dev/builtin#append" target="_blank">append</a>. Funksjonen utvider en <em>slice</em>, hvis den underliggende array har plass. Hvis den underliggende array ikke har plass, så lages det en ny <em>slice</em>, som ikke lenger er knyttet til den underliggende array. Den nye <em>slice</em> peker på en ny underliggende array.</p>
       <img src="images/big-picture-explanation-slices.svg" width="500" alt="Go slices">
       <p>Figur 3. Go slices (illustrativ forklaring).</p>
 
