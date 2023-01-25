@@ -307,7 +307,7 @@
     </h2>
     <p>Vi vil gå gjennom et eksempel for test-drevet utvikling på seminaret, så her er det kun en kort notat. Du finner malene for testene i pakke-mappene <code style="color: #cfcecc;">conv</code> (forkortelse for en. <em>conversion</em>) og <code style="color: #cfcecc;">funfacts</code>.</p>
     <p>Når du har konfigurert Go modul korrekt, så skal du kunne bruke <code style="color: #cfcecc;">go test</code> for å utføre testene i filene, som har filnavn som slutter på <code style="color: #cfcecc;">_test.go</code>.</p>
-    <p>Det er allerede blitt spesifisert funksjonsnavn som skal testes. For eksempel, hvis man skal teste FarheinheitToCelsius(value float64) float64 så kan man bruke denne koden:</p>
+    <p>Det er allerede blitt spesifisert funksjonsnavn som skal testes. For eksempel, hvis man skal teste <code style="color: #cfcecc;">FarhenheitToCelsius(value float64) float64</code> så kan man bruke denne koden:</p>
     <pre><code>
     func TestFarhenheitToCelsius(t *testing.T) {
 	     type test struct {
@@ -329,15 +329,15 @@
    }
  </code></pre>
  <p>Kodefragment 1. Funksjon TestFarhenheitToCelsius fra malen.</p>
- <p>Kort sagt (vi vil analysere det dypere på seminar), gjør denne koden følgende:</p>
- <ul style="list-style-type: none;">
+ <p>Kort sagt (vi vil analysere det dypere på seminaret), gjør denne koden følgende:</p>
+ <ul>
    <li>definerer en struktur med to datafelt, ett for input og ett for verdien som vi ønsker å teste mot </li>
    <li>så defineres det en slice, som inneholder testdata, dvs. når input er <code style="color: #cfcecc;">134</code> så ønsker vi å ha output <code style="color: #cfcecc;">56.67</code>; denne sammenhengen kommer fra formelen spesifisert i dette dokumentet</li>
-   <li>så utføres testen ved å utføre en såkalt <em>dyp</em> sammenligning, som vil også gi korrekt svar for strukturer og array ,og ikke kun for enkelte verdier (funksjonaliteten er implementert i pakken <em>reflect</em>)</li>
-   <li><code style="color: #cfcecc;">go test</code> vil kompilere koden og returnere et OK-svar, hvis testen passerer, og feilmeldinger, hvis ikke</li>
+   <li>så utføres testen ved å utføre en såkalt <em>dyp</em> sammenligning, som vil også gi korrekt svar for strukturer og array, og ikke kun for enkelte verdier (funksjonaliteten er implementert i pakken <em>reflect</em>)</li>
+   <li><code style="color: #cfcecc;">go test</code> vil kompilere koden og returnere et OK-svar, hvis testen passerer, og feilmelding, hvis ikke</li>
  </ul>
 
- <p>Hvis på det tidspunktet når <code style="color: #cfcecc;">go test</code> utføres, finnes det en funksjon i conv.go filen, som heter FarhenheitToCelsius, så vil testrammeverket utføre denne funksjonen. I malen ser denne funksjonen slik ut:</p>
+ <p>Hvis på det tidspunktet når <code style="color: #cfcecc;">go test</code> utføres, finnes det en funksjon i <code style="color: #cfcecc;">conv.go</code> filen, som heter <code style="color: #cfcecc;">FarhenheitToCelsius</code>, så vil testrammeverket utføre denne funksjonen. I malen ser denne funksjonen slik ut:</p>
   <pre><code>
     // Konverterer Farhenheit til Celsius
     func FarhenheitToCelsius(value float64) float64 {
@@ -349,9 +349,9 @@
     }
   </code></pre>
   <p>Kodefragment 2. Funksjon FarhenheitToCelsius fra malen.</p>
- <p>Funksjonen i Kodefragmentet 2 vil tilfredsstille testen, fordi at testdata spesifisert i Kodefragment 1 er vil matche med verdien som <code style="color: #cfcecc;">FarhenheitToCelsius</code> returnerer.</p>
- <p>Men vi ønsker ikke oss en hardkodet returverdi, fordi at vår funksjon vil kun være korrekt for en verdi, dvs. for ett testtilfelle. Hvis vi legger til flere testdata <code style="color: #cfcecc;">{input: 32, want: 0}</code>, så vil testen selvsagt feile.</p>
- <p>Vi må i neste omgang (se Kodefragment 3) prøve å legge inn en beregning, slik at funksjonen kan beregne konverteringen for vilkårlige verdier (vi bør senere også tenke på hvor store eller små verdier vi ønsker å tillate).</p>
+ <p>Funksjonen i Kodefragmentet 2 vil tilfredsstille testen, fordi at testdata spesifisert i Kodefragment 1 vil matche med verdien som <code style="color: #cfcecc;">FarhenheitToCelsius</code> returnerer.</p>
+ <p>Men vi ønsker ikke oss en hardkodet returverdi, fordi at da vil funksjonen være korrekt kun for en verdi, dvs. for ett testtilfelle. Hvis vi legger til flere testdata <code style="color: #cfcecc;">{input: 32, want: 0}</code>, så vil testen selvsagt feile.</p>
+ <p>Vi må i neste omgang (se Kodefragment 3) prøve å legge inn en beregning, slik at funksjonen kan beregne konverteringen for vilkårlige verdier (vi bør senere også tenke på hvor store eller små verdier vi ønsker å tillate, men det er ikke et krav i denne oppgaven).</p>
  <pre><code>
    // Konverterer Farhenheit til Celsius
    func FarhenheitToCelsius(value float64) float64 {
