@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>IS-105 Teste og implementere: Testing</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
+    <script type="text/javascript" src="js/is105.js"></script>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 1em;">
+              <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="index.html" class="tocviewlink" data-pltdoc="x">Vår 2023: IS-105</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="index.html" class="tocviewlink" data-pltdoc="x">Beskrivelse og rettningslinjer</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="automater.html" class="tocviewlink" data-pltdoc="x">Kompendium</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="honnor.html" class="tocviewlink" data-pltdoc="x">Honnør</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="leserefl.html" class="tocviewlink" data-pltdoc="x">Lese og reflektere</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="tolkekode.html" class="tocviewlink" data-pltdoc="x">Tolke kode</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="testimpl.html" class="tocviewselflink" data-pltdoc="x">Teste og implementere</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="" class="tocviewlink" data-pltdoc="x">Teste og implementere (oppgaver)</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="" class="tocviewselflink" data-pltdoc="x">Innstallasjon og testing</a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tocsub">
+      <div class="tocsubtitle">På denne siden:</div>
+      <table class="tocsublist" cellspacing="0">
+        <tbody>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">1<tt>&nbsp;</tt></span>
+              <a href="#spesifikasjon" class="tocsubseclink" data-pltdoc="x">Spesifikasjon funtemps</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
+              <a href="#srctemplate" class="tocsubseclink" data-pltdoc="x">Mal for oppgaven</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
+              <a href="#tddkort" class="tocsubseclink" data-pltdoc="x">Kort om test-drevet utvikling</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
+              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="maincolumn">
+
+    <h1>
+      Innstalasjon og Testing
+    </h1>
+
+    <p>I denne oppgaven skal du implementere applikasjonen (<code style="color: #cfcecc;">funtemps</code>) etter en spesifikasjon.</p>
+    <p>Det er følgende ting som du må ha på plass (godkjent på seminaret og konfigurert på din datamaskin) før du begynner å implementere applikasjonen:</p>
+      <li>Har installert Go programmeringsmiljø, Git versjonskontrollsystem og Docker virtualiseringsapplikasjon (og Windows Subsystem for Linux + Ubuntu Linux distribusjon på Windows platformen) på din datamaskin.</li>
+      <li>Har konfigurert Ubuntu Linux terminal ved hjelp av Docker virtualiseringsmiljøet.</li>
+      <li>Laget en privat (ikke "public") repository med navn <code style="color: #cfcecc;">funtemps</code> på Github for denne oppgaven (laget repository i Github og valgt README.md og .gitignore for Go).</li>
+      <li>Invitert lærer og LA-ene som samarbeidspartnere til din private repository <code style="color: #cfcecc;">funtemps</code> (Github kontonavn vil bli publisert i Canvas).</li>
+      <li>Konfigurert Go modul (<code style="color: #cfcecc;">go.mod</code> fil i prosjektets mappe; miljøvariabelen <code style="color: #cfcecc;">GO111MODULE</code> skal være "on").</li>
+      <li>Forstå grunnleggende test-drevet utvikling og ha gjennomført en treningsøkt med en annen repository (<code style="color: #cfcecc;">fib</code> fra seminaret).</li>
+      <li>Studert mal for oppgaven fra <a href="https://github.com/uia-worker/is105test" target="_blank">uia-worker</a> og avklart med lærere det som er uklart.</li>
+    </p>
+
+
+    <h2>
+      1 Spesifikasjon <code style="color: #cfcecc;">funtemps</code>
+      <a href="spesifikasjon"></a>
+    </h2>
+    <p>En av prinsippene bak design av Unix (og Linux) operativsystemet er modularitet. Systemverktøy, for å administrere, monitorere og konfigurere systemet er små programmer (kommandoer eller moduler; OBS! moduler i denne sammenhengen er ikke det samme som Go moduler), som hver gjør en ting veldig bra (er godt testet, blant annet på forskjellig maskinvare). Administrasjon av et datasystem ofte består av gjentagelse av de samme operasjonene (kopiere filer, endre filer, sende/motta filer, observere prosesser, observere maskinvare, kompilere programmer, starte/stoppe prosesser/programmer osv.). Slike gjentagende operasjoner kan da bli implementert som kommandolinjeapplikasjoner. Brukere av operativsystemet bruker slike stabile programmer til å utvikle videre sine egne programmer (systemet er utvidbart/programmerbart). I denne oppgaven skal du planlegge og implementere et program (kommando, fordi at den skal starte fra kommandolinje med inn-data på kommandolinje og skrive ut svar/ut-data til kommandolinje), som regner om fra en temperaturskala til en annen. I tillegg skal ditt program kunne skrive ut noen "fun-facts" om temperaturer på Solen, Månen og Jorden.</p>
+
+    <p>De fleste kommandoene i et Unix(darwin)/Linux operativsystem har et navn, argumenter og flagg. Den generelle formen for et kommando, som startes fra kommandolinje er (den kan variere noe fra en distribusjon av operativsystemet til en annen):</p>
+    <ul style="list-style-type: none;">
+      <li><code style="color: #cfcecc;">KOMMANDO_NAVN [flagg] [argumenter]</code></li>
+      <li>For eksempel, med et kommando <code style="color: #cfcecc;">rm -Rf MAPPENAVN</code>, som er et av systemprogrammene i Linux, kan man slette en mappe med all innhold (alle eventuelle mapper og filer).</li>
+      <li><code style="color: #cfcecc;">rm</code>, som står for <em>remove</em>, har 2 flagg <code style="color: #cfcecc;">R</code> (sletter hele hierarkiet av mapper og filer) og <code style="color: #cfcecc;">f</code> (som betyr at det ikke blir spurt om bekreftelse ... skummelt!), og et argument <code style="color: #cfcecc;">MAPPENAVN</code>, som er selvforklarende.</li>
+    </ul>
+
+    <p>Du skal implementere et kommando <code style="color: #cfcecc;">funtemps</code> (som en Go applikasjon), som tar inn data ved hjelp av flagg, og skriver ut svar til <code style="color: #cfcecc;">stdout</code> (en av tre standardstrømmene i Linux/Unix).</p>
+    <p>Kommandoet, når skrevet inn på kommandolinje, skal oppføre seg på følgende måte (OBS! "Output:" skal ikke skrives ut, kun strengen eller strengene etter "Output:"):</p>
+    <ul style="list-style-type: none;">
+      <li><code style="color: #cfcecc;">funtemps -K 273.15 -out C</code></li>
+      <li>Output: 273.15K er 0°C</li>
+      <li><code style="color: #cfcecc;">funtemps -F 32 -out C</code></li>
+      <li>Output: 32°F er 0°C</li>
+      <li><code style="color: #cfcecc;">funtemps -C -89.4 -out F</code></li>
+      <li>Output: -89.4°C er -128.92°F</li>
+      <li><code style="color: #cfcecc;">funtemps -C -89.4 -out K</code></li>
+      <li>Output: -89.4°C er -183.75K</li>
+      <li><code style="color: #cfcecc;">funtemps -funfact sun -t C</code></li>
+      <li>Output: (2 linjer)<br />
+        Temperatur i Jordens indre kjerne er 9118.85°C.<br />
+        Temperatur i Solens kjerne er 15 000 000°C.
+      </li>
+    </ul>
+    <p>Vi skal teste disse kommandoene med våre testfunksjoner, så de må være korrekte. Vi skal også teste noen tilfeldige kombinasjoner av input og output, som ikke er spesifisert ovenfor, for eksempel konvertering mellom temperaturskalaene med tilfeldige verdier (ikke de som er oppgitt ovenfor).</p>
+
+    <p>Vi vil også teste at dere kan vise "fun facts" for månen (verdien til flagget skal være luna, - <code style="color: #cfcecc;">funtemps -funfact luna</code>) og jorden (verdien til flagget skal være terra, - <code style="color: #cfcecc;">funtemps -funfact terra</code>).</p>
+
+    <p>For formater i output er det følgende krav:</p>
+    <ul>
+      <li>Input skal alltid presenteres slik som input er på kommandolinje, dvs. <code style="color: #cfcecc;">45.567</code> skal også vises i output med 3 desimaler. Alle beregnede verdier skal vises med 2 desimaler (avrundes). Hvis verdiene er flyttall med kun nuller som desimaler, for eksempel, <code style="color: #cfcecc;">32.0000000</code>, så skal kun heltallsdelen vises, - <code style="color: #cfcecc;">32</code>. Hvis det er store tall som skal vises som, for eksempel, <code style="color: #cfcecc;">15 millioner</code>, så skal de ha mellomrom mellom hver tredje siffer (<code style="color: #cfcecc;">15 000 000</code>).</li>
+    </ul>
+
+  	<p>Formlene for konvertering mellom temperaturskalaer (Fahrenheit, Celsius og Kelvin):</p>
+  	<pre><code>
+      Celsius = Kelvin - 273.15
+      Kelvin = Celsius + 273.15
+      Farhrenheit = Celsius*(9/5) + 32
+      Celsius = (Farhrenheit - 32)*(5/9)
+      Farhrenheit = (Kelvin - 273.15)*(9/5) + 32
+      Kelvin = (Farhenheit - 32) * (5/9) + 273.15
+    </code></pre>
+
+  <table class="table1">
+    <thead>
+      <tr >
+          <th colspan="4">Diverse temperaturer</th>
+
+      </tr>
+      <tr >
+          <th>"fun fact"</th>
+          <th>°F</th>
+          <th>°C</th>
+          <th>K (Kelvin)</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Høyeste temperatur målt på Jordens overflate</td>
+      <td>134</td>
+      <td>56.7</td>
+      <td>329.82</td>
+    </tr>
+    <tr>
+      <td>Laveste temperatur målt på Jordens overflate</td>
+      <td></td>
+      <td>-89.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Temperatur i Jordens indre kjerne</td>
+      <td></td>
+      <td></td>
+      <td>9392</td>
+    </tr>
+    <tr>
+      <td>Temperatur i Solens kjerne</td>
+      <td></td>
+      <td>15000000</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Temperatur på ytre lag av Solen</td>
+      <td></td>
+      <td></td>
+      <td>5778</td>
+    </tr>
+    <tr>
+      <td>Temperatur på Månens overflate om natten</td>
+      <td></td>
+      <td>-183</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Temperatur på Månens overflate om dagen</td>
+      <td></td>
+      <td>106</td>
+      <td></td>
+    </tr>
+    <tbody>
+  </table>
+
+    <h2>
+      2 Mal for oppgaven
+      <a name="srctemplate"></a>
+    </h2>
+    <p>Mal for oppgaven kan dere klone fra <a href="https://github.com/uia-worker/is105test" target="_blank">uia-worker</a>.</p>
+
+    <p>Studer nøye alle instruksjonene i malen. Malen inneholder ikke noen konfigurasjon av Go moduler. Malen skal ikke brukes direkte som repository. Du skal kopiere kildekoden over til din repository, før du begynner gjøre endringer. Pass på å ikke kopiere over <code style="color: #cfcecc;">.git</code> mappen fra uia-worker sin repository til din repository, da den skal overskrive din git-historikk.</p>
+
+    <img src="images/mappe-struktur-mal-oppgave-testing-is105-v2023.png" width="300" alt="Mappestruktur i malen fra uia-worker">
+    <p>Figur 1. Mappe- og filstruktur i mal-repository.</p>
+
+    <h2>
+      3 Kort om test-drevet utvikling
+      <a name="tddkort"></a>
+    </h2>
+    <p>Vi vil gå gjennom et eksempel for test-drevet utvikling på seminaret, så her er det kun en kort notat. Du finner malene for testene i pakke-mappene <code style="color: #cfcecc;">conv</code> (forkortelse for en. <em>conversion</em>) og <code style="color: #cfcecc;">funfacts</code>.</p>
+    <p>Når du har konfigurert Go modul korrekt, så skal du kunne bruke <code style="color: #cfcecc;">go test</code> for å utføre testene i filene, som har filnavn som slutter på <code style="color: #cfcecc;">_test.go</code>.</p>
+    <p>Det er allerede blitt spesifisert funksjonsnavn som skal testes. For eksempel, hvis man skal teste FarheinheitToCelsius(value float64) float64 så kan man bruke denne koden:</p>
+    <pre><code>
+    func TestFarhenheitToCelsius(t *testing.T) {
+	     type test struct {
+		       input float64
+		       want  float64
+	     }
+
+	     tests := []test{
+		       {input: 134, want: 56.67},
+	     }
+
+	     for _, tc := range tests {
+		       got := FarhenheitToCelsius(tc.input)
+		       if !reflect.DeepEqual(tc.want, got) {
+			         t.Errorf("expected: %v, got: %v",
+                                    tc.want, got)
+		       }
+	     }
+   }
+ </code></pre>
+ <p>Kodefragment 1. Funksjon TestFarhenheitToCelsius fra malen.</p>
+ <p>Kort sagt (vi vil analysere det dypere på seminar), gjør denne koden følgende:</p>
+ <ul style="list-style-type: none;">
+   <li>definerer en struktur med to datafelt, ett for input og ett for verdien som vi ønsker å teste mot </li>
+   <li>så defineres det en slice, som inneholder testdata, dvs. når input er <code style="color: #cfcecc;">134</code> så ønsker vi å ha output <code style="color: #cfcecc;">56.67</code>; denne sammenhengen kommer fra formelen spesifisert i dette dokumentet</li>
+   <li>så utføres testen ved å utføre en såkalt <em>dyp</em> sammenligning, som vil også gi korrekt svar for strukturer og array ,og ikke kun for enkelte verdier (funksjonaliteten er implementert i pakken <em>reflect</em>)</li>
+   <li><code style="color: #cfcecc;">go test</code> vil kompilere koden og returnere et OK-svar, hvis testen passerer, og feilmeldinger, hvis ikke</li>
+ </ul>
+
+ <p>Hvis på det tidspunktet når <code style="color: #cfcecc;">go test</code> utføres, finnes det en funksjon i conv.go filen, som heter FarhenheitToCelsius, så vil testrammeverket utføre denne funksjonen. I malen ser denne funksjonen slik ut:</p>
+  <pre><code>
+    // Konverterer Farhenheit til Celsius
+    func FarhenheitToCelsius(value float64) float64 {
+	     // Her skal du implementere funksjonen
+	     // Du skal ikke formattere float64 i denne funksjonen
+	     // Gjør formattering i main.go med fmt.Printf eller
+	     // lignende
+	     return 56.67
+    }
+  </code></pre>
+  <p>Kodefragment 2. Funksjon FarhenheitToCelsius fra malen.</p>
+ <p>Funksjonen i Kodefragmentet 2 vil tilfredsstille testen, fordi at testdata spesifisert i Kodefragment 1 er vil matche med verdien som <code style="color: #cfcecc;">FarhenheitToCelsius</code> returnerer.</p>
+ <p>Men vi ønsker ikke oss en hardkodet returverdi, fordi at vår funksjon vil kun være korrekt for en verdi, dvs. for ett testtilfelle. Hvis vi legger til flere testdata <code style="color: #cfcecc;">{input: 32, want: 0}</code>, så vil testen selvsagt feile.</p>
+ <p>Vi må i neste omgang (se Kodefragment 3) prøve å legge inn en beregning, slik at funksjonen kan beregne konverteringen for vilkårlige verdier (vi bør senere også tenke på hvor store eller små verdier vi ønsker å tillate).</p>
+ <pre><code>
+   // Konverterer Farhenheit til Celsius
+   func FarhenheitToCelsius(value float64) float64 {
+      // Legger inn formellen Celsius = (Farhrenheit - 32)*(5/9)
+      return (value - 32)*(5/9)
+   }
+ </code></pre>
+ <p>Kodefragment 3. Funksjon FarhenheitToCelsius andre versjon under testing.</p>
+   <p>Nå kan vi spesifisere flere testtilfeller og prøve på nytt med <code style="color: #cfcecc;">go test</code>. Det er viktig å spesifisere grensetilfeller, for eksempel, hva er den største verdien vår funksjon vil takle? Hvis vi antar at vi ikke kjenner til temperaturer under 0K og over 15 millioner grader Celsius, så kunne vi lagt inn en kontrollsetning i funksjonen vår. Da trenger vi også å returner en feil, som vi også må teste. Vi har forløpig ikke sett på feilhåndtering i Go, så det legger vi i mente foreløpig.</p>
+
+   <p>Da er oppgavenspesifikasjonen slutt. Ta kontakt med lærere, hvis noe er uklart.</p>
+
+   <p>Innlevering skal bestå av lenken til den private github-repositorien og en kort oppsummering i Canvas (slik at vi eventuelt kan gi tilbakemelding gjennom SpeedGrader). Evalueringen skal være i forhold til vurderingsveiledning i form av rubrikkene. Kommer tilbake med flere detaljer på <span style="color:lightgreen;">fredag 27. Januar 2023 12:00</span>.</p>
+
+    <h2>
+      4 Referanser
+      <a name="referanser"></a>
+    </h2>
+    <ul>
+      <li>Beck, K. (2014). Test-driven development by example. Boston Addison-Wesley.</li>
+      <li>KentBeck.com. (2018). Kentbeck.com.</li>
+    </ul>
+
+  </div>
+</body>
+</html>
