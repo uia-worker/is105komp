@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>IS-105 Teste og implementere: Testing</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
+    <script type="text/javascript" src="js/is105.js"></script>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 1em;">
+              <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="index.html" class="tocviewlink" data-pltdoc="x">Vår 2023: IS-105</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="index.html" class="tocviewlink" data-pltdoc="x">Beskrivelse og rettningslinjer</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="automater.html" class="tocviewlink" data-pltdoc="x">Kompendium</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="#" class="tocviewselflink" data-pltdoc="x">Seminar</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="honnor.html" class="tocviewlink" data-pltdoc="x">Honnør</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="leserefl.html" class="tocviewlink" data-pltdoc="x">Lese og reflektere</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="tolkekode.html" class="tocviewselflink" data-pltdoc="x">Tolke kode</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="testimpl.html" class="tocviewlink" data-pltdoc="x">Teste og implementere</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="#" class="tocviewlink" data-pltdoc="x">Seminar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="sem01.html" class="tocviewselflink" data-pltdoc="x">Seminar I</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="#" class="tocviewlink" data-pltdoc="x">Seminar II</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="#" class="tocviewlink" data-pltdoc="x">Seminar III</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tocsub">
+      <div class="tocsubtitle">På denne siden:</div>
+      <table class="tocsublist" cellspacing="0">
+        <tbody>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">1<tt>&nbsp;</tt></span>
+              <a href="#plan" class="tocsubseclink" data-pltdoc="x">Plan for seminaret</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
+              <a href="#install" class="tocsubseclink" data-pltdoc="x">Om installasjon</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
+              <a href="#cli" class="tocsubseclink" data-pltdoc="x">Om CLI</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
+              <a href="#git" class="tocsubseclink" data-pltdoc="x">Om Git</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">5<tt>&nbsp;</tt></span>
+              <a href="#gomoduler" class="tocsubseclink" data-pltdoc="x">Go moduler</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">6<tt>&nbsp;</tt></span>
+              <a href="#testingfib" class="tocsubseclink" data-pltdoc="x">Test-drevet utvikling (Fibonacci)</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">7<tt>&nbsp;</tt></span>
+              <a href="#docker" class="tocsubseclink" data-pltdoc="x">Om Docker</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">8<tt>&nbsp;</tt></span>
+              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="maincolumn">
+
+    <h1>
+      Seminar I: CLI, Git, Go, TDD
+    </h1>
+    <p>Aktivitetene på seminaret I er:</p>
+      <ul>
+      <li>Installere Git og Go programmeringsmiljø.</li>
+      <li>Øve på kommandolinje (CLI).</li>
+      <li>Lage en privat (ikke "public") repository på Github for denne oppgaven.</li>
+      <li>Øve på å jobbe mot Github fra kommandolinje.</li>
+      <li>Lage Go modul og skrive og utføre et enkelt program i Go.</li>
+      <li>Gjøre seg kjent med test-drevet utvikling og bruke testrammeverket i Go.</li>
+    </ul>
+
+    <h2>
+      1 Plan for seminaret
+      <a name="plan"></a>
+    </h2>
+
+    <table class="table1">
+      <thead>
+        <tr >
+            <th colspan="4">Plan for seminar I</th>
+
+        </tr>
+        <tr >
+            <th>Dato</th>
+            <th>Tid</th>
+            <th>Aktivitet</th>
+            <th>Godkjenningskrav</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        <td>30.01</td>
+        <td>8:15 - 8:30</td>
+        <td>Presentajon av arbeidsmetode</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>8:30 - 9:00</td>
+        <td>Vi danner adskilte grupper for de som har utfordringer med installasjon og konfigurasjon av programvaren på sin platform. De som har fått sin datamaskin konfigurert, oppfordres til å bidra til at andre får det gjort.</td>
+        <td>Organisere tematiske stasjoner (Installasjon, CLI, Git, Go, Testing). Fokuset i dette tidsvinduet skal være på installasjon og konfigurasjon av programvare på spesifikke platformer, og at alle har satt opp sitt utviklingsmiljø korrekt. Prioritet er følgende: Git (<code style="color: #cfcecc;">git version</code>), Go (<code style="color: #cfcecc;">go version</code> og <code style="color: #cfcecc;">go env GO111MODULE</code>) må fungere (oppgavesett #1)</td>
+      </tr>
+      <tr>
+        <td>30.01</td>
+        <td>9:15 - 9:30</td>
+        <td>Presentasjon av CLI (Command Line Interface). Absolutt sti, relativ sti, hjemmemappe, cd, ls (dir), rm (del), mkdir (md), cp (copy).</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>30.01</td>
+        <td>9:30 - 10:00</td>
+        <td><a href="#cli">CLI</a> (oppgavesett #2)</td>
+        <td>Lage en sti på sin platform i sin hjemmemappe. Kunne finne en fil, som vises i "explorer" på kommandolinje. Kunne lagre en fil fra en editor til en spesifikk sti. Kunne slette filer og mapper. Kunne kopiere filer og mapper.</td>
+      </tr>
+      <tr>
+        <td>30.01</td>
+        <td>10:15 - 11:00</td>
+        <td>Fortsetter med CLI</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>30.01</td>
+        <td>11:15 - 11:30</td>
+        <td>Presentasjon av Git</td>
+        <td>Kort gjennomgang av arbeidsflyt.</td>
+      </tr>
+      <tr>
+        <td>30.01</td>
+        <td>11:30 - 12:00</td>
+        <td><a href="#cli">Git</a> (oppgavesett #3)</td>
+        <td>Bruke ferdighetene fra forrige oppgaven om administrasjons av filer og mapper på egen datamaskin fra kommandolinje. Lage en private repository i <em>Github</em>. Kunne laste ned fil fra Internett på kommandolinje. Kunne gjennomføre en syklus av oppdateringer, "staging", "commiting" og "pushing" på kommandolinje. Ressonere hva om status etter hver operasjon. Finne ut hvor all administrasjon av versjoner til filene lagres. Kjenne til <code style="color: #cfcecc;">git pull</code>.</td>
+      </tr>
+      <tr>
+        <td>03.02</td>
+        <td>8:15 - 8:30</td>
+        <td>Presentasjon Go utviklingsmiljø</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>03.02</td>
+        <td>8:30 - 9:00</td>
+        <td><a href="#gomoduler">Go modul</a> (oppgavesett #4)</td>
+        <td>Forstå hvordan arbeidsrom i Golang er designet. Forstå forskjell på lokale og globale moduler. Kunne konfigurere et utviklingsmiljø med korrekte miljøvariabler. Trene på å bruke <code style="color: #cfcecc;">go mod init</code>, og <code style="color: #cfcecc;">go build</code> og <code style="color: #cfcecc;">go test</code>. Forstå hvordan <code style="color: #cfcecc;">go run</code>funksjonerer.</td>
+      </tr>
+      <tr>
+        <td>03.02</td>
+        <td>9:15 - 9:30</td>
+        <td>Presentasjon Test-drevet utvikling</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>03.02</td>
+        <td>09:30 - 10:00</td>
+        <td><a href="#testingfib">Test-drevet utvikling (Fibonacci)</a> (oppgavesett #5)</td>
+        <td>Kunne gjennomføre iterasjoner i test-drevet utvikling. Forstå hvordan kan man skrive tester før man skriver funksjoner. Bli kjent med testrammeverket i Golang. Forstå refaktorering. Forstå hvordan kan man arbeide seg fra spesifikke caser til mer generell case.</td>
+      </tr>
+      <tr>
+        <td>03.02</td>
+        <td>11:15 - 12:00</td>
+        <td>Test-drevet utvikling (Fibonacci)</td>
+        <td></td>
+      </tr>
+      <tbody>
+    </table>
+
+
+    <h2>
+      2 Om installasjon
+      <a name="install"></a>
+    </h2>
+    <p>Installasjon av programvare er en kompleks oppgave, siden hver datamaskin har et spesifikt operativsystem installert og det utføres på et spesifikt maskinvare (arkitektur). Vi trenger en del begreper for å kunne forstå og diskutere hva som skjer under installasjon av programvare. De mest brukte operativsystemer er macOS, MS Windows (bruker kun <em>Windows</em> videre) og Linux og de mest brukte arkitekturer er x86, x86-64, ARM (Advanced RISC Machines), AVR (designet av nordmenn Alf-Egil Bogen and Vegard Wollan). All prekompilert programvare er pakket for en platform, dvs. en kombinasjon av et operativsystem og en maskinvarearkitektur. For eksempel, distribusjoner (en spesifikk versjon av programvaren for en spesifikk platform) av nettleserapplikasjonen Google Chrome vil bestå av filer på forskjellige formater for hver av de tre mest brukte operativsystemene for skrivebords-/bærbare datamaskiner (macOS, Windows, Linux) og for de to mest brukte platformene for mobiltelefoner, - iOS og Android. I tillegg kan det også være forskjellige distribusjoner for nettbrett. Hvis man ønsker å installere en applikasjon på en mindre brukt maskinvarearkitektur (RISC-V, MIPS, PowerPC), så må man vanligvis kompilere kildekodefilene selv (det forutsetter at man først har installert et operativsystem og en kompilator for den spesifikke arkitekturen).</p>
+
+    <p>Go kan man installere fra binære filer (allerede kompilerte), dvs. det er ikke nødvendig å kompilere noen kildekode på egen datamaskin. Gå til <a href="https://go.dev/doc/install" target="_blank">Go installation</a> og følg instruksjoner. På platformene med macOS og Windows operativssystemer, så bør installasjonspakken gjøre all nødvendig konfigurasjon automatisk. Hvis det ikke skjer, les nøye de påfølgende avsnittene, og hvis ikke det løser ditt problem, ta kontakt med LA-ene eller lærer. For å bekrefte at installasjonen er vellykket skal du åpne et terminalapplikasjon (<em>Terminal</em> for macOS, <em>cmd</em> eller <em>Powershell</em> for Windows) og utføre kommandoet <code style="color: #cfcecc;">go version</code> fra kommandolinje. Er du en macOS bruker, skal du få et ca. slikt svar <code style="color: #cfcecc;">go version go1.19.5 darwin/amd64</code>, mens er du Windows bruker, så blir det ca. slikt <code style="color: #cfcecc;">go version go1.19.5 windows/amd64</code> (det kan være noe annerledes, blant annet versjonsnummer for din installasjon kan være en annen).
+    </p>
+
+    <p>Leverandørene av begge de proprietære (kildekoden er ikke åpent tilgjengelig) operativsystemene, macOS og MS Windows, har utviklet applikasjoner for en installasjon av programvare, som krever minimal interaksjon fra brukeren. For macOS kan en Go installasjon starte med utføring av filen med navn <code style="color: #cfcecc;">go1.19.5darwin-amd64.pkg</code>, som har et filformat <a href="https://en.wikipedia.org/wiki/.pkg" target="_blank">.pkg</a>. Tilsvarende for Windows er filnavnet for Go installasjonen <code style="color: #cfcecc;">go1.19.5windows-amd64.msi</code> og filformatet er  <a href="https://en.wikipedia.org/wiki/Windows_Installer">.msi</a>. Slike formater blir mest brukt for å distribuere "forbruker"-applikasjoner i massemarkedet. En systemutvikler må også lære seg manuelle metoder for å installere programvare. Installasjonen av Go for Linux platformer, som er et åpen kildekode operativsystem (dvs. kildekoden er åpent tilgjengelig), krever flere manuelle operasjoner. Filnavn for Go distribusjon for Linux er <code style="color: #cfcecc;">go1.19.5linux-amd64.tar.gz </code>, hvor <a href="https://en.wikipedia.org/wiki/Tar_(computing)" target="_blank">tar</a> står for <em>tape archive</em> og er en format for å pakke flere relaterte filer i en større fil, og <a href="https://en.wikipedia.org/wiki/Gzip" target="_blank">.gz</a> er en format for datakompresjon (smart koding og dekoding), som hjelper til å minimalisere antall bits, som skal overføres over kommunikasjonskanaler og lagres i lagringsmedier.</p>
+
+    <p>Det er viktig å være klar over at all programvare er strukturert i filer, som blir lagret i lagringsmedium på din datamaskin. Et vanlig lagringsmedium i dag er Solid State Drive, og det er programmer i operativsystemet, som bestemmer hvilket filsystem (struktur for lagring og navngiving av filer og mapper) brukes for å lagre og hente filer. Windows bruker NTFS (forkortelse for “NT File System”), macOS bruker APFS (Apple File System) og Linux bruker ext4 (fourth extended filesystem). Alle disse filsystemene baserer seg på et hierarkisk system (en tre-struktur), som består av en rot-mappe, mapper og filer. Det er vanlig å dele en fysisk lagringsenhet i partisjoner, for å kunne bruke flere filsystemer gjennom samme grensesnitt (kun nødvendig i spesielle tilfeller, for eksempel, hvis man drifter en server-park eller en nettsky-tjeneste). Partisjonering kan også bidra til større sikkerhet, dvs. mindre risiko for å miste informasjon pga. fysiske feil med lagringsmedia. Ofte "monterer" (konfigurerer) man også nettverksdisker, som man kommuniserer med ved hjelp av en nettverksprotokoll. Nettverksdiskene kan ha spesielle filsystemer, og da trenger man applikasjoner på egen datamaskin, som kan tolke disse. En annen case er når man bruker et eksternt lagringsmedium, som USB-pinne, som må <em>monteres</em> (konfigureres) mens datamaskinen er i arbeidsmodus og ofte har egne filsystemer (FAT32 er vanlig). Må nevnes at denne typen "montering" er et sikkerhetsrisiko, siden operativsystemet blir tvunget til å utføre programmer som ligger på minnepinne, som "det" (operativsystemet) ikke har lagret selv, og disse kan inneholde "virus" (programvare, som kan skade annen programvare på datamaskinen). Vi skal utforske flere filsystemer senere i semesteret.</p>
+
+    <p>Filene lagres og hentes ved hjelp av et sti-navn (en. pathname). Man kan tenke på en sti, som en kombinasjon av <em>noder</em> (begrepet <em>node</em> brukes også for andre datastrukturer, som graf, liste, kø osv.) og grener (kalles også for kanter eller <em>edge</em> på engelsk) til tre-strukturen. Rot-noden til treet har forskjellige navn avhenging av filsystemet. NTFS (Windows) betegner vanligvis rot-mappen som <code style="color: #cfcecc;">C:\</code> (hvor tegnet<code style="color: #cfcecc;">\</code> er "backslash" eller reverse solidus og har unicode U+005C), mens macOS og Linux bruker kun <code style="color: #cfcecc;">/</code>("slash" eller solidus med unicode U+002F).
+
+    <img src="images/filsystem-tre-darwin.svg" width="500" alt="Filsystembegreper i macOS">
+    <p>Figur 1. Mappe- og filstruktur i macOS (darwin).</p>
+
+    Man opererer med relative og absolutte stier (en. <em>relative and absolute path</em>; se Figur 1). En relative sti blir dannet fra en spesifikk node i treet (<code style="color: #cfcecc;">is105\testimpl\main.go</code>). En absolutt sti starter med rot-noden (<code style="color: #cfcecc;">C:\Users\uia-worker\is105\testimpl\main.go</code>). Begge stiene er for NTFS filsystemet.</p>
+
+    <img src="images/filsystem-tre-windows.svg" width="500" alt="Filsystembegreper i Windows">
+    <p>Figur 2. Mappe- og filstruktur i Windows.</p>
+
+    <p>I <a href="https://go.dev/doc/install" target="_blank">Go installation</a> er det henvist til både relative og absolutte stier. Under veiledning for Windows, henvises det blant annet til <code style="color: #cfcecc;">Program Files</code>, som da er en relativ sti. Stinavn som vises i Windows filutforsker avhengig av valget for språket til det operativsystemet som er installert. For eksempel, i en norsk versjon, så brukes det alias <code style="color: #cfcecc;">Programfiler</code> for <code style="color: #cfcecc;">Program Files</code> (se Figur 2). Den absolutte stien for denne mappen er <code style="color: #cfcecc;">C:\Program Files</code>. Under veiledning for Mac (macOS), henvises det til <code style="color: #cfcecc;">/usr/local/go/bin</code>, som da er en absolutt stinavn for APFS, som for øvrig er også den samme for Linux og Unix platformer (filsystemene ext4 og APFS har veldig mange likheter).</p>
+
+    <p>Alle filene, som utgjør Go programmeringsmiljøet installeres i en mappe, som blir markert med et miljøvariabel i operativsystemets arkiver. Se Figur 3 for eksemplet hvordan Go installasjonsprogrammet har lagret alle filene på en datamaskin.</p>
+
+    <img src="images/filsystem-go-windows.svg" width="500" alt="Filsystem for Go installasjon">
+    <p>Figur 3. Go installasjon på Windows.</p>
+
+    <p>Ethvert operativsystem har mange såkalte miljøvariabler, som er lagret i en eller flere filer. En vanlig verdi for slike variabler er en sti, dvs. noe som peker til en lokasjon i de lagringsenhetene som datamaskinen har tilgang på (de kan være både lokale eller eksterne). Når datamaskin starter, leses disse filene av operativsystemets programmer og miljøvariablene defineres i arbeidsminne (RAM - Random Access Memory, et lagringsmedium, som ikke beholder data når datamaskin slås av). En av de hyppigst brukte miljøvariablene er <code style="color: #cfcecc;">PATH</code> (<code style="color: #cfcecc;">Path</code> i Windows). Man kan finne verdien til <code style="color: #cfcecc;">PATH</code> i macOS Terminal ved å utføre kommandoet <code style="color: #cfcecc;">echo $PATH</code>. Man kan endre <code style="color: #cfcecc;">PATH</code> verdien ved å utføre kommandoet <code style="color: #cfcecc;">export PATH=$PATH:mappe_navn</code>. Redigering av <code style="color: #cfcecc;">PATH</code> fra kommandolinje er ikke helt risikofritt. Hvis man glemmer å legge til den eksisterende verdien av <code style="color: #cfcecc;">PATH</code>, så kan man overskrive den, noe som kan skape problemer for mange programmer, som er avhengig av andre programmer (de vil ikke finne den utførbare/binære versjonen, hvis den ikke er i <code style="color: #cfcecc;">PATH</code>). På macOS og Linux platformer, som er designet som multi-bruker systemer (noe Windows ikke er), har hver bruker sin egen hjemmemappe (vanligvis <code style="color: #cfcecc;">/home/BRUKERNAVN</code>) og i denne hjemmemappen ligger forskjellige konfigurasjonsfiler, som leses av operativssystemets programmer ved hvert oppstart av datamaskinen. <code style="color: #cfcecc;">PATH</code> satt fra kommandolinje gjelder kun for det konkrete terminalvinduet.</p>
+
+    <p>For å endre <code style="color: #cfcecc;">Path</code> på Windows, er det flere alternativer:
+      <ul>
+        <li>grafisk grensesnitt: venstre nederste hjørne (vinduikonet), søke "miljøvariabler", "Rediger miljøvariabler for kontoen din", og rediger "Brukervariabler for DINBRUKER"</li>
+        <li>cmd: <code style="color: #cfcecc;">set PATH=%PATH%;C:\your\path\here\</code></li>
+        <li>Powershell: <code style="color: #cfcecc;">$Env:Path += [IO.Path]::PathSeparator + $pwd</code></li>
+      </ul>
+
+    <p>Det er viktig å tenke på at et spesifikt kommando kan gi forskjellig output avhengig av om og hvilke miljøvariabler er definert og hvilke verdier de til enhver tid har.</p>
+
+
+
+    <h2>
+      3 Om CLI
+      <a name="cli"></a>
+    </h2>
+    <p>Det er mange applikasjoner, som implementerer kommandolinje (ofte kalt shell eller terminal). Disse applikasjonene kan klassifiseres etter platformer, - Linux/Unix, macOS, Windows. Følgende shell kan være aktuelle for arbeid i dette emne:</p>
+    <ul>
+      <li>cmd i Windows; basert på det historiske operativssystemet DOS; her er noen få kommandoer med fokus på de som ikke finnes i Linux/Unix shell</li>
+      <ul>
+        <li><code style="color: #cfcecc;">echo %cd%</code> for å vise den gjeldende mappen (en. current directory)</li>
+        <li><code style="color: #cfcecc;">type nul > main.go</code> for å lage en tom fil med navn <code style="color: #cfcecc;">main.go</code> i den gjeldende mappen</li>
+        <li><code style="color: #cfcecc;">dir</code> for å liste ut alle mapper og filer i den gjeldende mappen</li>
+        <li><code style="color: #cfcecc;">mkdir .\dir1\dir1.1\dir1.1.1</code> kan funksjonere hvis man har aktivert <em>command extensions</em> i cmd (kan aktiveres med kommando <code style="color: #cfcecc;">cmd /x</code> og deaktiveres med <code style="color: #cfcecc;">cmd /y</code> og vil gjelde kun for den spesifikke sesjonen/vinduet)</li>
+        <li><code style="color: #cfcecc;">xcopy source destination /e /y</code> for å kopiere en mappe som en helhet (/e alle filene og delmappene med alle filene, inkludert tomme delmapper) til en annen mappe, uten å spørre for bekreftelse på hver skriving til en ny lokasjon (/y)</li>
+      </ul>
+      <li>bash (Bourne again shell etter Stephen Bourne) i Linux/Unix (1989) og macOS (men nyere distribusjoner markedsfører zsh (1990) etter Yale professor Zhong Shao sitt brukernavn); i presentasjoner i dette emne brukes bash; noen typiske kommandoer er:</li>
+      <ul>
+        <li><code style="color: #cfcecc;">ls</code>vise innhold i gjeldende mappe</li>
+        <li><code style="color: #cfcecc;">ls -R</code>vise innhold i gjeldende mappe og alle undermapper</li>
+        <li><code style="color: #cfcecc;">cd</code>endrer gjeldende mappe til hjemmemappe</li>
+        <li><code style="color: #cfcecc;">cd ..</code>endrer gjeldende mappe til foreldremappe (et nivå opp)</li>
+        <li><code style="color: #cfcecc;">cd ../..</code>endrer gjeldende mappe til besteforeldremappe (to nivå opp)</li
+        <li><code style="color: #cfcecc;">pwd</code>viser gjeldende mappe</li>
+        <li><code style="color: #cfcecc;">mkdir</code>lager mapper</li>
+        <li><code style="color: #cfcecc;">mkdir -p</code>lager stier</li>
+        <li><code style="color: #cfcecc;">cp</code>kopierer fra en lokajon til en annen</li>
+        <li><code style="color: #cfcecc;">cp</code>flytter fra en lokasjon til en annen</li>
+        <li><code style="color: #cfcecc;">rm</code>sletter filer og tomme mapper</li>
+        <li><code style="color: #cfcecc;">rm -R</code>sletter filer og ikke tomme mapper</li>
+        <li><code style="color: #cfcecc;">touch FILNAVN</code>lager en ny tom fil</li>
+        <li><code style="color: #cfcecc;">man</code>manual (bruk <code style="color: #cfcecc;">man KOMMANDO</code> for å se detaljert beskrivelse av kommandoet; bruk <code style="color: #cfcecc;">q</code> for å gå ut av visningsmodus)</li>
+      </ul>
+      <li>Powershell er en applikasjon, som er kun tilgjengelig på Windows. Den ble designet spesielt for programmerere i Windows miljøet og har et eget språk, som ikke ligner på hverken <em>bash</em> eller <em>cmd</em>. Vi anbefaler ikke å bruke det, med mindre dut har tidligere erfaring med det. I Powershell finnes det aliaser for flere <em>bash</em> kommandoer, så hvis det dreier seg kun om enkle filoperasjoner og utføring av programmer, så kan man klare seg uten å lære Powershell sitt eget språk (som for øvrig er interesant og relativt brukbart).</li>
+    </ul>
+
+    <p>Siden alle dataprogrammer (og kommandoer fra operativsystemet) har en input og en output, så har operativsystemer egne <em>kanaler</em> for disse, som blir allokert når datamaskinen starter opp. To av disse <em>kanalene</em> er relatert til input og output og en tredje til feilmeldinger. De tre I/O <em>kanalene</em> (en. streams) er:</p>
+    <ul>
+      <li><code style="color: #cfcecc;">stdin</code> 0</li>
+      <li><code style="color: #cfcecc;">stdout</code> 1</li>
+      <li><code style="color: #cfcecc;">stderr</code> 2</li>
+    </ul>
+    <p>Man kan sende data til strømmene med operatør <code style="color: #cfcecc;">n></code>, hvor <code style="color: #cfcecc;">n</code> en et nummer til strømmen. <code style="color: #cfcecc;">KOMMANDO 2>&1</code> omdirigerer data fra <code style="color: #cfcecc;">stderr</code> til <code style="color: #cfcecc;">stdout</code> (som er standard), men det er også mulig å sende <code style="color: #cfcecc;">stderr</code> til en fil, for eksempel, <code style="color: #cfcecc;">KOMMANDO 2>error.txt</code>.
+    </p>
+    <p>Se også <a href="https://levelup.gitconnected.com/unix-linux-command-combinations-that-every-developer-should-know-9ae475cf6568">(Shalitha Suranga, 2023)</a> for noen nyttige som kan forenkle arbeidet på kommandolinje. Husk at dette er "learning-by-doing" og lag jukselapper.</p>
+
+    <h3>
+      Oppgaver for Godkjenning (2)
+    </H3>
+    <p>Oppgavene gjøres enten i macOS Terminal (bash eller zsh), eller i Windows cmd. Hvis noen har konfigurert et virtuelt Linux terminal eller bruker Linux på sin datamaskin, kan det også brukes.</p>
+    <p>Noter alle output, slik at du kan dokumentere ditt arbeid.</p>
+<ol>
+    <li>Velg en fil fra Filutførsker i Windows eller Finder i macOS og naviger frem (dvs. gjør den mappen hvor filen ligger gjeldende mappe) til den mappen hvor filen ligger fra kommandolinje (bruk <code style="color: #cfcecc;">ls</code> (<code style="color: #cfcecc;">dir</code> i cmd) og <code style="color: #cfcecc;">cd</code>).</li>
+    <li>Avles størrelsen på filen fra kommandolinje.</li>
+    <li>Finn hjemmemappe og gjør den til gjeldende mappe. Lag en mappe med navn <code style="color: #cfcecc;">is105/github.com/GITBRUKERNAVN</code> i ditt hjemmemappe (GITBRUKERNAVN er navnet på ditt konto i Github). Gjør denne mappen den gjeldende mappe og lag en mappe <code style="color: #cfcecc;">fib</code> og gjør den gjeldende med to kommandoer på samme linje (tips: <code style="color: #cfcecc;">mkdir fib && cd $_)</code> (<code style="color: #cfcecc;">$_</code> er ukjent i cmd, bruk mappenavn direkte).</li>
+    <li>I mappen <code style="color: #cfcecc;">fib</code> lag en ny fil <code style="color: #cfcecc;">main.go</code> og en mappe <code style="color: #cfcecc;">tmp</code>. </li>
+    <li>Lag en fil i mappen <code style="color: #cfcecc;">tmp</code> med navn <code style="color: #cfcecc;">tmp.is105</code></li>
+    <li>Gjør <code style="color: #cfcecc;">fib</code> den gjeldende mappe. Slette mappen <code style="color: #cfcecc;">tmp</code> ved å bruke absolutt sti.</li>
+    <li>Lage en fil med navn <code style="color: #cfcecc;">README.md</code>, som inneholder en linje "# Fibonacci utregning" (tips: <code style="color: #cfcecc;">echo &quot;... tekst ...&quot; &gt; README.md</code>).</li>
+    <li>Legg til en ny linje i filen  <code style="color: #cfcecc;">README.md</code> "F(0) = 0" (tips: sjekk omdirigeringsoperatøren <code style="color: #cfcecc;">&gt;&gt;</code>).</li>
+    <li>Gjør <code style="color: #cfcecc;">fib</code> til gjeldende mappe. Lage to mapper <code style="color: #cfcecc;">mappe1</code> og <code style="color: #cfcecc;">mappe2</code>.</li>
+    <li>Lage en fil i hver mappe med tilsvarende filnavn <code style="color: #cfcecc;">mappe1_fil1.txt</code> og <code style="color: #cfcecc;">mappe2_fil1.txt</code>.</li>
+    <li>Kopiere all inhold i <code style="color: #cfcecc;">mappe1</code> til <code style="color: #cfcecc;">mappe2</code>.</li>
+    <li>Kopiere <code style="color: #cfcecc;">mappe1</code> til <code style="color: #cfcecc;">mappe2</code>.</li>
+    <li>Slette <code style="color: #cfcecc;">mappe1</code>.</li>
+    <li>Lage <code style="color: #cfcecc;">mappe3</code></code> (i <code style="color: #cfcecc;">fib</code>) og flytte <code style="color: #cfcecc;">mappe3</code> til <code style="color: #cfcecc;">mappe2</code>.</li>
+
+</ol>
+    <h2>
+        4 Om Git
+        <a name="git"></a>
+    </h2>
+    <p>La oss repetere det viktigste om Git. Git er et versjonskontrollsystem, som ble laget av finnen Linus Thorvalds (som skapte Linux operativsystemet i 1991) for å forberede deling av og samarbeid på kildekode. Siden den tiden er det blitt etablert flere nettverkstjenester (som nå gradvis konverteres til nettskytjenester), som tilbyr en sentralisert lagring og muligheter til å utføre de fleste git-kommandoer direkte mot tjenesten. <em>Github</em> og <em>Gitlab</em> er to av slike tjenester og i dette emne bruker vi Github. Det er flere grunner til det. <em>Github</em> er den mest brukte versjonskontroll-tjenesten på Internett og er utbredt i arbeidslivet i programvareutviklingsbransjen. Mange universiteter har også inngått avtaler om diverse studenttilbyd, hvor Github er en del av pakken. <em>Github</em> eies av Microsoft.</p>
+
+    <p>Selv om man jobber med kodebasen alene, kan <em>git</em> og <em>Github</em> være verktøy for å ha oversikt overfor endringene i kode man selv har gjort, og det kan også brukes som en backup. I tillegg er det enkelt å utvikle på flere datamaskiner. Vi antar at du allerede har en konto registrert hos Github og har også konfigurert tilgangen (hvis ikke se her for forskjellige <a href="https://docs.github.com/en/authentication" target="_blank">autentiseringsmetoder</a> i <em>github</em>). Hvis du ikke har installert <em>Git</em>, kan du gjøre det fra <a href="https://git-scm.com/downloads">Git downloads</a> siden. Ikke installer GUI klienter. Et av læringsmål for denne oppgaven er å lære å bruke <em>git</em> fra kommandolinje.</p>
+    <p>Du kan finne dokumentasjon av alle Git-kommandoene på <a href="https://git-scm.com/docs">git-scm.com</a>. Når du jobber alene på en repository så er de viktigste kommandoene (ikke fullstending liste):</p>
+    <ul>
+      <li><code style="color: #cfcecc;">git clone</code></li>
+      <li><code style="color: #cfcecc;">git status</code></li>
+      <li><code style="color: #cfcecc;">git add</code></li>
+      <li><code style="color: #cfcecc;">git commit -m &quot;...melding ... &quot;</code></li>
+      <li><code style="color: #cfcecc;">git push origin main</code></li>
+      <li><code style="color: #cfcecc;">git remote -v</code></li>
+      <li><code style="color: #cfcecc;">git reset HEAD~</code> (omgjøre siste commit)</li>
+      <li><code style="color: #cfcecc;">git pull</code> (i tilfelle du jobber fra flere datamaskiner)</li>
+    </ul>
+    <p>Det anbefales å lage egen <em>jukselapp</em>.</p>
+
+    <h3>
+      Oppgaver for Godkjenning (3)
+    </h3>
+    <p>Oppgavene gjøres enten i macOS Terminal (bash eller zsh), eller i Windows cmd. Hvis noen har konfigurert et virtuelt Linux terminal eller bruker Linux på sin datamaskin, kan det også brukes.</p>
+    <p>Noter alle output, slik at du kan dokumentere ditt arbeid.</p>
+    <ol>
+
+    <li>Lag en privat repository med navnet <code style="color: #cfcecc;">fib</code> i <em>Github</em>.</li>
+    <li>Velg <code style="color: #cfcecc;">README.md</code> og <code style="color: #cfcecc;">.gitignore</code>.</li>
+    <li>Kopier (eller flytt) mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN/fib</code> fra forrige oppgaven til mappen <code style="color: #cfcecc;">fib-backup</code> (<code style="color: #cfcecc;">~</code> er symbol for hjemmemappe).</li>
+    <li>Gjør <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN</code> den gjeldende mappe.</li>
+    <li>Klone repositorien <code style="color: #cfcecc;">fib</code> på din egen datamaskin med kommandoen <code style="color: #cfcecc;">git clone REPOSITORY_NAVN</code>.</li>
+    <li>Vise frem innholdet i den nye mappen <code style="color: #cfcecc;">fib</code>.</li>
+    <li>Finne og kopiere filene <code style="color: #cfcecc;">README.md</code> og <code style="color: #cfcecc;">main.go</code>fra mappen <code style="color: #cfcecc;">fib-backup</code> til mappen som ble klonet fra Github.</li>
+    <li>Gjør <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN</code> gjeldende.</li>
+    <li>Lag en ny mappe <code style="color: #cfcecc;">tmp</code> og gjør den gjeldende.</li>
+    <li>Bruk kommandoen <code style="color: #cfcecc;">curl --output .gitignore --url https://raw.githubusercontent.com/uia-worker/is105test/main/.gitignore</code> for å laste ned en ny <code style="color: #cfcecc;">.gitignore</code> fil fra en ekstern kilde.</li>
+    <li>Kopier filen til mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN/fib</code>.</li>
+    <li>Gjør <code style="color: #cfcecc;">fib</code> gjeldende mappe og sjekke <code style="color: #cfcecc;">git status</code>.</li>
+    <li>Gjør <code style="color: #cfcecc;">git add *</code> for å "stage" den ene nye og de to endrede filene. Sjekk <code style="color: #cfcecc;">git status</code>.</li>
+    <li>Gjør <code style="color: #cfcecc;">git commit -m "Endret README.md ..."</code> for å registrere endringene på din lokale datamaskinen (som ligger i mappen <code style="color: #cfcecc;">.git</code>).</li>
+    <li>Sjekk <code style="color: #cfcecc;">git status</code>.</li>
+    <li>Gjør <code style="color: #cfcecc;">git push origin main</code> for å registrere endringene på din eksterne repository (som ligger i mappen <em>Github</em>). Sjekk <code style="color: #cfcecc;">git status</code>.</li>
+    <li>Sjekk ut hva <code style="color: #cfcecc;">git pull</code> returnerer og tenk på hvorfor.</li>
+  </ol>
+
+
+    <h2>
+      5 Go moduler
+      <a name="gomoduler"></a>
+    </h2>
+    <p>I tidligere versjoner av Go (før 1.11), all kode, som man utviklet måtte lagres i en spesifikk mappe, som var angitt med miljøevariabelen <code style="color: #cfcecc;">$GOPATH</code>. Go designere hadde en visjon om en global arbeidsrom, men det viste seg å være for lite fleksibelt. Koden måtte alltid låses til en spesifikk sti og det var ikke mulig å ha flere versjoner av samme pakken i miljøet samtidig. I tillegg alle eksterne pakker ble lagt også inn i en spesifikk mappe og kunne ikke ha flere versjoner.. </p>
+
+    <p>Derfor ble det lagt til kommandoer for administrasjon av moduler og arbeidsrom (en. workspaces) i Go utviklingsmiljøet. Go moduler lar en utvikler lagre kildekoden (pakkene) utenfor <code style="color: #cfcecc;">$GOPATH</code>. Med Go moduler ble en egen Go miljøvariabel <code style="color: #cfcecc;">GO111MODULE=on</code> introdusert, som kan ha tre mulige verdier, - "auto" så man kunne velge om man la koden fortsett bli i <code style="color: #cfcecc;">$GOPATH</code> eller å lagre koden utenfor <code style="color: #cfcecc;">$GOPATH</code>; "off" (ignorerer <code style="color: #cfcecc;">go.mod</code> filer og forholder seg til <code style="color: #cfcecc;">$GOPATH</code>) og "on" (er i module-modus, også når det ikke finnes go.mod).
+    </p>
+    <p>Det er også mulig å lage ennå høyre abstraksjon enn modul, - arbeidsrom eller <em>workspaces</em> på engelsk. Se Figur 4 for den hierarkiske strukturen som en Go utvikler bør forholde seg til.</p>
+
+    <img src="images/go-workspace-modules-packages.svg" width="500" alt="Go arbeidsrom">
+    <p>Figur 4. Go arbeidsrom for prosjekter.</p>
+
+    <h3>
+      Oppgaver for Godkjenning (4)
+    </h3>
+    <ol>
+      <li>Gjør mappen <code style="color: #cfcecc;">fib</code> med repository-kopien gjeldende.</li>
+      <li>Sjekk hva <code style="color: #cfcecc;">go test</code> og <code style="color: #cfcecc;">go build</code> returnerer.</li>
+      <li>Sjekk verdien til <code style="color: #cfcecc;">GO111MODULE</code> (bruk <code style="color: #cfcecc;">go env GO111MODULE</code> og den skal returnere "on" eller ingenting).</li>
+      <li>Åpne en editor (som du har kontroll over, slik at den ikke lagrer diverse filer til din repository mappe; <em>vim</em> og <em>emacs</em> kan være gode alternativer, hvis du har brukt de fra før; du kan også skrive <code style="color: #cfcecc;">notepad main.go</code> på kommandolinje og Windows vil åpne <em>Notepad</em> med den relevante filen) og rediger og lagre filen. Filen skal ha følgende innhold:
+<pre><code>
+package main
+
+import fmt
+
+func main() {
+fmt.Println("Fantastiske Fibonacci!")
+}
+</code></pre></li>
+    <li>Prøv igjen med <code style="color: #cfcecc;">go build</code>. </li>
+      <li>Følg tips og bruk kommandoen <code style="color: #cfcecc;">go mod init MODULE_NAVN</code>. Velg stien til din repository som <code style="color: #cfcecc;">MODULE_NAVN</code>, dvs. utføre <code style="color: #cfcecc;">go mod init github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN</code>.</li>
+
+  </ol>
+
+    <h2>
+      6 Test-drevet utvikling (Fibonacci)
+      <a name="testingfib"></a>
+    </h2>
+    <h3>
+      Oppgaver for Godkjenning (5)
+    </h3>
+    <p>Oppgavene er spesifisert i denne gjennomgangen. Studenten skal dokumentere alle output der det står RESPONSE#N, hvor en er fortløpende nummerering. Studenten skal også beholde kode fra alle mellomstegene i Test-drevet utvikling (koden skal kommenteres ut). Koden skal være synlig i Github.</p>
+
+    <p>Fibonacci tall spiller en rolle i matematikken. Det er en tallrekke, som produseres etter følgende aritmetiske regler:</p>
+    <ul>
+      <li><code style="color: #cfcecc;">F(0) = 0</code></li>
+      <li><code style="color: #cfcecc;">F(1) = 1</code></li>
+      <li><code style="color: #cfcecc;">F(n) = F(n-1) + F(n-2)</code></li>
+    </ul>
+    <p>Disse tallene er grunnlaget for Fibonacci spiralen (se Figur 5).</p>
+    <img src="images/Fibonacci_Spiral.svg" width="500" alt="Fibonacci spiral">
+    <p>Figur 5. Fibonacci spiral.</p>
+
+    <p>For å utvikle en applikasjon som beregner Fibonacci, skal vi gå frem test-drevet.</p>
+    <ol>
+      <li>Vi lager en mappe <code style="color: #cfcecc;">fib</code> inn i vår etablerte modulen (kan ha samme navn). </li>
+      <li>I denne mappen skal vi først lage vår testfil  <code style="color: #cfcecc;">fib_test.go</code></li>
+      <li>I denne filen må vi spesifisere pakkenavn, som da blir <code style="color: #cfcecc;">fib</code> og skrive testfunksjon <code style="color: #cfcecc;">fib</code>. I tillegg skal vi bruke Go sitt testrammeverk, som er implementert i pakken <code style="color: #cfcecc;">testing</code>.
+        <pre><code>
+        package fib
+
+        import testing
+
+        func TestFib(t *testing.T) {
+          // Her går testen
+        }
+        </code></pre>
+      </li>
+      <li>Vi kan først teste for det første tilfelle <code style="color: #cfcecc;">F(0) = 0</code>.
+        <pre><code>
+          input := 0
+          got := Fib(input)
+          want := 1
+          if got != want {
+              t.Errorf("Fib(%d): want %d, got %d", input, want, got)
+          }
+        </code></pre>
+      Hvis vi kjører <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib</code>, så får vi en feilmelding (RESPONS#1).
+      </li>
+      <li>Vi kaller funksjonen <code style="color: #cfcecc;">Fib(0)</code> i filen <code style="color: #cfcecc;">fib_test.go</code>. Denne funksjonen er ikke implementert. Hvordan skal den se ut? Vi tester nå for <code style="color: #cfcecc;">Fib(0) = 0</code>, derfor må vi lage en fil <code style="color: #cfcecc;">fib.go</code>, hvor vi implementerer funksjonen (dette er hovedprinsippet i test-drevet utvikling, - først skrive test, så skrive funksjonen som testes).
+        <pre><code>
+        package fib
+
+        func Fib(n int) int {
+          return 0
+        }
+        </code></pre>
+        Kjør <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib</code> igjen. Nå bør output fra test være tilfredstillende (RESPONS#2).
+      </li>
+      <li>Endre verdien til variabelen <code style="color: #cfcecc;">want</code> til <code style="color: #cfcecc;">1</code> og utfør testen på nytt. Blir reponsen annerledes? (RESPONS#3)</li>
+      <li>Nå har vi testet for det første tilfelle for Fibonacci beregning, nå går vi over til det andre tilfelle <code style="color: #cfcecc;">F(1) = 1</code>. Vi bryr oss foreløpig ikke om repetisjon i koden og skriver en ny test på sammen måten:
+        <pre><code>
+          input = 1 // legg merke til operatøren =
+          got = Fib(input)
+          want = 1
+          if got != want {
+              t.Errorf("Fib(%d): want %d, got %d", input, want, got)
+          }
+        </code></pre>
+        Utfør testen. Hva blir responsen? (RESPONS#4)
+      </li>
+      <li>Vi må endre funksjonen <code style="color: #cfcecc;">Fib(n int) int</code> i filen
+        <code style="color: #cfcecc;">fib.go</code>:
+        <pre><code>
+        package fib
+
+        func Fib(n int) int {
+          if n == 0 {
+              return 0
+          }
+          return 1
+        }
+        </code></pre>
+        Utfør testen. Hva blir responsen? (RESPONS#5)
+      </li>
+      <li>Nå er det på tiden å fjerne duplisering av koden (det kaller vi fremover for  <em>refaktorering</em>).
+        <pre><code>
+          type test struct {
+            input int
+            want int
+          }
+
+          var tests = []test {
+            {0,0},
+            {1,1},
+            // her kan vi bare legge på nye test cases
+          }
+
+          // tc - test case
+          for _, tc := range tests {
+              got := Fib(tc.input)
+              if got != tc.want {
+                  t.Errorf("Fib(%d): want %d, got %d", tc.input, tc.want, got)
+              }
+          }
+        </code></pre>
+
+      </li>
+      <li>
+        Nå er det kun det siste tilfelle igjen, og den gjelder alle andre naturlige tall større enn 1, - <code style="color: #cfcecc;">F(n) = F(n-1) + F(n-2)</code>. Legg inn en ny test i slicen tests for det tredje Fibonacci tallet, - <code style="color: #cfcecc;">{2,1}</code>. Utfør testen og noter respons (RESPONS#6).
+      </li>
+      <li>Legg inn for det fjerde Fibonacci tallet, utfør testen og noter respons (REPSONS#7).</li>
+      <li>Det ser ut at det må endringer til i funksjonen <code style="color: #cfcecc;">Fib(n int) int</code>. Vi kan tenke i flere steg:
+        <pre><code>
+        // Bør være ok for det fjerde leddet {3,2}
+        package fib
+
+        func Fib(n int) int {
+          if n == 0 {
+              return 0
+          }
+          if (n <= 2) {
+              return 1
+          }
+          return 2
+        }
+        </code></pre>
+        Generalisering?
+        <pre><code>
+        // 2 er egentlig 1 + 1
+        // fra formelen F(3) = F(3-1) + F(3-2)
+        // => F(3) = F(2) + F(1)
+        // => F(3) = 1 + 1 = 2
+        package fib
+
+        func Fib(n int) int {
+          if n == 0 {
+              return 0
+          }
+          if (n <= 2) {
+              return 1
+          }
+          return Fib(n-1) + 1
+        }
+        </code></pre>
+        Og nå erstatter vi også det andre leddet F(n-2) og vi har implementer Fibonacci funksjonene test-drevet.
+        <pre><code>
+        // 2 er egentlig 1 + 1
+        // fra formelen F(3) = F(3-1) + F(3-2)
+        // => F(3) = F(2) + F(1)
+        // => F(3) = 1 + 1 = 2
+        package fib
+
+        func Fib(n int) int {
+          if n == 0 {
+              return 0
+          }
+          if (n <= 2) {
+              return 1
+          }
+          return Fib(n-1) + Fib(n-2)
+        }
+        </code></pre>
+        Utfør testen.
+      </li>
+      <li>Kall opp din nye Fibonacci funksjonen fra <code style="color: #cfcecc;">main.go</code> og finn ut hva er Fibonacci for n = 10. Skriv ut "Fib(10) = ?"</li>
+      <li>Ekstra (teller ikke for godkjenning):
+        Endre koden til <code style="color: #cfcecc;">main.go</code>, slik at den tar inn <code style="color: #cfcecc;">n</code> fra kommando linjen og beregner Fibonacci tallet.
+      </li>
+    </ol>
+    I koden din, som skal godkjennes, må mellomversjonene være synlig. Her er et eksempel for filen <code style="color: #cfcecc;">fib/fib.go</code>. Gjør også det samme for filene <code style="color: #cfcecc;">fib/fib_test.go</code> og <code style="color: #cfcecc;">main.go</code>.
+    <pre><code>
+    package fib
+
+    /* PASS
+    func Fib(n int) int {
+      return 0
+    }
+    */
+    /* PASS
+    func Fib(n int) int {
+      if n == 0 {
+          return 0
+      }
+      return 1
+    }
+    */
+    /* NOT TESTED (bare for refleksjon)
+    // 2 er egentlig 1 + 1
+    // fra formelen F(3) = F(3-1) + F(3-2)
+    // => F(3) = F(2) + F(1)
+    // => F(3) = 1 + 1 = 2
+    package fib
+
+    func Fib(n int) int {
+      if n == 0 {
+          return 0
+      }
+      if (n <= 2) {
+          return 1
+      }
+      return Fib(n-1) + 1
+    }
+    */
+    // Gjeldende versjonen PASS
+    func Fib(n int) int {
+      if n == 0 {
+          return 0
+      }
+      if (n <= 2) {
+          return 1
+      }
+      return Fib(n-1) + Fib(n-2)
+    }
+    </code></pre>
+
+
+
+
+    <h2>
+      7 Docker
+      <a name="docker"></a>
+    </h2>
+    <p>OBS! Det er ser ut at vi ikke rekker å dekke dette i Seminar I. Vi vil komme tilbake til Docker i andre oppgaver og også på samlinger. Her er en liten smakebit og noen ressurser som du kan se på.</p>
+    <p>Docker er et verktøy som gir mulighet å utvikle programmer i et lokalt miljø (på egen datamaskin) og distribuere løsninger i sin helhet til andre miljøer, for eksempel, nettsky. Veldig simplifisert, er Docker et program som gir mulighet til å simulere distribusjoner av forskjellige operativssystemer. Med Docker kan en utvikler velge blant stort antall av <em>image</em> (pakker som inneholder både operativsystemprogrammer og spesifikk brukerprogramvare). Man velger en <em>image</em>, dvs. laster den ned på egen datamaskin. Videre kan brukeren starte en <em>kontainer</em> hvor <em>image</em> kan utføre og ha tilgang til vertssystemet. Vertssystemet er da den platformen som du opprinnelig har installert på din maskinvare (de fleste av oss bruker enten Windows eller macOS platformer). Navnet <em>kontainer</em> symboliser et abstrakt isolert miljø, som bortsett fra tilgang til maskinvare ressurser, er adskilt fra annen programvare på datamaskinen. <em>Kontainer</em> kan også enkelt transporteres fra en fysisk enhet til en annen og startes</p>
+    <p>Docker ressurser:</p>
+    <ul>
+      <li><a href="https://docs.docker.com/go/guides/" target="_blank">Docker guides</a></li>
+      <li><a href="https://docker.events.cube365.net/dockercon/2022" target="_blank">Dockercon 2022</a></li>
+      <li><a href="https://techtutorialsite.com/docker-commit-changes-to-containers/" target="_blank"></a>Commit changes to containers</li>
+    </ul>
+
+    <p>Man kan bruke Docker fra kommandolinje, men Docker har også en Desktop av meget høyt kvalitet (følger med i installasjonspakken):</p>
+    <ul>
+      <li><code style="color: #cfcecc;">docker pull ubuntu:latest</code></li>
+      <li><code style="color: #cfcecc;">docker images</code></li>
+      <li><code style="color: #cfcecc;">docker run -it --name=minubuntu ubuntu bash</code></li>
+      <li><code style="color: #cfcecc;">docker container ls</code> (i et annet terminal for å se at minubuntu er aktiv)</li>
+      <li><code style="color: #cfcecc;">docker run -it --name=mingolang1 mingolang:version1 bash</code></li>
+    </ul>
+
+    <h3>
+      Oppgaver for Godkjenning (3)
+    </H3>
+    <p>INGEN.</p>
+
+    <h2>
+      8 Referanser
+      <a name="referanser"></a>
+    </h2>
+    <ul>
+      <li>Beck, K. (2014). Test-driven development by example. Boston Addison-Wesley.</li>
+      <li>KentBeck.com. (2018). Kentbeck.com.</li>
+      <li>Shalitha Suranga. (2023, January 17). Unix/Linux Command Combinations That Every Developer Should Know. Medium; Level Up Coding. https://levelup.gitconnected.com/unix-linux-command-combinations-that-every-developer-should-know-9ae475cf6568</li>
+    </ul>
+  </div>
+</body>
+</html>
