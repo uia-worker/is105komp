@@ -309,7 +309,7 @@
       </tr>
       <tr>
         <td>03.02</td>
-        <td>11:15 - 12:00</td>
+        <td>10:15 - 11:00</td>
         <td>Test-drevet utvikling (Fibonacci)</td>
         <td></td>
       </tr>
@@ -500,7 +500,7 @@ package main
 import fmt
 
 func main() {
-fmt.Println("Fantastiske Fibonacci!")
+    fmt.Println("Fantastiske Fibonacci!")
 }
 </code></pre></li>
     <li>Prøv igjen med <code style="color: #cfcecc;">go build</code>. </li>
@@ -728,7 +728,7 @@ fmt.Println("Fantastiske Fibonacci!")
       <a name="docker"></a>
     </h2>
     <p>OBS! Det er ser ut at vi ikke rekker å dekke dette i Seminar I. Vi vil komme tilbake til Docker i andre oppgaver og også på samlinger. Her er en liten smakebit og noen ressurser som du kan se på.</p>
-    <p>Docker er et verktøy som gir mulighet å utvikle programmer i et lokalt miljø (på egen datamaskin) og distribuere løsninger i sin helhet til andre miljøer, for eksempel, nettsky. Veldig simplifisert, er Docker et program som gir mulighet til å simulere distribusjoner av forskjellige operativssystemer. Med Docker kan en utvikler velge blant stort antall av <em>image</em> (pakker som inneholder både operativsystemprogrammer og spesifikk brukerprogramvare). Man velger en <em>image</em>, dvs. laster den ned på egen datamaskin. Videre kan brukeren starte en <em>kontainer</em> hvor <em>image</em> kan utføre og ha tilgang til vertssystemet. Vertssystemet er da den platformen som du opprinnelig har installert på din maskinvare (de fleste av oss bruker enten Windows eller macOS platformer). Navnet <em>kontainer</em> symboliser et abstrakt isolert miljø, som bortsett fra tilgang til maskinvare ressurser, er adskilt fra annen programvare på datamaskinen. <em>Kontainer</em> kan også enkelt transporteres fra en fysisk enhet til en annen og startes</p>
+    <p>Docker er et verktøy som gir mulighet til å utvikle programmer i et lokalt miljø (på egen datamaskin) og distribuere løsninger i sin helhet til andre miljøer, for eksempel, nettsky. Veldig simplifisert, er Docker et program som gir mulighet til å simulere distribusjoner av forskjellige operativssystemer. Med Docker kan en utvikler velge blant stort antall av <em>image</em> (pakker som inneholder både operativsystemprogrammer og spesifikk brukerprogramvare). Man velger en <em>image</em>, dvs. laster den ned på egen datamaskin. Videre kan brukeren starte en <em>kontainer</em> hvor <em>image</em> kan utføre og ha tilgang til vertssystemet. Vertssystemet er da den platformen som du opprinnelig har installert på din maskinvare (de fleste av oss bruker enten Windows eller macOS platformer). Navnet <em>kontainer</em> symboliser et abstrakt isolert miljø, som bortsett fra tilgang til maskinvare ressurser, er adskilt fra annen programvare på datamaskinen. <em>Kontainer</em> kan også enkelt transporteres fra en fysisk enhet til en annen og startes</p>
     <p>Docker ressurser:</p>
     <ul>
       <li><a href="https://docs.docker.com/go/guides/" target="_blank">Docker guides</a></li>
@@ -759,6 +759,51 @@ fmt.Println("Fantastiske Fibonacci!")
       <li>KentBeck.com. (2018). Kentbeck.com.</li>
       <li>Shalitha Suranga. (2023, January 17). Unix/Linux Command Combinations That Every Developer Should Know. Medium; Level Up Coding. https://levelup.gitconnected.com/unix-linux-command-combinations-that-every-developer-should-know-9ae475cf6568</li>
     </ul>
+    <h2>
+      A Tillegg (etter første publikasjon)
+      <a name="referanser"></a>
+    </h2>
+    <p>Dette avsnittet inneholder beskrivelser av diverse ting, som er relevante for seminaret og som er lagt til etter den første publikasjonen av dette dokumentet 27. Januar 2023.</p>
+    <h3><code style="color: #cfcecc;">go test</code> og <code style="color: #cfcecc;">go build</code></h3>
+    <p>
+    <code style="color: #cfcecc;">go test</code> er en "sveitsisk kniv" for testing i Go.
+    Her er tolkning av denne kommanoden basert på <code style="color: #cfcecc;">go help test</code>.</p>
+
+    <p>Den formelle definisjonen av <code style="color: #cfcecc;">go test</code> er
+    <code style="color: #cfcecc;">go test [build/test flags] [packages] [build/test flags & test binary flags]</code>.</p>
+    <p><em>Flags</em> kan forstås som parametre for kommandoet. <em>Flags</em> brukes både med og uten en verdi. Hvis man spesifiserer en flagg uten en verdi, gjelder det ofte en standardverdi. <em>build</em> i denne konteksten står for en mengde av parametre, som kan brukes for å innvirke kompilerings- og linkings- prosessen. Med <em>linking</em> menes bruken av ekstern kode i andre pakker, som ligger på systemet, for å generere den endelige, kompilerte og linkede, binære versjonen av koden på en av filformatene, som kan utføres på platformen</p>
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Mach-O">Mach-O</a> for macOS og iOS</li>
+        <li><a href="https://en.wikipedia.org/wiki/Portable_Executable">Portable Executable (PE)</a> for Windows</li>
+        <li><a href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format">ELF</a> for Unix/Linux</li>
+        <li><a href="https://en.wikipedia.org/wiki/Apk_(file_format)">Android Package format</a>for Android OS)</li>
+      </ul>
+     I flere eldre programmeringsspråk/utviklingsmiljøer (som C) betyr <em>build</em> å lenke sammen kode, som har lik representasjon (assemblerkode, f. eks.), som da er avhengig av maskinvarearkitekturen. Go "build" omfatter både kompilering og <em>linking</em>. Utvikler legger inn kildekodefilene i en mappe og utfører <code style="color: #cfcecc;">go build</code> i denne mappen (se Figur 6). Det finnes også verktøy for å generer assemblerkode fra Go kildekode. Det er sjeldent behov for, men det kan være nyttig i tilfeller, hvor utvikleren ønsker å tilpasse kode til spesifikk maskinvare (optimalisere) utover det som kompilator kan gjøre.
+
+     <img src="images/arch-compiler-linker-compile-assemble-link.svg" width="600" alt="Kompilering og bygging av utførbar kode i Go">
+     <p>Figur 6. Kompilering og bygging av utførbar kode i Go.</p>
+
+     <p><code style="color: #cfcecc;">go test</code> kompilerer hver pakke i modulen sammen med alle filene som ender på <code style="color: #cfcecc;">_test.go</code>. Disse filene kan inneholde:
+       <ul>
+         <li>testfunksjoner (som vi bruker i denne oppgaven gjennom pekeren <code style="color: #cfcecc;">*testing.T</code>)</li>
+         <li>referansefunksjoner (en. benchmark; kanskje dere har hørt om <em>CPU benchmarks</em>)</li>
+         <li><em>fuzz</em> funksjoner (som generer tilfeldige input data for å avdekke potensielle sikkerhets- og stabilitetsutfordringer)</li>
+         <li>eksempelfunksjoner</li>
+       </ul>
+     </p>
+     <p>I denne omgangen kommer vi til å bruke <br /><code style="color: #cfcecc;">go test github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/PAKKE_NAVN</code><br /> fra den mappen hvor <code style="color: #cfcecc;">go.mod</code> ligger. For eksempel, i et konkret tilfelle kan kommandoen se slik ut: <br />
+       <code style="color: #cfcecc;">go test github.com/uia-worker/fib/fib</code>, hvor
+       <ul>
+         <li><code style="color: #cfcecc;">GITHUB_KONTONAVN = uia-worker</code></li>
+         <li><code style="color: #cfcecc;">REPOSITORY_NAVN = fib</code></li>
+          <li><code style="color: #cfcecc;">PAKKE_NAVN  = fib</code></li>
+       </ul>
+       Testfilen <code style="color: #cfcecc;">fib_test.go</code> og pakkefilen (den koden som utgjør enhver applikasjon) <code style="color: #cfcecc;">fib.go</code> ligger da i mappen <code style="color: #cfcecc;">fib</code>, som har en foreldremappe som også heter <code style="color: #cfcecc;">fib</code> og som er under kontrollen av <code style="color: #cfcecc;">.git</code> databasen. Module navn (som ble brukt med <code style="color: #cfcecc;">go mod init MODULE_NAVN</code>) er <code style="color: #cfcecc;">github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN</code>.
+     </p>
+
+
+
+
   </div>
 </body>
 </html>
