@@ -500,11 +500,11 @@
       5 Go moduler
       <a name="gomoduler"></a>
     </h2>
-    <p>I tidligere versjoner av Go (før 1.11), all kode, som man utviklet måtte lagres i en spesifikk mappe, som var angitt med miljøevariabelen <code style="color: #cfcecc;">$GOPATH</code>. Go designere hadde en visjon om en global arbeidsrom, men det viste seg å være for lite fleksibelt. Koden måtte alltid låses til en spesifikk sti og det var ikke mulig å ha flere versjoner av samme pakken i miljøet samtidig. I tillegg alle eksterne pakker ble lagt også inn i en spesifikk mappe og kunne ikke ha flere versjoner.. </p>
+    <p>I tidligere versjoner av Go (før 1.11), all kode, som man utviklet måtte lagres i en spesifikk mappe, som var angitt med miljøevariabelen <code style="color: #cfcecc;">$GOPATH</code>. Go designere hadde en visjon om et globalt arbeidsrom, men det viste seg å være for lite fleksibelt. Koden måtte alltid låses til en spesifikk sti og det var ikke mulig å ha flere versjoner av samme pakken i miljøet samtidig. I tillegg alle eksterne pakker ble lagt også inn i en spesifikk mappe og kunne ikke ha flere versjoner.</p>
 
     <p>Derfor ble det lagt til kommandoer for administrasjon av moduler og arbeidsrom (en. workspaces) i Go utviklingsmiljøet. Go moduler lar en utvikler lagre kildekoden (pakkene) utenfor <code style="color: #cfcecc;">$GOPATH</code>. Med Go moduler ble en egen Go miljøvariabel <code style="color: #cfcecc;">GO111MODULE=on</code> introdusert, som kan ha tre mulige verdier, - "auto" så man kunne velge om man la koden fortsett bli i <code style="color: #cfcecc;">$GOPATH</code> eller å lagre koden utenfor <code style="color: #cfcecc;">$GOPATH</code>; "off" (ignorerer <code style="color: #cfcecc;">go.mod</code> filer og forholder seg til <code style="color: #cfcecc;">$GOPATH</code>) og "on" (er i module-modus, også når det ikke finnes go.mod).
     </p>
-    <p>Det er også mulig å lage ennå høyre abstraksjon enn modul, - arbeidsrom eller <em>workspaces</em> på engelsk. Se Figur 4 for den hierarkiske strukturen som en Go utvikler bør forholde seg til.</p>
+    <p>Det er også mulig å lage ennå høyere abstraksjon enn en modul, - arbeidsrom eller <em>workspaces</em> på engelsk. Se Figur 4 for den hierarkiske strukturen som en Go utvikler bør forholde seg til.</p>
 
     <img src="images/go-workspace-modules-packages.svg" width="500" alt="Go arbeidsrom">
     <p>Figur 4. Go arbeidsrom for prosjekter.</p>
@@ -515,7 +515,7 @@
     <ol>
       <li>Gjør mappen <code style="color: #cfcecc;">fib</code> med repository-kopien gjeldende.</li>
       <li>Sjekk hva <code style="color: #cfcecc;">go test</code> og <code style="color: #cfcecc;">go build</code> returnerer.</li>
-      <li>Sjekk verdien til <code style="color: #cfcecc;">GO111MODULE</code> (bruk <code style="color: #cfcecc;">go env GO111MODULE</code> og den skal returnere "on" eller ingenting).</li>
+      <li>Sjekk verdien til <code style="color: #cfcecc;">GO111MODULE</code> (bruk <code style="color: #cfcecc;">go env GO111MODULE</code> og den skal returnere "on"). For å sette miljøvariabelen <code style="color: #cfcecc;">GO111MODULE</code> permanent (dvs. vil gjelde for flere terminalsesjoner og også etter oppstart av datamaskinen), kan man bruke kommandoen <code style="color: #cfcecc;">go env -w GO111MODULE=on</code>.</li>
       <li>Åpne en editor (som du har kontroll over, slik at den ikke lagrer diverse filer til din repository mappe; <em>vim</em> og <em>emacs</em> kan være gode alternativer, hvis du har brukt de fra før; du kan også skrive <code style="color: #cfcecc;">notepad main.go</code> på kommandolinje og Windows vil åpne <em>Notepad</em> med den relevante filen) og rediger og lagre filen. Filen skal ha følgende innhold:
 <pre><code>
 package main
