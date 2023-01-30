@@ -452,24 +452,46 @@
     </h3>
     <p>Oppgavene gjøres enten i macOS Terminal (bash eller zsh), eller i Windows cmd. Hvis noen har konfigurert et virtuelt Linux terminal eller bruker Linux på sin datamaskin, kan det også brukes.</p>
     <p>Noter alle output, slik at du kan dokumentere ditt arbeid.</p>
+    <p>Kommentar etter del 1 av seminarat: Punktene 1 og 2 gjøres på github.com. </p>
     <ol>
 
     <li>Lag en privat repository med navnet <code style="color: #cfcecc;">fib</code> i <em>Github</em>.</li>
-    <li>Velg <code style="color: #cfcecc;">README.md</code> og <code style="color: #cfcecc;">.gitignore</code>.</li>
-    <li>Kopier (eller flytt) mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN/fib</code> fra forrige oppgaven til mappen <code style="color: #cfcecc;">fib-backup</code> (<code style="color: #cfcecc;">~</code> er symbol for hjemmemappe).</li>
+    <li>Velg <code style="color: #cfcecc;">README.md</code> og <code style="color: #cfcecc;">.gitignore template: Go</code>.
+      <img src="images/github-new-private-repository-screenshot.png" width="500" alt="Github new repository screenshot">
+      <p>Figur EXTRA 1. Github new repository screenshot.</p>
+    </li>
+    <li>Kopier (OBS! korreksjon: ikke flytt) mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN/fib</code> fra forrige oppgaven til mappen <code style="color: #cfcecc;">fib-backup</code> (<code style="color: #cfcecc;">~</code> er symbol for hjemmemappe; <code style="color: #cfcecc;">fib-backup</code> skal ligge i mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN</code>; i <code style="color: #cfcecc;">fib-backup</code> skal det ligge samme innhold som i mappen <code style="color: #cfcecc;">fib</code>). Mappestrukturen etter dette skal være følgende:
+      <pre><code>
+      ~/is105 |->github.com |->GITBRUKERNAVN |->fib |-> README.md
+                                                    |-> main.go
+                                                    |-> mappe2 |-> ...
+                                             |-> fib-backup |-> ...
+                                                 (samme som i fib)
+
+      </code></pre>
+    </li>
     <li>Gjør <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN</code> den gjeldende mappe.</li>
-    <li>Klone repositorien <code style="color: #cfcecc;">fib</code> på din egen datamaskin med kommandoen <code style="color: #cfcecc;">git clone REPOSITORY_NAVN</code>.</li>
-    <li>Vise frem innholdet i den nye mappen <code style="color: #cfcecc;">fib</code>.</li>
+    <li>Klone repositorien <code style="color: #cfcecc;">fib</code> på din egen datamaskin med kommandoen <code style="color: #cfcecc;">git clone REPOSITORY_NAVN</code> (slette <code style="color: #cfcecc;">fib</code>, hvis kloning feiler).</li>
+    <li>Vise frem innholdet i den nye mappen <code style="color: #cfcecc;">fib</code> med <code style="color: #cfcecc;">ls -la</code> kommandoen.
+      <pre><code>
+      ~/is105 |->github.com |->GITBRUKERNAVN |->fib |-> .
+                                                    |-> ..
+                                                    |-> .git
+                                                    |-> .gitignore
+                                                    |-> README.md
+                                                    |-> main.go
+
+      </code></pre></li>
     <li>Finne og kopiere filene <code style="color: #cfcecc;">README.md</code> og <code style="color: #cfcecc;">main.go</code>fra mappen <code style="color: #cfcecc;">fib-backup</code> til mappen som ble klonet fra Github.</li>
     <li>Gjør <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN</code> gjeldende.</li>
     <li>Lag en ny mappe <code style="color: #cfcecc;">tmp</code> og gjør den gjeldende.</li>
-    <li>Bruk kommandoen <code style="color: #cfcecc;">curl --output .gitignore --url https://raw.githubusercontent.com/uia-worker/is105test/main/.gitignore</code> for å laste ned en ny <code style="color: #cfcecc;">.gitignore</code> fil fra en ekstern kilde.</li>
-    <li>Kopier filen til mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN/fib</code>.</li>
+    <li>Bruk kommandoen <code style="color: #cfcecc;">curl --output .gitignore --url https://raw.githubusercontent.com/uia-worker/is105test/main/.gitignore</code> for å laste ned en ny <code style="color: #cfcecc;">.gitignore</code> fil fra en ekstern kilde (denne kommandoen overskriver den opprinnelige <code style="color: #cfcecc;">.gitignore</code>, som ble lagt til når du laget en ny repository i Github). OBS! på macOS kan man bruke kommandoen <code style="color: #cfcecc;">ls -la</code> , som står for "list files in long format including archive files" for å liste ut innholdet i mappen og se at filen er blitt lastet ned. <code style="color: #cfcecc;">.gitignore</code> er en slik "archivee"-fil og derfor er skjult hvis man ikke bruker flagget <code style="color: #cfcecc;">-a</code></li>
+    <li>Kopier filen til mappen <code style="color: #cfcecc;">~/is105/github.com/GITBRUKERNAVN/fib</code> <em>OBS! ny tekst:</em> og slett mappen <code style="color: #cfcecc;">tmp</code>.</li>
     <li>Gjør <code style="color: #cfcecc;">fib</code> gjeldende mappe og sjekke <code style="color: #cfcecc;">git status</code>.</li>
     <li>Gjør <code style="color: #cfcecc;">git add *</code> for å "stage" den ene nye og de to endrede filene. Sjekk <code style="color: #cfcecc;">git status</code>.</li>
     <li>Gjør <code style="color: #cfcecc;">git commit -m "Endret README.md ..."</code> for å registrere endringene på din lokale datamaskinen (som ligger i mappen <code style="color: #cfcecc;">.git</code>).</li>
     <li>Sjekk <code style="color: #cfcecc;">git status</code>.</li>
-    <li>Gjør <code style="color: #cfcecc;">git push origin main</code> for å registrere endringene på din eksterne repository (som ligger i mappen <em>Github</em>). Sjekk <code style="color: #cfcecc;">git status</code>.</li>
+    <li>Gjør <code style="color: #cfcecc;">git push origin main</code> for å registrere endringene på din eksterne repository (som ligger på <em>Github</em>). Sjekk <code style="color: #cfcecc;">git status</code>.</li>
     <li>Sjekk ut hva <code style="color: #cfcecc;">git pull</code> returnerer og tenk på hvorfor.</li>
   </ol>
 
