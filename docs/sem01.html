@@ -202,6 +202,12 @@
               <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
             </td>
           </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">A<tt>&nbsp;</tt></span>
+              <a href="#atillegg" class="tocsubseclink" data-pltdoc="x">Tillegg</a>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -569,14 +575,14 @@ func main() {
         <pre><code>
           input := 0
           got := Fib(input)
-          want := 1
+          want := 0
           if got != want {
               t.Errorf("Fib(%d): want %d, got %d", input, want, got)
           }
         </code></pre>
       Hvis vi kjører <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib</code>, så får vi en feilmelding (RESPONS#1).
       </li>
-      <li>Vi kaller funksjonen <code style="color: #cfcecc;">Fib(0)</code> i filen <code style="color: #cfcecc;">fib_test.go</code>. Denne funksjonen er ikke implementert. Hvordan skal den se ut? Vi tester nå for <code style="color: #cfcecc;">Fib(0) = 0</code>, derfor må vi lage en fil <code style="color: #cfcecc;">fib.go</code>, hvor vi implementerer funksjonen (dette er hovedprinsippet i test-drevet utvikling, - først skrive test, så skrive funksjonen som testes).
+      <li>Vi kaller funksjonen <code style="color: #cfcecc;">Fib(0)</code> i filen <code style="color: #cfcecc;">fib_test.go</code>. Denne funksjonen er ikke implementert. Hvordan skal den se ut? Vi tester nå for <code style="color: #cfcecc;">Fib(0) = 0</code>, derfor må vi lage en fil <code style="color: #cfcecc;">fib.go</code>, hvor vi implementerer funksjonen (dette er hovedprinsippet i test-drevet utvikling, - først skrive test, så skrive funksjonen som skal testes).
         <pre><code>
         package fib
 
@@ -586,7 +592,7 @@ func main() {
         </code></pre>
         Kjør <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib</code> igjen. Nå bør output fra test være tilfredstillende (RESPONS#2).
       </li>
-      <li>Endre verdien til variabelen <code style="color: #cfcecc;">want</code> til <code style="color: #cfcecc;">1 </code> (OBS! korreksjon: endre <code style="color: #cfcecc;">want</code> til <code style="color: #cfcecc;">0</code>, siden den allerede er </code> til <code style="color: #cfcecc;">1</code> i kodefragmentet ovenfor) og utfør testen på nytt. Blir reponsen annerledes? (RESPONS#3)</li>
+      <li>Endre verdien til variabelen <code style="color: #cfcecc;">want</code> til <code style="color: #cfcecc;">1 </code> i filen <code style="color: #cfcecc;">fib_test.go</code> og utfør testen på nytt. Blir reponsen annerledes? (RESPONS#3)</li>
       <li>Nå har vi testet for det første tilfelle for Fibonacci beregning, nå går vi over til det andre tilfelle <code style="color: #cfcecc;">F(1) = 1</code>. Vi bryr oss foreløpig ikke om repetisjon i koden og skriver en ny test på sammen måten:
         <pre><code>
           input = 1 // legg merke til operatøren =
@@ -612,7 +618,7 @@ func main() {
         </code></pre>
         Utfør testen. Hva blir responsen? (RESPONS#5)
       </li>
-      <li>Nå er det på tiden å fjerne duplisering av koden (det kaller vi fremover for  <em>refaktorering</em>).
+      <li>Nå er det på tiden å fjerne duplisering av koden (det kaller vi fremover for  <em>refaktorering</em>) i filen <code style="color: #cfcecc;">fib_test.go</code>.
         <pre><code>
           type test struct {
             input int
@@ -636,10 +642,10 @@ func main() {
 
       </li>
       <li>
-        Nå er det kun det siste tilfelle igjen, og den gjelder alle andre naturlige tall større enn 1, - <code style="color: #cfcecc;">F(n) = F(n-1) + F(n-2)</code>. Legg inn en ny test i slicen tests for det tredje Fibonacci tallet, - <code style="color: #cfcecc;">{2,1}</code>. Utfør testen og noter respons (RESPONS#6).
+        Nå er det kun det siste tilfelle igjen, og den gjelder alle andre naturlige tall større enn 1, <code style="color: #cfcecc;">F(n) = F(n-1) + F(n-2)</code>. Legg inn en ny test i slicen tests for det tredje Fibonacci tallet, - <code style="color: #cfcecc;">{2,1}</code> i filen <code style="color: #cfcecc;">fib_test.go</code>. Utfør testen og noter respons (RESPONS#6).
       </li>
-      <li>Legg inn for det fjerde Fibonacci tallet, utfør testen og noter respons (REPSONS#7).</li>
-      <li>Det ser ut at det må endringer til i funksjonen <code style="color: #cfcecc;">Fib(n int) int</code>. Vi kan tenke i flere steg:
+      <li>Gjør det samme for det fjerde Fibonacci tallet, utfør testen og noter respons (REPSONS#7).</li>
+      <li>Det ser ut at det må endringer til i funksjonen <code style="color: #cfcecc;">Fib(n int) int</code> i filen <code style="color: #cfcecc;">fib.go</code>. Vi kan tenke i flere steg:
         <pre><code>
         // Bør være ok for det fjerde leddet {3,2}
         package fib
@@ -784,7 +790,7 @@ func main() {
     </ul>
     <h2>
       A Tillegg (etter første publikasjon)
-      <a name="referanser"></a>
+      <a name="atillegg"></a>
     </h2>
     <p>Dette avsnittet inneholder beskrivelser av diverse ting, som er relevante for seminaret og som er lagt til etter den første publikasjonen av dette dokumentet 27. Januar 2023.</p>
     <h3><code style="color: #cfcecc;">go test</code> og <code style="color: #cfcecc;">go build</code></h3>
