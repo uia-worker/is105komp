@@ -483,7 +483,6 @@
       ~/is105 |->github.com |->GITBRUKERNAVN |->fib |-> .
                                                     |-> ..
                                                     |-> .git
-                                                    |-> .gitignore
                                                     |-> README.md
                                                     |-> main.go
 
@@ -580,7 +579,7 @@ func main() {
               t.Errorf("Fib(%d): want %d, got %d", input, want, got)
           }
         </code></pre>
-      Hvis vi kjører <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib</code>, så får vi en feilmelding (RESPONS#1).
+      Hvis vi kjører <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib/fib</code>, så får vi en feilmelding (RESPONS#1).
       </li>
       <li>Vi kaller funksjonen <code style="color: #cfcecc;">Fib(0)</code> i filen <code style="color: #cfcecc;">fib_test.go</code>. Denne funksjonen er ikke implementert. Hvordan skal den se ut? Vi tester nå for <code style="color: #cfcecc;">Fib(0) = 0</code>, derfor må vi lage en fil <code style="color: #cfcecc;">fib.go</code>, hvor vi implementerer funksjonen (dette er hovedprinsippet i test-drevet utvikling, - først skrive test, så skrive funksjonen som skal testes).
         <pre><code>
@@ -590,7 +589,7 @@ func main() {
           return 0
         }
         </code></pre>
-        Kjør <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib</code> igjen. Nå bør output fra test være tilfredstillende (RESPONS#2).
+        Kjør <code style="color: #cfcecc;">go test -v github.com/GITHUB_KONTONAVN/REPOSITORY_NAVN/fib/fib</code> igjen. Nå bør output fra test være tilfredstillende (RESPONS#2).
       </li>
       <li>Endre verdien til variabelen <code style="color: #cfcecc;">want</code> til <code style="color: #cfcecc;">1 </code> i filen <code style="color: #cfcecc;">fib_test.go</code> og utfør testen på nytt. Blir reponsen annerledes? (RESPONS#3)</li>
       <li>Nå har vi testet for det første tilfelle for Fibonacci beregning, nå går vi over til det andre tilfelle <code style="color: #cfcecc;">F(1) = 1</code>. Vi bryr oss foreløpig ikke om repetisjon i koden og skriver en ny test på sammen måten:
