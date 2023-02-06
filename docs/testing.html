@@ -191,7 +191,7 @@
 
     <h2>
       1 Spesifikasjon <code style="color: #cfcecc;">funtemps</code>
-      <a href="spesifikasjon"></a>
+      <a name="spesifikasjon"></a>
     </h2>
     <p>En av prinsippene bak design av Unix (og Linux) operativsystemet er modularitet. Systemverktøy, for å administrere, monitorere og konfigurere systemet er små programmer (kommandoer eller moduler; OBS! moduler i denne sammenhengen er ikke det samme som Go moduler), som hver gjør en ting veldig bra (er godt testet, blant annet på forskjellig maskinvare). Administrasjon av et datasystem ofte består av gjentagelse av de samme operasjonene (kopiere filer, endre filer, sende/motta filer, observere prosesser, observere maskinvare, kompilere programmer, starte/stoppe prosesser/programmer osv.). Slike gjentagende operasjoner kan da bli implementert som kommandolinjeapplikasjoner. Brukere av operativsystemet bruker slike stabile programmer til å utvikle videre sine egne programmer (systemet er utvidbart/programmerbart). I denne oppgaven skal du planlegge og implementere et program (kommando, fordi at den skal starte fra kommandolinje med inn-data på kommandolinje og skrive ut svar/ut-data til kommandolinje), som regner om fra en temperaturskala til en annen. I tillegg skal ditt program kunne skrive ut noen "fun-facts" om temperaturer på Solen, Månen og Jorden.</p>
 
