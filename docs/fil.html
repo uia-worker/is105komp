@@ -84,49 +84,31 @@
           <tr>
             <td>
               <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
-              <a href="#motivasjon" class="tocsubseclink" data-pltdoc="x">Motivasjon for automatmodeller</a>
+              <a href="#usrandkernel" class="tocsubseclink" data-pltdoc="x">Brukerrom og kjernerom</a>
             </td>
           </tr>
           <tr>
             <td>
               <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
-              <a href="#modellerdatamaskin" class="tocsubseclink" data-pltdoc="x">Modeller for datamaskin</a>
+              <a href="#syscall" class="tocsubseclink" data-pltdoc="x">Systemkall</a>
             </td>
           </tr>
           <tr>
             <td>
               <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
-              <a href="#tilstandsautomat" class="tocsubseclink" data-pltdoc="x">Tilstandsautomat</a>
+              <a href="#filadmin" class="tocsubseclink" data-pltdoc="x">Filadministrajon</a>
             </td>
           </tr>
           <tr>
             <td>
               <span class="tocsublinknumber">5<tt>&nbsp;</tt></span>
-              <a href="#nfa" class="tocsubseclink" data-pltdoc="x">NFA</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">6<tt>&nbsp;</tt></span>
-              <a href="#regexp" class="tocsubseclink" data-pltdoc="x">Regulære uttrykk</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">7<tt>&nbsp;</tt></span>
-              <a href="#filosofi" class="tocsubseclink" data-pltdoc="x">Til (filosofisk) ettertanke</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">8<tt>&nbsp;</tt></span>
               <a href="#begrep" class="tocsubseclink" data-pltdoc="x">Begrepsoppklaring</a>
             </td>
           </tr>
           <tr>
             <td>
-              <span class="tocsublinknumber">9<tt>&nbsp;</tt></span>
-              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser (ikke obligatorisk lesestoff)</a>
+              <span class="tocsublinknumber">6<tt>&nbsp;</tt></span>
+              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
             </td>
           </tr>
         </tbody>
@@ -153,68 +135,117 @@
       1 Innledning
       <a name="innledning"></a>
     </h2>
-    <p>Selv om vi er mest interessert i filbehandling fra Go programmeringsmiljøet, trenger vi litt innsikt i lavere nivå mekanismer for å kunne med større selvtillit bruke Go sine pakker. Ved bruk av kommandolinje skal vi se på grunnleggende detaljer til filsystemet i Linux. Windows brukere kan bruke GitBash eller installere WSL (Windows Subsystem for Linux).</p>
+    <p>Selv om vi her er mest interessert i filbehandling fra Go programmeringsmiljøet, trenger vi litt innsikt i lavere nivå mekanismer for å kunne med større selvtillit bruke Go sine pakker. Vi skal først avklare hva menes "brukerrom" (en. user space) og "kjernerom" (en. kernel space). Så skal vi se på hva et systemkall er og drøfte noe eksempler relatert til bruken av filsystemet fra (eller gjennom) et operativssystem. Ved bruk av kommandolinje skal vi se på noen grunnleggende detaljer til filsystemet i Linux. Windows brukere kan bruke GitBash (er et eget program utviklet av en tredje part, så garanteres ikke at alt virker) eller installere WSL (Windows Subsystem for Linux).</p>
     <p>
-    Mappe- og filstrukturer i operativsystemer er også beskrevet i teksten for <a href="sem01.html#install">de første seminaroppgavene</a>. Her antar vi at leseren er kjent med absolutt og relativ sti, grunnleggende kommandoer for å navigere i filsystemet
+    Mappe- og filstrukturer i operativsystemer er også beskrevet i teksten for <a href="sem01.html#install">de første seminaroppgavene</a>. Her antar vi at leseren er kjent med absolutt og relativ sti, gjeldende mappe og grunnleggende kommandoer for å navigere og administrere både Windows, macOS og Linux filsystemer.</p>
+
+    <h2>
+      2 Brukerrom og kjernerom
+      <a name="usrandkernel"></a>
+    </h2>
+    <img src="images/kernel-user-spaces-1.svg" width="500" alt="Kjerne- og brukerrom os arkitektur">
+    <p><i>Figur 1. Brukerrom og kjernerom i OS arkitekturen.</i></p>
+    <p>
+      I OS modeller skiller man mellom <em>brukerrom</em>, hvor brukere kan utføre sine programmer, og <em>kjernerom</em>, hvor operativsystemets programmer utføres. <em>Kjernerommet</em> må være aktivert, før brukere kan utføre sine programmer. Gjennom <em>kjernerommet</em> får brukeren tilgang til maskinvaren. Denne modellen implementeres for multibruker- og multiprogram-miljøer (eller multiprogrammeringsmiljøer hvis man oversetter direkte fra engelsk).
+    </p>
+    <img src="images/kernel-user-spaces-2.svg" width="500" alt="Kjerne- og brukerrom os arkitektur 2">
+    <p><i>Figur 2. Brukerrom med prosesser og kjernerom i OS arkitekturen.</i></p>
+    <p>
+      Multibruker-miljø er selvforklarende, men multiprogrammeringsmiljø betyr at flere programmer kan utføres tilsynelatende samtidig (<code style="color: #cfcecc;">P1</code> - <code style="color: #cfcecc;">Pn</code>  i Figur 2 står for prosesser, som da tilsvarer hvert program, som ønsker å starte fra <em>brukerrommet</em>). Tilsynelatende fordi at de fleste forbrukersystemer har kun en prosessor, som kan kun utføre en instruksjon av gangen (meget simplifisert forestilling, men ikke veldig lagnt fra hvordan det i realiteten foregår). En analogi ville vært en kø ved en kasse i en butikk, hvor kassepersonell behandlet kundene slik at hver kunde fikk slått inn en vare og måtte gå bak i køen igjen og vente før alle andre har fått slått inn en vare hver. I dette konkrete scenarioet ville de med færrest varer kommet fortere gjennom, mens de med mange varer hadde måttet vente noe lenger. Hvis ikke ønsket å få mye klager fra kunder med mange varer, kunne man enten åpne en annen kasse (hvis det finnes ressurser), eller utvikle et prioritetssystem, hvor kunder med spesifikk antall varer fikk en prioritet og kunne, for eksempel, fått slått inn 2 varer på hver runde. Den generelle gjennomstrømningen hadde vært avhengig av hvilken type kunder er mest og av selve algoritmen. Man kunne gjennomført målinger å funnet en optimal algoritme, som minimaliserer behandlingstid for de fleste type kunder.
+    </p>
+    <p><em>Kjernerommet</em> er representert med mange datastrukturer og egne prosesser som enten venter på noen input (både fra <em>brukerrommet</em> og <em>maksinvaren</em>) eller utfører oppgaver gitt fra "brukerrommet" eller diverse andre oppgaver for å holde systemet i en brukbar (logisk for brukeren) tilstand.</p>
+    <img src="images/kernel-user-spaces-3.svg" width="500" alt="Kjerne- og brukerrom os arkitektur 3">
+    <p><i>Figur 3. Brukerrom og kjernerom med elementer i OS arkitekturen.</i></p>
+
+    <p>For at systemet skal kunne funksjonere, må kode både for <em>kjernen</em> og <em>brukerprogrammer</em> være lagret i det primære minnet (RAM). I modellens kontekst, så snakker man vanligvis om et virtuelt minne (kort sagt er det en mengde programmer, som skaper et grensesnitt for andre programmer mot det fysiske minne). Vi kaller de for VAS eller Virtual Address Space. En vanlig design er å gi programmene et inntrykk at de har tilgang på et meget stort adresserom, for eksempel, på 32-bits systemer er det vanligvis 4 Gibibytes (for 64-bits systemer kan det varierer fra OS til OS, men kan være rundt 8 Terabytes) tilsynelatende tilgjengelig for hvert program. Kjernen deler ikke adresserom med brukerprogrammene. </p>
+
+    <h2>
+      3 Systemkall
+      <a name="syscall"></a>
+    </h2>
+    <p>Vi må la den blå boksen i våre figurene representere all maskinvare, som er tilgjengelig på datasystemet, dvs. skjerm, tastatur, vår disker for fillagring, våre <em>blåtann</em> kontakter, våre nettverkskort og selvsagt også prosessoren (eller flere) og det flyttige, primære minne, som kan ikke beholde noen kode når strømmen er slått av.</p>
+    <p>For at vi skal kunne utføre hvilken som helst oppgave på vårt datasystem, må våre programmer bruke de programmene som ligger (utfører, selv om de fleste "står stille") i kjernens fysiske adresserom og har mulighet til å kommunisere med maskinvaren. Alle miljøer med et operativsystem, inneholder egne biblioteker med funksjoner som man kaller for <em>systemkall</em>. Disse er implementert enten på det programmeringsspråket som operativsystemkjernen er implementert på, eller et assemblerspråk (ikke vanlig), som er ulikt for hver maskinvarearkitektur. For eksempel, Linux distribusjoner inneholder et bibliotek, som heter <code style="color: #cfcecc;">glibc</code>. I dette biblioteket er mange systemkall implementert. Figur 4 viser en <code style="color: #cfcecc;">syscall</code>, som de også ofte blir kalt. </p>
+    <img src="images/kernel-user-spaces-4.svg" width="500" alt="Systemkall fra brukerrommet">
+    <p><i>Figur 4. Systemkall fra brukerrommet</i></p>
+    <p>Linux har ca. 300 slike <em>systemkall</em>, macOS 400-500 og Windows ca. 2000.</p>
+
+
+    <img src="images/linuxsyscallsome.png" width="500" alt="Noen systemkall i Linux">
+    <p><i>Figur 5. Noen systemkall i Linux (Filippo Valsorda, 2023)</i></p>
+    <p>Se også <a href="https://filippo.io/linux-syscall-table/" target="_blank">et søkbart register</a>et søkbart register med lenker direkte til Linux kjernekode.</p>
+
+    <img src="images/macOSsyscallFiles.png" width="500" alt="Systemkall i macOS for filadmin">
+    <p><i>Figur 6. Systemkall i macOS for filadministrasjon (What System Calls Does MacOS Have?, 2017)</i></p>
+
+    <img src="images/windowsyscallsexamples.png" width="500" alt="Noen systemkall i Windows">
+    <p><i>Figur 7. Noen systemkall i Windows (System Calls in Unix and Windows, 2020)</i></p>
+
+    <p>En programmerer trenger vanligvis ikke å bruke <em>systemkall</em> direkte. De aktuelle operativsystemene har omfattende biblioteker, som har pakket inn <em>systemkall</em> i funksjoner som kan brukes gjennom et høyere nivå programmeringsspråk. Vi har allerede brukt disse funksjonene hver gang vi har utført et kommando på kommandolinje. Bare utførelsen av en <code style="color: #cfcecc;">ls</code> kommando påkalte mer enn 100 <em>systemkall</em>. Noen ganger kan det allikevel være nyttig å kunne vite om <em>systemkall</em>. Spesielt hvis man anvender åpen kildekode programvare, så er ofte driver-programmer for spesifikk maskinvare ikke tilgjengelig. Nå som det er blitt mer utbredt å arbeide med IoT (Internet of Things), må man kunne koble til og administrere et stort spektrum av enheter. Da kan det være nødvendig å sette seg inn i flere detaljer.</p>
+
+    <h2>
+      4 Filadministrajon
+      <a name="filadmin"></a>
+    </h2>
+    <p>Filadministrasjon er en av operativsystemets oppgaver. På et datasystem med multiprogrammering skjer mange ting tilsynelatende samtidig. Vanligivis har vi mange programmer åpne, og kildekoden for alle programmene ligger på filsystemet. Under seminar I så ble det nevnt forskjellige filsystemer, som de aktuelle OS-ene bruker. Windows bruker NTFS (forkortelse for “NT File System”), macOS bruker APFS (Apple File System) og Linux bruker ext4 (fourth extended filesystem). Vi har også nå sett at hvert OS har egne funksjoner (<em>systemkall</em>) for å lagre og hente informasjon til og fra disse filsystemene.</p>
+
+    <p>I Go, som har et kryss-platform kompilator, er systemkall for flere platformer tilgjengelig gjennom biblioteker, avhengig av hvilket format for den eksekverbare filen er ønskelig (Mach-O, PE/PE32+ eller ELF; se slide 28 fra dokumentet "IS-105 Operativsystemer" i Canvas). Det betyr at utvikleren kan velge formatet for den eksekverbare filen som blir skapt med <code style="color: #cfcecc;">go build</code> ved å spesifisere OS og ARCH på følgende måte (hvis det er ønskelig å lage et program for Android, som bruker en Arm prosessor, for eksempel):
+      <pre><code>
+      $ GOOS=android GOARCH=arm64 go build [eventuelt filnavn]
+      </code></pre>
+      <p><i>Kodefragment 1. Go kommando for kompilering og linking av programmer.</i></p>
+    </p>
+    <p>Go utviklingmiljøet inneholder funksjoner for de aller fleste <em>systemkall</em> som en utvikler skulle trenge.</p>
+    <img src="images/go-design-libraries-kernel-hardware.svg" height="500" style="background-color: #DBF9FC;" alt="Go modell for systemkall">
+    <p><i>Figur 8. Go model for systemkall (også på slide 39 fra dokumentet "IS-105 Operativsystemer" i Canvas).</i></p>
+    <p>Go utviklingmiljøet inneholder funksjoner for de aller fleste <em>systemkall</em> som en utvikler skulle trenge, ikke bare de som har med filsystemer å gjøre.</p>
+
+    <p>I Figur 8 ser vi blant annet pakken <code style="color: #cfcecc;">os</code>. Denne pakken inneholder funksjoner som lar oss aksessere maskinvaren, som holder alt det nødvendige for at vi skal kunne oppfatte det som filsystem fra vårt "høye slott" (kommandolinje, Java eller Go). Hvis vi husker kommandoer som <code style="color: #cfcecc;">type nul > main.go</code> for Windows cmd og <code style="color: #cfcecc;">touch main.go</code> for Linux og macOS, så bruker disse kommandoene, blant annet, <em>systemkall</em> som <code style="color: #cfcecc;">CreateFile()</code> i Windows og <code style="color: #cfcecc;">creat</code> i Linux og macOS.</p>
+    <p>Et annet kommando vi har sett er hvordan å vise frem den gjeldende mappen, - <code style="color: #cfcecc;">echo %cd%</code> for Windows cmd og <code style="color: #cfcecc;">pwd</code> or Linux og macOS. I Go standardbiblioteket finnes det funksjon <code style="color: #cfcecc;">os.Getwd()</code>. Som vi kan se, er funksjonen implementert i pakken <a href="https://pkg.go.dev/os" target="_blank"><code style="color: #cfcecc;">os</code></a>.
+      <pre><code>
+      func Getwd() (dir string, err error)
+      </code></pre>
+      <p><i>Kodefragment 2. Signatur til funksjonen Getwd() fra Go os pakken.</i></p>
+      Når vi ser på signaturen til funksjonen (Kodefragment 2), ser vi at den tar ingen input-argumenter, men den returnerer to output-verdier representert med variablen <code style="color: #cfcecc;">dir</code> av type <code style="color: #cfcecc;">string</code> og <code style="color: #cfcecc;">err</code> av type <code style="color: #cfcecc;">error</code>. En av Go sine konvensjoner for feilhåndtering (ulikt Java, vel å merke) er å alltid returnere en err fra funksjoner, slik at feilen kan fanges opp der hvor funksjonen blir brukt (påkalt). Se eksempel i Kodefragment 3:
+      <pre><code>
+      wd, err := os.Getwd()
+      if err != nil {
+        fmt.Println(err)
+        return
+      }
+      fmt.Println("Den gjeldende mappen er: ", wd)
+      </code></pre>
+      <p><i>Kodefragment 3. Bruk av funksjonen Getwd() fra Go os pakken med feilhåndtering.</i></p>
+
+      <p>Strengen med navn til gjeldende mappe er forventet i variabelen <code style="color: #cfcecc;">wd</code> og en eventuell feil er forventet i variabelen <code style="color: #cfcecc;">err</code>.</p>
+
+      <p>En vesentlig del av alle programmer er åpning og manipulasjon av innholdet i filer. Go os pakken inneholder flere funksjoner som kan hjelpe oss med det. For å kunne manipulere en fil, den må åpnes. <code style="color: #cfcecc;">os.OpenFile(...)</code> funksjonen kan brukes for det. Filer kan bli åpnet i diverse modus, dvs. de kan kun leses, kun skrives eller begge deler er mulig.</p>
+
+      <pre><code>
+        dst, err := os.OpenFile("nyfil.txt", os.O_CREATE|os.O_RDWR, 0666)
+        if err != nil {
+          fmt.Println("Error:", err)
+          return
+        }
+        defer dst.Close()
+      </code></pre>
+      <p><i>Kodefragment 4. Lage en ny tom fil.</i></p>
+      <p><code style="color: #cfcecc;">O_CREATE</code> (se Figur 9) sier at hvis filen ikke eksisterer så skal det gjøres et forsøk for å skape filen. <code style="color: #cfcecc;">O_RDWR</code> sier at vi ønsker å åpne filen for både lesing og skriving. <code style="color: #cfcecc;">0666</code> skal forsøke å sette tilgangsrettigheter for den nyskapte (hvis det gikk bra) filen. For å gjennomføre dette kallet, blir mange <em>systemkall</em> brukt, blant annet for å skape filen, sette den i spesifikk modus og sette tilgangsrettigheter. <code style="color: #cfcecc;">0666</code> kalles også for <em>umask</em> (user file-creation mode mask), som bestemmer tilgangsrettigheter for nylig skapte filer. Vi går ikke inn i detaljer her, men kan nevne at dette er en måte å sette en standard for alle brukere på datasystemet om hvilke tilgangsrettigheter filene får. I dette tilfelle skal filen kunne leses og skrives av eieren (den kontoen som brukes når programmet utføres) og kunne leses av alle andre brukere på datasystemet (filen bør få rettighetene <code style="color: #cfcecc;">0644</code> som regnes ut fra <em>umask</em> og den gitte filskapelsesmodus <code style="color: #cfcecc;">0666</code>).</p>
+
+      <img src="images/go-os-package-const-file-operations.png" width="500" alt="Go modell for systemkall">
+      <p><i>Figur 9. Konstanter i os pakken for filadministrasjon (Kilde https://pkg.go.dev/os).</i></p>
     </p>
 
-    <h2>
-      2
-      <a name=""></a>
-    </h2>
-
-
-    <h2>
-      3
-      <a name=""></a>
-    </h2>
-
-
-
-
-    <h2>
-      4
-      <a name=""></a>
-    </h2>
-
-
-    <h2>
-      5
-      <a name=""></a>
-    </h2>
-
-
-    <h2>
-      6 Regulære uttrykk og filer
-      <a name="regexp"></a>
-    </h2>
-    <p>En enkel regnestykke fra aritmetikken er <code style="color: #cfcecc;">(7 + 3) * 4</code>.</p>
-    <p>På samme måte kan man bruke regulære operasjoner for å bygge uttrykk som beskriver språk, som man kaller for <em>regulære uttrykk</em> (en. regular expressions), for eksempel:</p>
-    <p><code style="color: #cfcecc;">(0 ∪ 1)0*</code></p>
-    <p>Verdien, når det aritmetiske uttrykket prosesseres er 40. Verdien, når det regulære uttrykket prosesseres er et språk. I dette tilfelle verdien er et språk som består av alle strenger som starter med 0 eller 1 (les tegnet ∪ som eller) etterfulgt av et vilkårlig antall 0-er.</p>
-    <p>Prøv selv. Gå til <a href="https://www.regexpal.com/" target="_blank">regexpal</a> og kopier inn følgende i felte for uttrykk: <code style="color: #cfcecc;">(0|1)0*</code> (∪ og | er ekvivalente)<p>
-    <p>I tekstfeltet, skriv inn <code style="color: #cfcecc;">1111</code></p>
-    <p>Eksperimenter med andre uttrykk og tekster.</p>
-
-    <p>Regulære uttrykk spiller en viktig rolle i applikasjoner. I applikasjoner som behandler tekst (som en kompilator, for eksempel), er ofte et krav om å søke etter strenger, som tilfredstiller visse mønstre. For eksempel, anta at bedriften har et mal for alle brukernavn i et system, hvor alle brukernavn begynner med en liten bokstav i det engelske alfabetet og slutter på et tall i hakkeparentes. Da kan man skrive følgende uttrykk for å finne alle forekomst av et slikt mønster i en tekst: </p>
-    <p><code style="color: #cfcecc;">^[a-z]+\[[0-9]+\]$</code></p>
-
-
 
 
      <h2>
-       7 Begrepsoppklaring
-       <a name="begrep"></a>
-     </h2>
-
-
-     <h2>
-       9 Referanser
+       5 Referanser
        <a name="referanser"></a>
      </h2>
      <ul>
+       <li>Filippo Valsorda. (2023). Searchable Linux Syscall Table for x86 and x86_64 | PyTux. Filippo.io. https://filippo.io/linux-syscall-table/</li>
+       <li>System Calls in Unix and Windows. (2020). Tutorialspoint.com. https://www.tutorialspoint.com/system-calls-in-unix-and-windows</li>
        <li>Persson, J.-B. (2021). Linux System Programming Techniques. Packt Publishing Ltd. (Persson, 2021)</li>
-     </ul>
+       <li>What system calls does macOS have? (2017). Jameshfisher.com. https://jameshfisher.com/2017/01/31/macos-system-calls/</li>
   </div>
 
 </body>
