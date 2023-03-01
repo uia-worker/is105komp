@@ -130,13 +130,13 @@
               <tr>
                 <td align="right"></td>
                 <td>
-                  <a href="sem01.html" class="tocviewselflink" data-pltdoc="x">Seminar I</a>
+                  <a href="sem01.html" class="tocviewlink" data-pltdoc="x">Seminar I</a>
                 </td>
               </tr>
               <tr>
                 <td align="right"></td>
                 <td>
-                  <a href="#" class="tocviewlink" data-pltdoc="x">Seminar II</a>
+                  <a href="sem02.html" class="tocviewselflink" data-pltdoc="x">Seminar II</a>
                 </td>
               </tr>
               <tr>
@@ -160,42 +160,7 @@
               <a href="#plan" class="tocsubseclink" data-pltdoc="x">Plan for seminaret</a>
             </td>
           </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
-              <a href="#install" class="tocsubseclink" data-pltdoc="x">Om installasjon</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
-              <a href="#cli" class="tocsubseclink" data-pltdoc="x">Om CLI</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
-              <a href="#git" class="tocsubseclink" data-pltdoc="x">Om Git</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">5<tt>&nbsp;</tt></span>
-              <a href="#gomoduler" class="tocsubseclink" data-pltdoc="x">Go moduler</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">6<tt>&nbsp;</tt></span>
-              <a href="#testingfib" class="tocsubseclink" data-pltdoc="x">Test-drevet utvikling (Fibonacci)</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span class="tocsublinknumber">7<tt>&nbsp;</tt></span>
-              <a href="#docker" class="tocsubseclink" data-pltdoc="x">Om Docker</a>
-            </td>
-          </tr>
+          
           <tr>
             <td>
               <span class="tocsublinknumber">8<tt>&nbsp;</tt></span>
@@ -272,18 +237,18 @@
       <tr>
         <td>06.03</td>
         <td>9:30 - 10:00</td>
-        <td><a href="#cli">Linux image for Docker</a> (oppgavesett #1)</td>
+        <td><a href="#dockerimg">Linux image for Docker</a> (oppgavesett #1)</td>
         <td>Docker startet på platformen. Kontainer startet basert på ubuntu:latest. CLI startet inn i kontainer. Liste ut og forklare mappestruktur i root-mappen (<code style="color: #cfcecc;">/</code>)</td>
       </tr>
       <tr>
         <td>06.03</td>
         <td>10:15 - 11:00</td>
-        <td><a href="#cli">Oppsett av Linux</a> (oppgavesett #2)</td>
+        <td><a href="#linux">Oppsett av Linux</a> (oppgavesett #2)</td>
         <td></td>
       </tr>
         <td>06.03</td>
         <td>11:15 - 12:00</td>
-        <td>Fortsetter med <a href="#cli">Oppsett av Linux</a> (oppgavesett #2)</td>
+        <td>Fortsetter med <a href="#linux">Oppsett av Linux</a> (oppgavesett #2)</td>
         <td></td>
       </tr>
       <tr>
@@ -295,7 +260,7 @@
       <tr>
         <td>10.03</td>
         <td>8:30 - 9:00</td>
-        <td><a href="#gomoduler">Go profilering</a> (oppgavesett #3)</td>
+        <td><a href="#gopprof">Go profilering</a> (oppgavesett #3)</td>
         <td></td>
       </tr>
       <tr>
@@ -307,7 +272,7 @@
       <tr>
         <td>10.03</td>
         <td>09:30 - 10:00</td>
-        <td><a href="#testingfib">Tolkning av profilering</a> (oppgavesett #4)</td>
+        <td><a href="#profiling">Tolkning av profilering</a> (oppgavesett #4)</td>
         <td></td>
       </tr>
       <tr>
@@ -323,39 +288,70 @@
       X Docker
       <a name="docker"></a>
     </h2>
-    <p>Docker er et verktøy som gir mulighet til å utvikle programmer i et lokalt miljø (på egen datamaskin) og distribuere løsninger i sin helhet til andre miljøer, for eksempel, en nettsky. Veldig simplifisert, er Docker et program som gir mulighet til å simulere distribusjoner av forskjellige operativssystemer. Med Docker kan en utvikler velge blant stort antall av <em>image</em> (pakker som inneholder både operativsystemprogrammer og spesifikk brukerprogramvare). Man velger en <em>image</em>, dvs. laster den ned på egen datamaskin. Videre kan brukeren starte en <em>kontainer</em> hvor <em>image</em> kan utføre og ha tilgang til vertssystemet. Vertssystemet er da den platformen som du opprinnelig har installert på din maskinvare (de fleste av oss bruker enten Windows eller macOS platformer). Navnet <em>kontainer</em> symboliser et abstrakt isolert miljø, som bortsett fra tilgang til maskinvare ressurser, er adskilt fra annen programvare på datamaskinen. <em>Kontainer</em> kan også enkelt transporteres fra en fysisk enhet til en annen og startes</p>
-    <p>Docker ressurser:</p>
-    <ul>
-      <li><a href="https://docs.docker.com/go/guides/" target="_blank">Docker guides</a></li>
-      <li><a href="https://docker.events.cube365.net/dockercon/2022" target="_blank">Dockercon 2022</a></li>
-      <li><a href="https://techtutorialsite.com/docker-commit-changes-to-containers/" target="_blank">Commit changes to containers</a></li>
-    </ul>
+    <p>Docker er et verktøy som gir mulighet til å utvikle programmer i et lokalt miljø (på egen datamaskin) og distribuere løsninger i sin helhet til andre miljøer, for eksempel, en nettsky. Veldig simplifisert, er Docker et program som gir mulighet til å simulere distribusjoner av forskjellige operativssystemer. Tanken er at en utvikler kan velge en <em>image</em> fra en sentral repository (kalles for <a href="https://hub.docker.com/">Docker Hub</a>) og utvikle sin applikasjon basert på denne <em>imagen</em>. Det er vanlig å velge en <em>basis image</em>, som inneholder operativsystemprogrammer og eventuelt noen spesifikke programmer, og så bygge sine egne <em>imager</em> basert på den.</p>
 
-    <p>Man kan bruke Docker fra kommandolinje, men Docker har også en Desktop av meget høyt kvalitet (følger med i installasjonspakken):</p>
+    <p>Når imagen er valgt, kan utvikleren starte en <em>kontainer</em> hvor <em>image</em> kan utføre og kommunisere med vertssystemet. Vertssystemet er da den platformen som du opprinnelig har installert på din maskinvare (de fleste av oss bruker enten Windows eller macOS platformer). Navnet <em>kontainer</em> symboliser et abstrakt isolert (og til viss grad standardisert) element, allokert på vertsmaskinen, som da sørger for tilgang til maskinvaren. <em>Kontainer</em> kan også "transporteres" (overføres) fra en fysisk enhet (vertsmaskinen) til en annen (f. eks., en virtuell server i nettsky).</p>
+
+    <img src="images/docker-basis-workflow.svg" width="400" alt="Grunnleggende arbeidsflyt med Docker">
+     <p><i>Figur X. Grunnleggende arbeidsflyt med Docker.</i></p>
+
+
+    <p>Man kan bruke Docker fra kommandolinje, men Docker har også en grafisk grensesnitt, som kalles Dashboard (følger med i installasjonspakken). I Dashboard kan man se alle imager, som er nedlastet lokalt på vertsmaskinen (et lokalt register, til motsetning av et eksternt register, som Docker Hub) og sårbarhetene i forhold til sikkerhet (en. vulnerabilities) på pakkenivå. Man kan også se alle kontainere som utfører på vertsmaskinen. I Dashboard kan man også konfigurere hvor mye ressurser det virtuelle miljøet kan maksimalt bruke av vertsmaskinens ressurser (CPU, RAM og disk).</p>
+
+    <p>For å laste ned en image og starte en kontainer basert på denne imagen, kan følgende kommandoer brukes fra CLI på vertsmaskinen:</p>
     <ul>
-      <li><code style="color: #cfcecc;">docker pull ubuntu:latest</code></li>
-      <li><code style="color: #cfcecc;">docker images</code></li>
-      <li><code style="color: #cfcecc;">docker run --name minubuntu1 -d -t -i -p 8080:8080 ubuntu</code></li>
-      <li><code style="color: #cfcecc;">docker container ls</code></li>
-      <li><code style="color: #cfcecc;">docker exec -it minubuntu1 /bin/bash </code></li>
+      <li><code style="color: #cfcecc;">docker pull ubuntu:latest</code> for å laste ned image fra det eksterne til det lokale registeret</li>
+      <li><code style="color: #cfcecc;">docker images</code> for å sjekke hvilke imager er i det lokale registeret</li>
+      <li><code style="color: #cfcecc;">docker run --name minubuntu1 -d -i -p 8080:8080 ubuntu</code> denne kommandoen kombinerer <code style="color: #cfcecc;">docker pull</code> med det å starte opp en kontainer på vertsmaskinen i bakgrunnen (<code style="color: #cfcecc;">-d</code>), med en åpen STDIN (<code style="color: #cfcecc;">-i</code>) og med en port (for kommunikasjon) 8080 i kontaineren (på venstre siden av :) bundet til en port 8080 på vertsmaskinen (på høyre siden av :)</li>
+      <li><code style="color: #cfcecc;">docker container ls</code> se alle kontainere som er startet på vertsmaskinen</li>
+      <li><code style="color: #cfcecc;">docker exec -it minubuntu1 /bin/bash </code> "logge inn" i kontainer, dvs. få tilgang på CLI, som utføres i kontaineren</li>
     </ul>
+    <p>Etter at disse kommandoene er utført, skal kontainerens CLI blokkere vertsmaskinens CLI. Åpne en annen CLI på vertsmaskinen, slik at det er mulig å jobbe i begge to.</p>
 
     <h3>
       Oppgaver for Godkjenning
-    </H3>
-    <p>INGEN.</p>
+    </h3>
+    <ul>
+      <li>Docker Desktop installert og startet på platformen.</li>
+      <li>Finne docker versjon og Go versjon for Docker Desktop utgivelsen (tips: bruk CLI (vertsmaskin)kommandoen <code style="color: #cfcecc;">docker version</code>).</li>
+      <li>Bevise ved hjelp av CLI (vertsmaskin) kommando at image <code style="color: #cfcecc;">ubuntu:latest</code> (mest sannsynlig 22.04) er lastet ned på maskinen (<code style="color: #cfcecc;">ubuntu</code> kalles i Docker for <em>repository</em> og <code style="color: #cfcecc;">latest</code> kalles for <em>tag</em>.</li>
+      <li>Bevise ved hjelp av CLI (vertsmaskin) kommando at kontainer <code style="color: #cfcecc;">minubuntu1</code> utfører på vertsmaskinen.</li>
+      <li>Bevise ved hjelp av Dashboard hvor mange sikkerhetsmessige sårbarheter har imagen <code style="color: #cfcecc;">ubuntu:latest</code>.</li>
+      <li>Liste ut mappestruktur i CLI (kontainer) i root-mappen (<code style="color: #cfcecc;">/</code>) og basert på Wikipedia artikkelen om <a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard" target="_blank">Filesystem Hierachy Standard</a> beskrive mappene <code style="color: #cfcecc;">/bin</code>, <code style="color: #cfcecc;">/etc</code>, <code style="color: #cfcecc;">/home</code> og <code style="color: #cfcecc;">/proc</code>. Hvor er et vanlig sted i FHS for å lagre log-filer fra programmer?</li>
 
+     </ul>
+
+    <p>Docker ressurser:</p>
+    <ul>
+      <li><a href="https://docs.docker.com/get-docker/" target="_blank">Get Docker</a></li>
+      <li><a href="https://docs.docker.com/go/guides/" target="_blank">Docker guides</a></li>
+    </ul>
     
+    <h2>
+      X Linux oppsett
+      <a name="linux"></a>
+    </h2>
+    <p>Virtualiseringsprogramvaren (som Docker) vil gi oss en læringsplatform for å lære om operativssytemer. En student kan installere virtualiseringsprogramvaren på sin platform og bruke denne programvaren for å utforske Unix/Linux-type operativsystemer og deres distribusjoner. Slike operativsystemer brukes utstrakt i nettsky konfigurasjoner og i utvikling av distribuerte applikasjoner (per i dag er tilnærmet alle brukbare applikasjoner i denne kategorien).</p>
+    <p>I dette seminaret skal vi fokusere på en spesifikk distribusjon av Linux, - Ubuntu (les mer i Wikipedia artikkelen om <a href="https://en.wikipedia.org/wiki/Ubuntu">https://en.wikipedia.org/wiki/Ubuntu</a>). Vi skal jobbe med Docker image <code style="color: #cfcecc;">ubuntu:latest</code>, som skal være av versjon 22.04, som har kodenavnet <em>Jammy Jellyfish</em> (Releases - Ubuntu Wiki, 2022). De vil være tre hovedområder som dere skal utførske, - (1) bruken av pakkeadministrasjonssystemer, (2) konfigurasjon av en annen brukerkonto enn root sin og (3) automatiske oppdateringer (og sikkerhetsoppdateringer). Dere skal også aksessere et program, som utføres i kontainer fra nettleseren til vertsmaskinen i forbindelse med Go profilering.</p>
+    <p>Det forventes at dere kan bruke CLI kommandoer og tekstredigering direkte i CLI (nano, vim, emacs). </p>
 
+    <p>Kommandoer for pakkeadministrasjon varierer fra distribusjon til distribusjon. Det finnes to store distribusjonsgrupper, - Centos/Red Hat og Debian/Ubuntu. Vi vil utforske CLI programmet <code style="color: #cfcecc;">apt-get</code> for Debian/Ubuntu, siden vår image <code style="color: #cfcecc;">ubuntu:latest</code> har den installert.</p>
+    <p>CLI i kontainer vil ha en prompt som dette:</p>
+    <pre><code>
+      root@c6f804d8ca1:~#
 
+      root - brukernavn
+      c6f804d8ca1 - kontainer ID
+      ~ - representerer hjemmemappe /root
+    </code></pre>
+    <p>Kontainer ID kan vises med CLI (vertsmaskin) kommando <code style="color: #cfcecc;">docker container</code>.</p>
 
     <h2>
       X CLI kommandoer
       <a name="cli"></a>
     </h2>
-    <p>Samling av CLI kommandoer relatert til Seminar II. Vi ser kun på kommandoer for Linux distribusjoner (de fleste av kommandoer er like i macOS, men det finnes unntak).</p>
-    <ul>
-      <li>bash (Bourne again shell etter Stephen Bourne) i Linux/Unix (1989) og macOS (men nyere distribusjoner markedsfører zsh (1990) etter Yale professor Zhong Shao sitt brukernavn); i presentasjoner i dette emne brukes bash; noen typiske kommandoer er:</li>
+    <p>Samling av CLI kommandoer relatert til Seminar II. Vi ser kun på kommandoer for Linux distribusjoner (de fleste av kommandoer er like i macOS, men det finnes unntak). Kommandoene gjelder bash (Bourne again shell etter Stephen Bourne) i Linux/Unix (1989) og macOS. Nyere distribusjoner av macOS markedsfører zsh (1990), som har sitt navn etter Yale professor Zhong Shao sitt brukernavn.</p>
+    
       <ul>
         <li><code style="color: #cfcecc;">ls</code>vise innhold i gjeldende mappe</li>
         <li><code style="color: #cfcecc;">ls -R</code>vise innhold i gjeldende mappe og alle undermapper</li>
@@ -372,8 +368,8 @@
         <li><code style="color: #cfcecc;">rm -R</code>sletter filer og ikke tomme mapper (kan også bruke -Rf, men da kommer ingen påminnelse om at man utfører en "farlig" operasjon)</li>
         <li><code style="color: #cfcecc;">touch FILNAVN</code>lager en ny tom fil</li>
         <li><code style="color: #cfcecc;">man</code>manual (bruk <code style="color: #cfcecc;">man KOMMANDO</code> for å se detaljert beskrivelse av kommandoet; bruk <code style="color: #cfcecc;">q</code> for å gå ut av visningsmodus; ikke alle Linux imagene for Docker har <code style="color: #cfcecc;">man</code> installert, bruk <a href="https://man7.org/linux/man-pages/index.html" target="_blank">manualer online</a>)</li>
+        <li><code style="color: #cfcecc;">docker version</code> viser informasjon for docker utgivelsen, som er installert og utfører på vertsmaskinen</li>
       </ul>
-    </ul>
 
     <p>(Beholder denne teksten fra Sem I)</p>
     <p>Siden alle dataprogrammer (og kommandoer fra operativsystemet) har en input og en output, så har operativsystemer egne <em>kanaler</em> for disse, som blir allokert når datamaskinen starter opp. To av disse <em>kanalene</em> er relatert til input og output og en tredje til feilmeldinger. De tre I/O <em>kanalene</em> (en. streams) er:</p>
@@ -396,6 +392,8 @@
     <dl>
       <dt>nettsky</dt>
       <dd>IT  samling av datatjenester som ytes over Internett og som samvirker med andre datatjenester, f.eks. fjernlagring, backup av data og fjernbruk av dataprogrammer ; cloud computing</dd>
+      <dt>vertsmaksin</dt>
+      <dd>Datamaskinen som er startet opp med et spesifikt operativsystem og klar til å utføre andre programmer, for eksempel, programmer som simulerer andre operativsystemer.</dd>
     </dl>
 
     
@@ -407,6 +405,8 @@
     <ul>
       <li>Linux man pages online. (2023). Man7.org. https://man7.org/linux/man-pages/index.html</li>
       <li>Releases - Ubuntu Wiki. (2022). Ubuntu.com. https://wiki.ubuntu.com/Releases</li>
+      <li><a href="https://docker.events.cube365.net/dockercon/2022" target="_blank">Dockercon 2022</a></li>
+      <li><a href="https://techtutorialsite.com/docker-commit-changes-to-containers/" target="_blank">Commit changes to containers</a></li>
     </ul>
     <h2>
       A Tillegg (etter første publikasjon)
