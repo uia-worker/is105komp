@@ -556,17 +556,17 @@
       <a name="gopprof"></a>
     </h2>
     
-    <p>Go har mange verktøy i verktøyboksen, som kan hjelpe en utvikler til å ha bedre kontroll på programmene som utvikleren skriver. Vi har sett <code style="color: #cfcecc;">go test</code> og nå skal bli kjent med en ny en <code style="color: #cfcecc;">pprof</code>.</p>
+    <p>Go har mange verktøy i verktøyboksen, som kan hjelpe en utvikler til å ha bedre kontroll på programmene som utvikleren skriver. Vi har sett <code style="color: #cfcecc;">go test</code> og nå skal bli kjent med et nyt verktøy, - <code style="color: #cfcecc;">pprof</code>.</p>
     
     <p>Utviklerverktøy kan generelt klassifiseres i følgende klasser:</p>
     <ul>
       <li>for testing (f. eks. enhetstester som i funtemps)</li>
       <li>for benchmarking (for å sammenligne algoritmer)</li>
-      <li>for profilering (for å se på hvordan programmet bruker maskinvare ressurser)</li>
-      <li>for debugging (for å utføre kode stegvis, dvs. stoppe utførelsen på spesifikke "breakpoints"</li>
+      <li>for profilering (for å se på hvordan programmet bruker maskinvareressurser)</li>
+      <li>for debugging (for å utføre kode stegvis, dvs. stoppe utførelsen på spesifikke "breakpoints")</li>
     </ul>
     
-    <p>Vi skal se på benchmarking og debugging senere, men i dette seminarer introduseres det profilering. Kort sagt, er profilering en måten å stoppe programmet etter en spesifisert tidsperiode og lagre et "avtrykk" som programmet gjør på CPU eller minne. Hvis tidsperioden er valgt optimalt, kan man identifisere signifikant bruk av enten prosessor eller primært minne. Ofte skyldes slik signifikant bruk av ressurser algoritmen, dvs. hvordan utvikleren har skrevet koden. Et ofte brukt eksempel er relatert til bruken av buffer. Hvis det er lite plass til mellomlagring, må vanligvis prosessoren arbeide mer. Dette illustrere også den mest kritiske "trade-off", som en utvikler bør være oppmerksom på, - "trade-off" mellom belastning av prosessor eller belastning av minne.</p>
+    <p>Vi skal se på benchmarking og debugging senere, men i dette seminarer introduseres det profilering. Kort sagt, er profilering en måten å stoppe programmet etter en spesifisert tidsperiode og lagre et "avtrykk" som programmet gjør på CPU eller minne. Hvis tidsperioden er valgt optimalt, kan man identifisere signifikant bruk av enten prosessor eller primært minne. Ofte skyldes slik signifikant bruk av ressurser algoritmen, dvs. hvordan utvikleren har skrevet koden. Et ofte brukt eksempel er relatert til bruken av buffer. Hvis det er lite plass til mellomlagring, må vanligvis prosessoren arbeide mer. Dette illustrerer også den mest kritiske "trade-off", som en utvikler bør være oppmerksom på, - "trade-off" mellom belastning av prosessor og belastning av minne.</p>
     
 
     <p>Dere finner all nødvendig kode i repositorien til uia-worker <a href="https://github.com/uia-worker/pprof.git" target="_blank">pprof</a>. Denne gangen skal dere gjøre forking av denne repositorien og så jobbe videre på deres egen versjon (videre omtalt som <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>). Dere skal klone den forkede versjonen i deres kontainer og jobbe videre på den. Dere må kunne pushe profilbildene til deres repository.</p>
