@@ -160,17 +160,34 @@
               <a href="#plan" class="tocsubseclink" data-pltdoc="x">Plan for seminaret</a>
             </td>
           </tr>
-          
           <tr>
             <td>
-              <span class="tocsublinknumber">8<tt>&nbsp;</tt></span>
-              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
+              <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
+              <a href="#docker" class="tocsubseclink" data-pltdoc="x">Docker</a>
             </td>
           </tr>
           <tr>
             <td>
-              <span class="tocsublinknumber">A<tt>&nbsp;</tt></span>
-              <a href="#atillegg" class="tocsubseclink" data-pltdoc="x">Tillegg</a>
+              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
+              <a href="#linux" class="tocsubseclink" data-pltdoc="x">Linux oppsett</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
+              <a href="#gopprof" class="tocsubseclink" data-pltdoc="x">Profilering i Go</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">5<tt>&nbsp;</tt></span>
+              <a href="#begreper" class="tocsubseclink" data-pltdoc="x">Begreper</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">6<tt>&nbsp;</tt></span>
+              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
             </td>
           </tr>
         </tbody>
@@ -183,6 +200,7 @@
       Seminar II: Docker, Linux distribusjon, Go profilering
     </h1>
     <p>Forkunnskapskrav: grunnleggende systemadministrasjon fra CLI, grunnleggende Git og Github, Go moduler, go build, go test og grunnleggende programmering i Go (forstå package, import, func main() og noen funksjoner fra pakker fmt, os, io, log, bufio, math, bytes, strings, strconv).</p>
+    <p>Dette seminaret dekker læringsmål 2, 3, 4, 6 og 7 (om muligheter for virksomheter).</p>
     <p>Aktivitetene på seminaret II er:</p>
       <ul>
       <li>Installere Docker.</li>
@@ -237,7 +255,7 @@
       <tr>
         <td>06.03</td>
         <td>9:30 - 10:00</td>
-        <td><a href="#dockerimg">Linux image for Docker</a> (oppgavesett #1)</td>
+        <td><a href="#docker">Linux image for Docker</a> (oppgavesett #1)</td>
         <td>Docker startet på platformen. Kontainer startet basert på ubuntu:latest. CLI startet inn i kontainer. Liste ut og forklare mappestruktur i root-mappen (<code style="color: #cfcecc;">/</code>)</td>
       </tr>
       <tr>
@@ -249,7 +267,7 @@
         <td>06.03</td>
         <td>11:15 - 12:00</td>
         <td>Fortsetter med <a href="#linux">Oppsett av Linux</a> (oppgavesett #2)</td>
-        <td></td>
+        <td><code style="color: #cfcecc;">sudo</code> installert og konfigurert og brukerkonto lagt til. Generert en ny image med endringene i basis image.</td>
       </tr>
       <tr>
         <td>10.03 (aud B1 007)</td>
@@ -260,20 +278,14 @@
       <tr>
         <td>10.03</td>
         <td>8:30 - 9:00</td>
-        <td><a href="#gopprof">Go profilering</a> (oppgavesett #3)</td>
+        <td><a href="#gopprof">Profilering i Go</a> (oppgavesett #3)</td>
         <td></td>
       </tr>
       <tr>
         <td>10.03</td>
-        <td>9:15 - 9:30</td>
-        <td>Presentasjon tolkning av profilering</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>10.03</td>
-        <td>09:30 - 10:00</td>
-        <td><a href="#profiling">Tolkning av profilering</a> (oppgavesett #4)</td>
-        <td></td>
+        <td>09:15 - 10:00</td>
+        <td><a href="#gopprof">Profilering i Go</a> (oppgavesett #3)</td>
+        <td>Kan utvikle i kontainer og pushe til Github. Generert 9 profiler. Kan vise frem profiler i nettleser på vertsmaskinen.</td>
       </tr>
       <tr>
         <td>10.03</td>
@@ -285,7 +297,7 @@
     </table>
 
    <h2>
-      X Docker
+      2 Docker
       <a name="docker"></a>
     </h2>
     <p>Docker er et verktøy som gir mulighet til å utvikle programmer i et lokalt miljø (på egen datamaskin) og distribuere løsninger i sin helhet til andre miljøer, for eksempel, en nettsky. Veldig simplifisert, er Docker et program som gir mulighet til å simulere distribusjoner av forskjellige operativssystemer. Tanken er at en utvikler kan velge en <em>image</em> fra en sentral repository (kalles for <a href="https://hub.docker.com/">Docker Hub</a>) og utvikle sin applikasjon basert på denne <em>imagen</em>. Det er vanlig å velge en <em>basis image</em>, som inneholder operativsystemprogrammer og eventuelt noen spesifikke programmer, og så bygge sine egne <em>imager</em> basert på den.</p>
@@ -302,9 +314,9 @@
     <ul>
       <li><code style="color: #cfcecc;">docker pull ubuntu:latest</code> for å laste ned image fra det eksterne til det lokale registeret</li>
       <li><code style="color: #cfcecc;">docker images</code> for å sjekke hvilke imager er i det lokale registeret</li>
-      <li><code style="color: #cfcecc;">docker run --name minubuntu1 -d -i -p 8080:8080 ubuntu</code> denne kommandoen kombinerer <code style="color: #cfcecc;">docker pull</code> med det å starte opp en kontainer på vertsmaskinen i bakgrunnen (<code style="color: #cfcecc;">-d</code>), med en åpen STDIN (<code style="color: #cfcecc;">-i</code>) og med en port (for kommunikasjon) 8080 i kontaineren (på venstre siden av :) bundet til en port 8080 på vertsmaskinen (på høyre siden av :)</li>
+      <li><code style="color: #cfcecc;">docker run --name minubuntu -d -i -p 8080:8080 ubuntu</code> denne kommandoen kombinerer <code style="color: #cfcecc;">docker pull</code> med det å starte opp en kontainer på vertsmaskinen i bakgrunnen (<code style="color: #cfcecc;">-d</code>), med en åpen STDIN (<code style="color: #cfcecc;">-i</code>) og med en port (for kommunikasjon) 8080 i kontaineren (på venstre siden av :) bundet til en port 8080 på vertsmaskinen (på høyre siden av :)</li>
       <li><code style="color: #cfcecc;">docker container ls</code> se alle kontainere som er startet på vertsmaskinen</li>
-      <li><code style="color: #cfcecc;">docker exec -it minubuntu1 /bin/bash </code> "logge inn" i kontainer, dvs. få tilgang på CLI, som utføres i kontaineren</li>
+      <li><code style="color: #cfcecc;">docker exec -it minubuntu /bin/bash </code> "logge inn" i kontainer, dvs. få tilgang på CLI, som utføres i kontaineren</li>
     </ul>
     <p>Etter at disse kommandoene er utført, skal kontainerens CLI blokkere vertsmaskinens CLI. Åpne en annen CLI på vertsmaskinen, slik at det er mulig å jobbe i begge to.</p>
 
@@ -315,7 +327,7 @@
       <li>Docker Desktop installert og startet på platformen.</li>
       <li>Finne docker versjon og Go versjon for Docker Desktop utgivelsen (tips: bruk CLI (vertsmaskin)kommandoen <code style="color: #cfcecc;">docker version</code>).</li>
       <li>Bevise ved hjelp av CLI (vertsmaskin) kommando at image <code style="color: #cfcecc;">ubuntu:latest</code> (mest sannsynlig 22.04) er lastet ned på maskinen (<code style="color: #cfcecc;">ubuntu</code> kalles i Docker for <em>repository</em> og <code style="color: #cfcecc;">latest</code> kalles for <em>tag</em>.</li>
-      <li>Bevise ved hjelp av CLI (vertsmaskin) kommando at kontainer <code style="color: #cfcecc;">minubuntu1</code> utfører på vertsmaskinen.</li>
+      <li>Bevise ved hjelp av CLI (vertsmaskin) kommando at kontainer <code style="color: #cfcecc;">minubuntu</code> utfører på vertsmaskinen.</li>
       <li>Bevise ved hjelp av Dashboard hvor mange sikkerhetsmessige sårbarheter har imagen <code style="color: #cfcecc;">ubuntu:latest</code>.</li>
       <li>Liste ut mappestruktur i CLI (kontainer) i root-mappen (<code style="color: #cfcecc;">/</code>) og basert på Wikipedia artikkelen om <a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard" target="_blank">Filesystem Hierachy Standard</a> beskrive mappene <code style="color: #cfcecc;">/bin</code>, <code style="color: #cfcecc;">/etc</code>, <code style="color: #cfcecc;">/home</code> og <code style="color: #cfcecc;">/proc</code>. Hvor er et vanlig sted i FHS for å lagre log-filer fra programmer?</li>
 
@@ -328,67 +340,350 @@
     </ul>
     
     <h2>
-      X Linux oppsett
+      3 Linux oppsett
       <a name="linux"></a>
     </h2>
-    <p>Virtualiseringsprogramvaren (som Docker) vil gi oss en læringsplatform for å lære om operativssytemer. En student kan installere virtualiseringsprogramvaren på sin platform og bruke denne programvaren for å utforske Unix/Linux-type operativsystemer og deres distribusjoner. Slike operativsystemer brukes utstrakt i nettsky konfigurasjoner og i utvikling av distribuerte applikasjoner (per i dag er tilnærmet alle brukbare applikasjoner i denne kategorien).</p>
-    <p>I dette seminaret skal vi fokusere på en spesifikk distribusjon av Linux, - Ubuntu (les mer i Wikipedia artikkelen om <a href="https://en.wikipedia.org/wiki/Ubuntu">https://en.wikipedia.org/wiki/Ubuntu</a>). Vi skal jobbe med Docker image <code style="color: #cfcecc;">ubuntu:latest</code>, som skal være av versjon 22.04, som har kodenavnet <em>Jammy Jellyfish</em> (Releases - Ubuntu Wiki, 2022). De vil være tre hovedområder som dere skal utførske, - (1) bruken av pakkeadministrasjonssystemer, (2) konfigurasjon av en annen brukerkonto enn root sin og (3) automatiske oppdateringer (og sikkerhetsoppdateringer). Dere skal også aksessere et program, som utføres i kontainer fra nettleseren til vertsmaskinen i forbindelse med Go profilering.</p>
-    <p>Det forventes at dere kan bruke CLI kommandoer og tekstredigering direkte i CLI (nano, vim, emacs). </p>
+    <p>Virtualiseringsprogramvaren (som Docker) vil gi oss en læringsplatform for å lære om operativsystemer. En student kan installere virtualiseringsprogramvaren på sin platform og bruke denne programvaren for å utforske Unix/Linux-type operativsystemer og deres distribusjoner. Slike operativsystemer har en utstrakt bruk i nettsky konfigurasjoner og i utvikling av distribuerte applikasjoner (per i dag er tilnærmet alle brukbare applikasjoner i denne kategorien).</p>
+    <p>I dette seminaret skal vi fokusere på en spesifikk distribusjon av Linux, - Ubuntu (les mer i Wikipedia artikkelen om <a href="https://en.wikipedia.org/wiki/Ubuntu">https://en.wikipedia.org/wiki/Ubuntu</a>). Vi skal jobbe med Docker image <code style="color: #cfcecc;">ubuntu:latest</code>, som skal være av versjon 22.04, som har kodenavnet <em>Jammy Jellyfish</em> (Releases - Ubuntu Wiki, 2022). Det vil være tre hovedområder som dere skal utførske, - (1) bruken av pakkeadministrasjonssystemer, (2) konfigurasjon av en annen brukerkonto enn <em>root</em> sin og (3) automatiske oppdateringer (og sikkerhetsoppdateringer). I tillegg skal dere se på en interessant sak. Dere skal også aksessere et program, som utføres i kontainer fra nettleseren til vertsmaskinen i forbindelse med Go profilering.</p>
+    <p>Det forventes at dere kan bruke CLI kommandoer og tekstredigering direkte i CLI (<a href="https://www.nano-editor.org/dist/latest/cheatsheet.html" target="_blank">nano</a>, <a href="https://vim.rtorr.com/" target="_blank">vim</a>, <a href="https://ccrma.stanford.edu/guides/package/emacs/emacs.html">emacs</a>). </p>
 
-    <p>Kommandoer for pakkeadministrasjon varierer fra distribusjon til distribusjon. Det finnes to store distribusjonsgrupper, - Centos/Red Hat og Debian/Ubuntu. Vi vil utforske CLI programmet <code style="color: #cfcecc;">apt-get</code> for Debian/Ubuntu, siden vår image <code style="color: #cfcecc;">ubuntu:latest</code> har den installert.</p>
-    <p>CLI i kontainer vil ha en prompt som dette:</p>
+    <h3>
+      Pakkeadministrasjon
+      <a name="pkgadmin"></a>
+    </h3>
+
+    <p>Kommandoer for pakkeadministrasjon varierer fra distribusjon til distribusjon. Det finnes to store distribusjonsgrupper, - Centos/Red Hat og Debian/Ubuntu. Vi vil utforske CLI programmet <code style="color: #cfcecc;">apt-get</code> for Debian/Ubuntu, siden vår image <code style="color: #cfcecc;">ubuntu:latest</code> har det installert.</p>
+    <p>Etter at dere har utført <code style="color: #cfcecc;">docker run</code> og <code style="color: #cfcecc;">docker exec</code> vil CLI i kontainer ha en prompt som dette:</p>
     <pre><code>
       root@c6f804d8ca1:~#
 
-      root - brukernavn
-      c6f804d8ca1 - kontainer ID
-      ~ - representerer hjemmemappe /root
+                      root - brukernavn
+                      c6f804d8ca1 - kontainer ID
+                      ~ - den gjeldende mappen (her /root)
     </code></pre>
-    <p>Kontainer ID kan vises med CLI (vertsmaskin) kommando <code style="color: #cfcecc;">docker container</code>.</p>
+    <p><em>root</em> er den eneste brukerkontoen på et nylig installert system og har alle administrative rettigheter.</p>
+    <p>Kontainer ID kan vises med CLI (vertsmaskin) kommando <code style="color: #cfcecc;">docker container ls</code>. Dere har allerede brukt CLI i kontainer for å liste ut FSH-strukturen i oppgaven om Docker.</p>
 
-    <h2>
-      X CLI kommandoer
-      <a name="cli"></a>
-    </h2>
-    <p>Samling av CLI kommandoer relatert til Seminar II. Vi ser kun på kommandoer for Linux distribusjoner (de fleste av kommandoer er like i macOS, men det finnes unntak). Kommandoene gjelder bash (Bourne again shell etter Stephen Bourne) i Linux/Unix (1989) og macOS. Nyere distribusjoner av macOS markedsfører zsh (1990), som har sitt navn etter Yale professor Zhong Shao sitt brukernavn.</p>
-    
-      <ul>
-        <li><code style="color: #cfcecc;">ls</code>vise innhold i gjeldende mappe</li>
-        <li><code style="color: #cfcecc;">ls -R</code>vise innhold i gjeldende mappe og alle undermapper</li>
-        <li><code style="color: #cfcecc;">ls -la</code>vise detaljert innhold i gjeldende mappe inkludert skjulte filer (som begynner med .)</li>
-        <li><code style="color: #cfcecc;">cd</code>endrer gjeldende mappe til hjemmemappe</li>
-        <li><code style="color: #cfcecc;">cd ..</code>endrer gjeldende mappe til foreldremappe (et nivå opp)</li>
-        <li><code style="color: #cfcecc;">cd ../..</code>endrer gjeldende mappe til besteforeldremappe (to nivå opp)</li
-        <li><code style="color: #cfcecc;">pwd</code>viser gjeldende mappe</li>
-        <li><code style="color: #cfcecc;">mkdir</code>lager mapper</li>
-        <li><code style="color: #cfcecc;">mkdir -p</code>lager stier</li>
-        <li><code style="color: #cfcecc;">cp</code>kopierer fra en lokajon til en annen (i tilfelle mapper, hvis avsluttes med /, kopieres kun innhold i mappen)</li>
-        <li><code style="color: #cfcecc;">mv</code>flytter fra en lokasjon til en annen (må være oppmerksom for å ikke overskrive noe man ikke ønsker å overskrive)</li>
-        <li><code style="color: #cfcecc;">rm</code>sletter filer og tomme mapper</li>
-        <li><code style="color: #cfcecc;">rm -R</code>sletter filer og ikke tomme mapper (kan også bruke -Rf, men da kommer ingen påminnelse om at man utfører en "farlig" operasjon)</li>
-        <li><code style="color: #cfcecc;">touch FILNAVN</code>lager en ny tom fil</li>
-        <li><code style="color: #cfcecc;">man</code>manual (bruk <code style="color: #cfcecc;">man KOMMANDO</code> for å se detaljert beskrivelse av kommandoet; bruk <code style="color: #cfcecc;">q</code> for å gå ut av visningsmodus; ikke alle Linux imagene for Docker har <code style="color: #cfcecc;">man</code> installert, bruk <a href="https://man7.org/linux/man-pages/index.html" target="_blank">manualer online</a>)</li>
-        <li><code style="color: #cfcecc;">docker version</code> viser informasjon for docker utgivelsen, som er installert og utfører på vertsmaskinen</li>
-      </ul>
+    <p><code style="color: #cfcecc;">ubuntu:latest</code> er en grunnleggende image, så det er en del viktig systemprogramvare som ikke er med i den. I vårt virtualiseringsmiljø, som er Docker, så kan vi anta at vi har tilgang til den samme maskinvaren som vår vertsmaskin har. Hvis man skulle installert et operativsystem fra bunnen av og direkte på maskinvaren, så skulle man trenge å gjøre mer konfigurasjon av, blant annet, tastatur oppsett, nettverksgrensesnitt, skjerm/skjermkort og eventuelt vindu-systemet for det grafiske brukergrensesnittet. Vi skal ikke starte GUI-baserte programmer i Docker kontainer og vil kun konfigurere den som en "backend"-løsning og et utviklingsmiljø (med git og go). </p>
 
-    <p>(Beholder denne teksten fra Sem I)</p>
-    <p>Siden alle dataprogrammer (og kommandoer fra operativsystemet) har en input og en output, så har operativsystemer egne <em>kanaler</em> for disse, som blir allokert når datamaskinen starter opp. To av disse <em>kanalene</em> er relatert til input og output og en tredje til feilmeldinger. De tre I/O <em>kanalene</em> (en. streams) er:</p>
+    <p>Først installer de nyeste pakkene for Linux distribusjonen og bruk eksisterende kommandoer for å ta vekk det som det ikke er et umiddelbart behov for. Dette må gjøres fra kontoen til root-brukeren (siden noen programmer må installeres for å kunne konfigurere nye brukerkontoer). Tegnet <code style="color: #cfcecc;">$</code> brukes videre i eksemplene for å betegne hele prompten.</p>
+    <pre><code>
+      $ apt-get update
+      $ apt-get distro-upgrade
+      $ apt-get autoremove
+      $ apt-get autoclean
+    </code></pre>
+    <p>For å kunne konfigurere en brukerkonto i tillegg til root-kontoen, må vi installere programmet <code style="color: #cfcecc;">sudo</code> ("superuser do"), som vil betraktelig øke sikkerheten i vårt system. Man kan gjøre følgende ved hjelp av <code style="color: #cfcecc;">sudo</code>:
     <ul>
-      <li><code style="color: #cfcecc;">stdin</code> 0</li>
-      <li><code style="color: #cfcecc;">stdout</code> 1</li>
-      <li><code style="color: #cfcecc;">stderr</code> 2</li>
+      <li>gi noen brukere alle administrative rettighetene, mens gi andre brukere kun de rettighetene som de trenger for å gjennomføre deres arbeid</li>
+      <li>tillate brukere å gjennomføre administrative oppgaver med sitt eget passord, slik at man ikke trenger å distribuere root-passordet</li>
+      <li>gjøre det vanskeligere for destruktive hackere å bryte inn i systemet, siden de vil få problemer å finne ut hvilke kontoer som har administrative rettigheter</li>
+      <li>lage regler som kan deployeres i en større organisasjon, uansett hvilke operativssytemer som blir benyttet på de enkelte maskinene</li>
+      <li>gjøre overvåkingen enklere, siden det blir mulig å se hvilke brukere som har gjort administrative oppgaver</li>
     </ul>
-    <p>Man kan sende data til strømmene med operatør <code style="color: #cfcecc;">n></code>, hvor <code style="color: #cfcecc;">n</code> en et nummer til strømmen. <code style="color: #cfcecc;">KOMMANDO 2>&1</code> omdirigerer data fra <code style="color: #cfcecc;">stderr</code> til <code style="color: #cfcecc;">stdout</code> (som er standard), men det er også mulig å sende <code style="color: #cfcecc;">stderr</code> til en fil, for eksempel, <code style="color: #cfcecc;">KOMMANDO 2>error.txt</code>.
+    I seminaret kommer vi kun til å berører en liten del av konfigurasjonsmulighetene som <code style="color: #cfcecc;">sudo</code> gir.
     </p>
-    <p>Se også <a href="https://levelup.gitconnected.com/unix-linux-command-combinations-that-every-developer-should-know-9ae475cf6568">(Shalitha Suranga, 2023)</a> for noen nyttige tips, som kan forenkle arbeidet på kommandolinje. Husk at dette er "learning-by-doing" og lag jukselapper.</p>
+    <p>Installer <code style="color: #cfcecc;">sudo</code> i kontainer:</p>
+    <pre><code>
+      $ apt-get install -y sudo
+                          
+                          apt-get - programmet for pakkeadministrasjon
+                          install - et argument for apt-get
+                          -y - automatisk "ja" til spørsmål på STDIN
+                          sudo - pakke som skal installeres
 
+    </code></pre>
+    <p>Det er også nødvendig å installere en teksteditor i kontaineren. Her er et eksempel for å installere nano (du kan bare bytte ut nano med vim eller emacs, eller installere alle 3 hvis du ønsker):</p>
+    <pre><code>
+      $ apt-get install -y nano
+    </code></pre>
+    <p>Da er systemet klar for å sette opp en brukerkonto.</p>
+
+    <h4>
+      En (viktig) digresjon om endringene i kontainere
+      <a name="digrchgcont"></a>
+    </h4>
+    <p>Alle operasjoner til nå har foregått i kontainer <code style="color: #cfcecc;">minubuntu</code>, forutsatt at kommandoen for å starte kontainer var <code style="color: #cfcecc;">docker run --name minubuntu -d -i -p 8080:8080 ubuntu</code>. Det er viktig å huske på at alle endringene i kontainer vil gå tapt, hvis vi avslutter kontainer med <code style="color: #cfcecc;">docker container stop minubuntu</code> og fjerner den med <code style="color: #cfcecc;">docker container rm minubuntu</code>. Vi vil også miste alle endringene, hvis vi avslutter Docker Desktop på vår maskin uten å stoppe og fjerne kontainer enten fra CLI eller fra Dashboard.</p>
+    <p>For å beholde endringene vi gjør i en kontainer permanent, kan man lage en ny image med kommandoen <code style="color: #cfcecc;">docker commit minubuntu minubuntu:version1</code>. Man kan velge et navn og en tag for den nye imagen. Husk at <code style="color: #cfcecc;">minubuntu</code> er navn til en kontainer, mens <code style="color: #cfcecc;">minubuntu:version1</code> er navn til den nye imagen. Den nye imagen kan brukes for å starte en ny kontainer med et fritt valgt navn. Man kan starte flere kontainere fra den samme imagen og i det tilfelle må man navngi kontainere unikt.</p>
+
+    <p>Imager kan ta stor plass på din lokale lagringsenhet, så det kan være en god praksis å slette de imagene, som man ikke har behov for med jevne mellomrom. Kommandoen for å slette en image permanent er <code style="color: #cfcecc;">docker rmi IMAGENAVN</code>, hvor imagenavn består av et navn og en tag, for eksempel <code style="color: #cfcecc;">minubuntu:version1</code>. Imagen kan kun slettes hvis alle kontainere som ble startet fra imagen er fjernet med <code style="color: #cfcecc;">docker container rm KONTAINERNAVN</code>, hvor kontainer navn er det navnet som ble brukt i <code style="color: #cfcecc;">docker run --name</code> flagget.</p>
+
+
+    <h3>
+      Oppsett av en brukerkonto
+      <a name="useradd"></a>
+    </h3>
+    <p>Som tidligere nevnt, er Unix og Linux designet som multibrukersystemer. Derfor har grunnleggende distribusjoner spesifikke verktøy for å sette opp og administrere nye brukerkontoer. Prinsippet om kontoer er ikke annerledes fra det som brukes i webtjenester, hvor brukeren blir bedt om å registrere seg. Ved hjelp av brukerkontoer kan informasjon for hver bruker holdes adskilt fra informasjon til andre brukere (personalisering). Forskjell i operativsystemer er at brukere kan ikke registrere seg selv, dvs. skape en konto. Det må gjøres av en administrator med en root-konto.</p>
+    <p>Verktøyet vi skal bruke for å skape brukerkonto er <code style="color: #cfcecc;">sudo</code>. Når vi installerte verktøyet, lagret insallasjonsprogrammet også en del konfigurasjon på vårt filsystem. Man kan redigere konfigurasjon med kommando:</p>
+    <pre><code>
+      $ sudo visudo
+    </code></pre>
+    <p>Grunnen til at konfigurasjon endres gjennom et spesifikt kommando og ikke direkte redigering av en konfigurasjonsfil (som i mange andre tilfeller for en distribusjon av Linux operativsystemet) er sikkerhet.</p>
+
+    <p>I <code style="color: #cfcecc;">sudo</code> konfigurasjonsfilen finnes det følgende linjer:</p>
+    <pre><code>
+      # User privilege specification
+      root    ALL=(ALL:ALL) ALL
+      # Allow members of group sudo to execute any command
+      %sudo   ALL=(ALL:ALL) ALL
+
+                         % indikerer at det er en gruppe
+                         Første ALL er tilgang til brukerkontoer
+                         Andre  ALL er verter (en. hosts)
+                         Tredje ALL er brukerkonto som utfører kommando
+                         Fjerde ALL er tilgang til kommandoer
+    </code></pre>
+    <p>Som vi kan se, i standardkonfigurasjonen, alle som er medlemmer i gruppen <code style="color: #cfcecc;">sudo</code> har de samme privilegiene som brukeren <em>root</em>. Vi vil i denne omgangen ikke endre standardkonfigurasjonen. Men vi skal legge til vår nye bruker i gruppen <code style="color: #cfcecc;">sudo</code>.</p>
+
+
+    <p>Det finnes (minst) to programmer for å administrere brukere i Ubuntu. <a href="https://manpages.debian.org/unstable/adduser/adduser.8.en.html" target="_blank"><code style="color: #cfcecc;">adduser</code></a> finnes hovedsakelig i Debian distribusjoner (Ubuntu er en Debian distribusjon). <a href="https://man7.org/linux/man-pages/man8/useradd.8.html" target="_blank"><code style="color: #cfcecc;">useradd</code></a> finnes i de fleste Linux distribusjoner og er et mer "lavt-nivå" verktøy for administrere brukere. Vi lager vår bruker (med navn BRUKERNAVN, som du erstatter med det brukernavnet du velger selv) med <code style="color: #cfcecc;">useradd</code>. Siden vi fortsatt har kun root-kontoen på systemet, gjør vi dette i terminalen til root:</p>
+
+    <pre><code>
+      $ useradd -G sudo -m -d /home/BRUKERNAVN -s /bin/bash BRUKERNAVN
+
+                    -G - legge til den nyskapte brukeren i gruppen sudo
+                    -m - står for "make home directory"
+                    -d - spesifiserer hjemmemappen (bør ligge i /home)
+                    -s - står or "shell" som settes til /bin/bash
+    </code></pre>
+    <p>Vi spesifiserte ikke passord i flaggen til <code style="color: #cfcecc;">useradd</code>. Vi kunne brukt <code style="color: #cfcecc;">-p</code> flagget for å spesifisere passord, men da måtte vi ha skrevet inn passordet i klartekst på kommandolinje. Det anbefales ikke at man gjør. Derfor lager vi passord med et annet kommando (skriv inn det passordet du ønsker to ganger):</p>
+    <pre><code>
+      $ passwd BRUKERNAVN
+    </code></pre>
+    <p>Dette passordet skal du bruke når du skal gjøre administrative oppgaver i din kontainer, som, for eksempel, å installere nye programmer ved å bruke <code style="color: #cfcecc;">sudo</code> foran  administrative kommandoer. Når du har spesifisert passordet en gang, kan du gjøre root-oppgaver i 5 minutter (standardinnstilling som kan endres) uten å oppgi passord på nytt. Hvis du i denne perioden utfører kommando <code style="color: #cfcecc;">sudo -k</code>, så må passordet oppgis på nytt. Dette var en viktig sak før, når man jobbet i større datalaber og forlot ofte terminalen åpen. Hvis da perioden for å jobbe uten passord hadde ikke gått ut, kunne noen andre utføre administrative oppgaver fra ens brukerkonto.</p>
+
+    <p>Nå kan du logge inn i din nye konto ved å skrive denne kommandoen fra root-terminalen:</p>
+    <pre><code>
+      $ su - BRUKERNAVN
+    </code></pre>
+    <p>Du trenger ikke å oppgi passord, fordi at du utfører denne kommandoen som <em>root</em>.</p>
+
+    <p>Du kan også gå ut av din kontainer ved å skrive <code style="color: #cfcecc;">exit</code> to ganger (hvis du var i terminalen til den nye brukerkontoen). Da skal du se terminalen til vertsmaskinen (du kan identifisere den basert på prompten).</p>
+
+    <p>Nå kan du også lage en ny image (commit) med kommandoen (i CLI for vertsmaskinen):</p>
+    <pre><code>
+      $ docker commit minubuntu minubuntu:versionN
+
+                          minubuntu - kontainernavn du nettopp logget deg ut av
+                          minubuntu:versionN - ny image med navn minubuntu og tag versionN
+                          N - erstatte N med den versjonen som er relevant
+    </code></pre>
+
+    <p>Se med kommandoen <code style="color: #cfcecc;">docker images</code> om en ny image er blitt laget. Så kan du gjøre følgende for å stoppe den kjørende kontaineren, slette den, starte en ny kontainer basert på den nye imagen og logge deg inn med din nye brukerkonto:</p>
+    <pre><code>
+      $ docker container stop minubuntu
+      $ docker rm minubuntu
+      $ docker run --name minubuntu -d -i -p 8080:8080 minubuntu:versionN
+      $ docker exec -it --user BRUKERNAVN minubuntu /bin/bash
+    </code></pre>
+
+    <h3>
+      Om automatiske oppdateringer
+      <a name="autoupdates"></a>
+    </h3>
+
+    <p>En viktig avgjørelse alltid må taes angående automatiske eller ikke automatiske oppdateringer. Automatiske oppdatering i de fleste tilfellene trenger restart av systemet. Det er ikke en god løsning hvis systemet tilbyr tjenester til mange brukere, som er avhengige av at det funksjonerer. Oppdateringer av et program kan også i noen tilfeller bryte ned andre programmer. Selv om avhengighetsadministrasjon blir stadig bedre, feil fortsatt oppstår. En god sikkerhetsstrategi er å planlegge systemoppdateringer nøye og gjøre disse så sjeldent som mulig ved annonserte tidsperioder eller i perioder med lite trafikk.</p>
+    <p>Vi ser her på et eksempel av hvordan det er mulig å få informasjon om systemoppdateringer og samtidig deaktivere automatiske oppdateringer. Det er ingen garanti at dette verktøyet vil fange opp alle sårbarheter, så man bør kombinere det med andre manueller (og eventuelt automatiske) verktøyene. Husk oversikt over sårbarheter i Docker Dashboard.</p>
+
+    <p>I Ubuntu kan man installere en pakke, som lar systemadministratoren å administrere "uovervåket oppdatering" (en. unattended upgrades).</p>
+    <pre><code>
+      $ sudo apt-get install -y unattended-upgrades
+    </code></pre>
+    <p>Det er mulig å endre konfigurasjonsfilen <code style="color: #cfcecc;">/etc/apt/apt.conf.d/20auto-upgrades</code> slik at automatisk oppdatering vil ikke skje ved systemstart. Filen inneholder kun to linjer og i den andre linjen endrer man "1" til "0", som da vil si at Unattended-Upgrade vil ikke gjennomføres. Innholdet i filen skal da være:</p>
+    <pre><code>
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Unattended-Upgrade "0";
+    </code></pre>
+
+    <p>For å sjekke om det finnes noen sikkerhetsrelaterte oppdateringer, uten å se ikke-sikkerhetsrelaterte oppdateringer bruk følgende kommando:</p>
+    <pre><code>
+      $ sudo unattended-upgrade --dry-run -d
+    </code></pre>
+
+    <p>For å faktiske installere alle tilgjengelige sikkerhets-relaterte oppdateringer, kan man utføre samme kommando uten flagget <code style="color: #cfcecc;">--dry-run</code>:</p>
+    <pre><code>
+      $ sudo unattended-upgrade -d
+    </code></pre>
+
+    <h3>
+      En interessant sak
+    </h3>
+    <p>Det er en kjent sak at det finnes databaser av passord hash-verdier, slik at kontoene med slike passord kan misbrukes. Vi skal se på et eksempel på hvordan man kan sjekke om et passord er kompromitert (en. pawned) eller ikke. Dette gjelder en spesikk krypteringsalgoritme <code style="color: #cfcecc;">SHA-1</code>, som er erklært som usikker.</p>
+    <p>Velg en egnet mappe i din hjemmemappestrukturen og lag en fil med navn <code style="color: #cfcecc;">pawned.sh</code> (kan bruke nano). Legg inn følgende innhold i filen (vi går gjennom detaljene på seminaret):</p>
+    <pre><code>
+      #!/bin/bash
+      candidate_password=$1
+      echo "Candidate passwordd: $candidate_password"
+
+      full_hash=$(echo -n $candidate_password | sha1sum | awk '{print substr($1, 0, 32)}')
+      prefix=$(echo $full_hash | awk '{print substr($1, 0, 5)}')
+      suffix=$(echo $full_hash | awk '{print substr($1, 6, 26)}')
+
+      if curl https://api.pwnedpasswords.com/range/$prefix | grep -i $suffix;
+          then  echo "Candidate password is compromised";
+          else echo "Candidate password is OK for use";
+      fi
+    </code></pre>
+    <p>Dette er en såkalt <em>shell script</em>, som er et eget programmeringsspråk. Den er spesielt egnet til å binde systemprogrammene sammen for å implementere spesifikke brukertilfeller.</p>
+    <p>Etter redigering med en tekseditor har filen mest sannsynlig tilgangsrettighetene <code style="color: #cfcecc;">-rw-rw-r--</code>. En slik fil kan ikke utføres på kommandolinje. Bruk 
+    <pre><code>
+      $ chmod 764 pawned.sh
+    </code></pre>
+    for å gjøre filen utførbar for din brukerkonto.</p>
+    <p>Så kan du prøve
+    <pre><code>
+      $ ./pawned.sh student
+    </code></pre>
+    og trekke dine egne konklusjoner.
+    </p>
+
+    <h3>
+      Oppgaver for Godkjenning
+    </h3>
+    <ul>
+      <li>Forklar hva er <code style="color: #cfcecc;">sudo</code> og hva er den god for.</li>
+      <li>Bevis at gruppe <code style="color: #cfcecc;">sudo</code> har samme rettigheter som brukerkontoen <code style="color: #cfcecc;">root</code> (tips: utføre <code style="color: #cfcecc;">sudo visudo</code>).</li>
+      <li>Bevis at brukerkontoen din er definert (tips: se innholdet i filen <code style="color: #cfcecc;">/etc/passwd</code>).</li>
+      <li>Bevis at din brukerkonto er medlem i gruppe <code style="color: #cfcecc;">sudo</code> (tips: enten utføre kommando <code style="color: #cfcecc;">sudo -l</code> fra terminalen til din brukerkonto, eller vise innholdet i filen <code style="color: #cfcecc;">/etc/group</code>).</li>
+      <li>I filen <code style="color: #cfcecc;">/etc/login.defs</code> finnes det en variabel <code style="color: #cfcecc;">HOME_MODE</code>. Forklar hvordan denne variabelen påvirker rettighetene til hjemmemappen til din brukerkonto.</li>
+      <li>Bevis at du har installert <code style="color: #cfcecc;">unattended-upgrades</code> og forklar meningen med denne pakken og hvorfor man burde ikke bruke den ukritisk?</li>
+      <li>Bevis at du har laget en shell script for å finne kompromiterte passord.</li>
+      <li>Bevis at du har laget en ny image med alle endringene, som du har gjort så langt.</li>
+     </ul>
+
+    <h2>
+      4 Profilering i Go
+      <a name="gopprof"></a>
+    </h2>
+    
+    <p>Go har mange verktøy i verktøyboksen, som kan hjelpe en utvikler til å ha bedre kontroll på programmene som utvikleren skriver. Vi har sett <code style="color: #cfcecc;">go test</code> og nå skal bli kjent med en ny en <code style="color: #cfcecc;">pprof</code>.</p>
+    
+    <p>Utviklerverktøy kan generelt klassifiseres i følgende klasser:</p>
+    <ul>
+      <li>for testing (f. eks. enhetstester som i funtemps)</li>
+      <li>for benchmarking (for å sammenligne algoritmer)</li>
+      <li>for profilering (for å se på hvordan programmet bruker maskinvare ressurser)</li>
+      <li>for debugging (for å utføre kode stegvis, dvs. stoppe utførelsen på spesifikke "breakpoints"</li>
+    </ul>
+    
+    <p>Vi skal se på benchmarking og debugging senere, men i dette seminarer introduseres det profilering. Kort sagt, er profilering en måten å stoppe programmet etter en spesifisert tidsperiode og lagre et "avtrykk" som programmet gjør på CPU eller minne. Hvis tidsperioden er valgt optimalt, kan man identifisere signifikant bruk av enten prosessor eller primært minne. Ofte skyldes slik signifikant bruk av ressurser algoritmen, dvs. hvordan utvikleren har skrevet koden. Et ofte brukt eksempel er relatert til bruken av buffer. Hvis det er lite plass til mellomlagring, må vanligvis prosessoren arbeide mer. Dette illustrere også den mest kritiske "trade-off", som en utvikler bør være oppmerksom på, - "trade-off" mellom belastning av prosessor eller belastning av minne.</p>
+    
+
+    <p>Dere finner all nødvendig kode i repositorien til uia-worker <a href="https://github.com/uia-worker/pprof.git">pprof</a>. Denne gangen skal dere gjøre forking av denne repositorien og så jobbe videre på deres egen versjon (videre omtalt som <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>). Dere skal klone den forkede versjonen i deres kontainer og jobbe videre på den. Dere må kunne pushe profilbildene til deres repository.</p>
+
+    
+
+    <p>For å kunne gjennomføre oppgaven, må følgende installeres og konfigureres (fra din brukerkonto, ikke fra root-kontoen):</p>
+    <ul>
+      <li>For å komme inn i terminalen til den nye brukeren fra root-konto, bruk <code style="color: #cfcecc;">su - BRUKERNAVN</code></li>
+      <li>Installere git <code style="color: #cfcecc;">sudo apt-get install -y git</code></li>
+      <li>Installere go <code style="color: #cfcecc;">sudo apt-get install -y golang</code></li>
+      <li>Gjør det mulig å skrive til en egen github repository (må bruke "Personal access tokens->Tokens (classic) i Github "Settings/Developer settings" for din Github brukerkonto):
+        <pre><code>
+          $ git config --global user.email "EPOSTADRESSE-GITHUB-REGISTRERING"
+          $ git confit --global user.name "DITT-NAVN"
+          $ git config --global url.”https://ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:@github.com/".insteadOf “https://github.com/"
+        </code></pre>
+        <code style="color: #cfcecc;">ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code> er da din "Personal access token" fra Github.
+      </li>
+    </ul>
+
+    <p>Teste at Github autentiseringen funksjonerer fra CLI i kontaineren: </p>
+       <pre><code>
+          $ git clone DIN-FORKEDE-REPOSITORY
+          $ cd pprof
+          $ nano README.md
+                          legg til en ny linje i README.md og lagre filen
+
+          $ git add README.md
+          $ git commit -m "endert README.md"
+          $ git push origin main
+       </code></pre>
+
+    <p>Nå anbefales det å lage en ny image med <code style="color: #cfcecc;">docker commit</code> for å ta vare på alle endringene gjort i kontaineren. Stop og slett den gjeldende kontaineren og starte en ny kontainer med den nye imagen før du fortsetter.</p>
+
+    <p>Neste oppgave er å generere profiler. I repository <a href="https://github.com/uia-worker/pprof.git">pprof</a> er det er det tre filer, som kan brukes for å utforske profilering (koden er basert på Dave Cheney sin video (Gopher Academy, 2019)):</p>
+    <ul>
+      <li><code style="color: #cfcecc;">wordcount01.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode)</li>
+      <li><code style="color: #cfcecc;">wordcount02.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode) og bruker bufio.NewReder(fd), hvor fd er fildeskriptor for input-filen</li>
+      <li><code style="color: #cfcecc;">wordcount03.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode), bruker bufio.NewReder(fd), hvor fd er fildeskriptor for input-filen og gjenbrukere buf variabelen</li>
+    </ul>
+
+    <p>For at det kompilerte (og lenkede) Go programmet skal kunne generere informasjon om bruken av CPU eller primært minne, må det skrives instruksjoner i kildekoden. Vi skal utforske 3 typer av profilering og instruksjoner for hver av disse er i alle wordcount-filene. Denne koden finnes i alle tre filene.</p>
+    <ul>
+      <pre><code>
+        // For å generere profiler; kun en aktivert av gangen
+        defer profile.Start(profile.CPUProfile, profile.ProfilePath(".")).Stop()
+        //defer profile.Start(profile.MemProfile, profile.ProfilePath(".")).Stop()
+        //defer profile.Start(profile.MemProfile, profile.MemProfileRate(1), profile.ProfilePath(".")).Stop()
+       </code></pre>
+    </ul>
+    <p>Det er kun en linje av gangen som skal være aktiv. De to andre skal kommenteres ut. Den første linjen skal generere en fil med navn <code style="color: #cfcecc;">cpu.pprof</code>. De to andre skal generere en fil med navn <code style="color: #cfcecc;">mem.pprof</code>. Den første gjelder profilen for CPU, dvs. hvor mye prosessortid brukes det av de forskjellige funksjonene i programmet. De to siste gjelder profilen for RAM (primært minne). Forskjellen på de to er at den siste vil vise alle minneallokeringene, som de forskjellige funksjonene i programmet gjennomfører (det sørger argumentet <code style="color: #cfcecc;">profile.MemProfileRate(1)</code> for; standardverdien er 4096 bytes, og man kan endre verdien når man eksperimenterer).</p>
+
+    <p>Det skal genereres tre profiler for hver fil, dvs. 9 profiler tilsammen. For eksempel, men CPU profilering aktivert i <code style="color: #cfcecc;">wordcount01.go</code>, så vil det bli generert en fil med navn <code style="color: #cfcecc;">profile001.svg</code> (vi vil bruke svg alternativet her; pprof har også andre alternativer som pdf, for eksempel). Hvis du forsetter med filen <code style="color: #cfcecc;">wordcount02.go</code>, så vil det blir generert en fil med navn <code style="color: #cfcecc;">profile002.svg</code> osv. Skriv i <code style="color: #cfcecc;">README.md</code> filen hvilken profilfil som gjelder for hvilken kombinasjon av wordcount-fil og profiltype (som spesifisert i kildekoden).</p>
+
+    <p>Vi bruker <code style="color: #cfcecc;">go tool pprof FILNAVN</code> for å kunne lage SVG bilder av profilene. Denne kommandoen skal føre til en egen prompt <code style="color: #cfcecc;">(pprof)</code>. I denne prompten kan man finne informasjon om alle kommandoene ved å skrive <code style="color: #cfcecc;">help</code> og man kan gå ut av denne prompten med kommando <code style="color: #cfcecc;">exit</code>.</p>
+
+    <p>For å kunne lage profiler må du gjøre følgende:</p>
+    <ul>
+      <li>Bygge Go filene med <code style="color: #cfcecc;">go build FILNAVN</code> (du må gjøre dette for hver fil, siden alle filene er i pakke main og alle inneholder et inngangspunkt med funksjonen main())</li>
+      <li>Laste ned en stor fil for å kunne eksperimentere (bruk <code style="color: #cfcecc;">wget http://gutenberg.org/files/2701/2701-0.txt</code>; hvis <code style="color: #cfcecc;">wget</code> ikke finnes må du installere det)</li>
+      <li>Installere <code style="color: #cfcecc;">graphviz</code> pakke for å kunne generer grafisk representasjon av profilene</li>
+      <li>Utføre følgende for hver av filene (først cpu profilering er aktivert, og så de to andre minneprofilene aktivert en om gangen; viser kun et eksempel her):
+      <pre><code>
+          $ ./wordcount01 2701-0.txt
+          $ go tool pprof cpu.pprof
+          (pprof) svg 
+                        vil returnere "Generating report in profile001.svg"
+          (pprof) exit
+       </code></pre>
+      </li>
+    </ul>
+    <p>Du skal ende opp med de 9 filene <code style="color: #cfcecc;">profile001.svg ... profile009.svg</code>. Når du har gjort dette så skal du pushe filene opp til <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>. Finn selv en løsning for å ikke pushe opp de binære filene (tips: husk metoden fra seminar I <code style="color: #cfcecc;">curl --output .gitignore --url https://raw.githubusercontent.com/uia-worker/is105test/main/.gitignore</code> ; dette vil kreve insallasjon av curl pakken, som du kjenner fra før).</p>
+    
+
+
+    <p>For å sammenligne med operativsystemets program <code style="color: #cfcecc;">wc</code> utføre følgende kommandoer (noter resultatene):</p>
+    <pre><code>
+      $ time wc -w STORFIL
+      $ time ./wordcount01 STORFIL
+      $ time ./wordcount02 STORFIL
+      $ time ./wordcount03 STORFIL
+    </code></pre>
+
+    <p>Nå anbefales det igjen å lage en ny image med <code style="color: #cfcecc;">docker commit</code> for å ta vare på alle endringene gjort i kontaineren. Stop og slett den gjeldende kontaineren og starte en ny kontainer med den nye imagen før du fortsetter.</p>
+
+    <p><code style="color: #cfcecc;">pprof</code> har også en interessant funksjonalitet, som gir mulighet å analysere profilene meget detaljert i et brukergrensesnitt. Men vi kan vel ikke utføre programmer med GUI i vår kontainer? Ikke slik som den er konfigurert nå, og det er heller ikke ingen vanlig sak man gjør, siden kontainere brukes mest for backend-funksjonaliteter. Men vi kan alltid starte en server i kontainer og bruke nettleseren på vertsmaskinen som GUI. Det oppnår vi med flagget <code style="color: #cfcecc;">-p 8080:8080</code> i kommandoen <code style="color: #cfcecc;">docker run</code>. Dette flagget gjør at den prosessen som utfører på porten 8080 i kontaineren, blir publisert ut til vertsmaskinen på port 8080 (trenger ikke å være det samme).</p>
+
+    <p>I kontaineren (og i den mappen hvor profilfilen ligger) gjør følgende:</p>
+    <pre><code>
+      $ go tool pprof -http=0.0.0.0:8080 cpu.pprof
+
+             Det vil generere en ca. slik output:
+                 Serving web UI on http://0.0.0.8080
+                 Couldn't find a suitable web browser!
+                 ...
+    </code></pre>
+    <p>Det er klart at programmet ikke kan finne en nettleser i kontainer, siden det ikke finnes noen. Men serveren er blitt startet i kontaineren og vi kan koble til denne serveren ved å skrive url <code style="color: #cfcecc;">http://localhost:8080</code> i nettleseren på vår vertsmaskin. Så er det bare å grave i alle dataene!</p>
+
+    <h3>
+      Oppgaver for Godkjenning
+    </h3>
+    <ul>
+      <li>Bevis at du har installert <code style="color: #cfcecc;">git</code> og <code style="color: #cfcecc;">go</code> i kontainer.</li>
+      <li>Bevis at du kan pushe til den forkede repositorien (må konfigurere "Personal access token".</li>
+      <li>Bevis at du har laget 9 profilbilder og pushet disse opp til repository.</li>
+      <li>Vis dine målresultater for timing og gi din vurdering av dem.</li>
+      <li>Vis at du kan vise ett profilresultat for en av profilene i nettleseren på din vertsmaskin.</li>
+
+    </ul>
 
 
     <h2>
-      X Begreper
+      5 Begreper
       <a name="begreper"></a>
     </h2>
-
+    <p>Noen utvalgte begreper. Det anbefales at studentene fører sin egen begrepsliste.</p>
     <dl>
       <dt>nettsky</dt>
       <dd>IT  samling av datatjenester som ytes over Internett og som samvirker med andre datatjenester, f.eks. fjernlagring, backup av data og fjernbruk av dataprogrammer ; cloud computing</dd>
@@ -399,24 +694,16 @@
     
 
     <h2>
-      X Referanser
+      6 Referanser
       <a name="referanser"></a>
     </h2>
     <ul>
+      <li>DockerCon 2022. (2022). Cube365.net. https://docker.events.cube365.net/dockercon/2022</li>
+      <li>Gopher Academy. (2019). GopherCon 2019: Dave Cheney - Two Go Programs, Three Different Profiling Techniques [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=nok0aYiGiYA</li>
+      <li>Jain, R. (2021, May 6). Docker commit command | How to commit changes to Docker containers? Techtutorialsite.com. https://techtutorialsite.com/docker-commit-changes-to-containers/</li>
       <li>Linux man pages online. (2023). Man7.org. https://man7.org/linux/man-pages/index.html</li>
       <li>Releases - Ubuntu Wiki. (2022). Ubuntu.com. https://wiki.ubuntu.com/Releases</li>
-      <li><a href="https://docker.events.cube365.net/dockercon/2022" target="_blank">Dockercon 2022</a></li>
-      <li><a href="https://techtutorialsite.com/docker-commit-changes-to-containers/" target="_blank">Commit changes to containers</a></li>
     </ul>
-    <h2>
-      A Tillegg (etter første publikasjon)
-      <a name="atillegg"></a>
-    </h2>
-    <p>Dette avsnittet inneholder beskrivelser av diverse ting, som er relevante for seminaret og som er lagt til etter den første publikasjonen av dette dokumentet 1. Mars 2023.</p>
-    
-
-
-
 
   </div>
 </body>
