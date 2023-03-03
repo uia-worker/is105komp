@@ -500,7 +500,7 @@
       $ sudo unattended-upgrade --dry-run -d
     </code></pre>
 
-    <p>For å faktiske installere alle tilgjengelige sikkerhets-relaterte oppdateringer, kan man utføre samme kommando uten flagget <code style="color: #cfcecc;">--dry-run</code>:</p>
+    <p>For å installere alle tilgjengelige sikkerhets-relaterte oppdateringer, kan man utføre samme kommando uten flagget <code style="color: #cfcecc;">--dry-run</code>:</p>
     <pre><code>
       $ sudo unattended-upgrade -d
     </code></pre>
@@ -508,7 +508,7 @@
     <h3>
       En interessant sak
     </h3>
-    <p>Det er en kjent sak at det finnes databaser av passord hash-verdier, slik at kontoene med slike passord kan misbrukes. Vi skal se på et eksempel på hvordan man kan sjekke om et passord er kompromitert (en. pawned) eller ikke. Dette gjelder en spesikk krypteringsalgoritme <code style="color: #cfcecc;">SHA-1</code>, som er erklært som usikker.</p>
+    <p>Det er en kjent sak at det finnes databaser av hash-verdier til passord, slik at kontoene med slike passord kan misbrukes. Vi skal se på et eksempel på hvordan man kan sjekke om et passord er kompromitert (en. pawned) eller ikke. Dette gjelder en spesikk krypteringsalgoritme <code style="color: #cfcecc;">SHA-1</code>, som er erklært som usikker.</p>
     <p>Velg en egnet mappe i din hjemmemappestrukturen og lag en fil med navn <code style="color: #cfcecc;">pawned.sh</code> (kan bruke nano). Legg inn følgende innhold i filen (vi går gjennom detaljene på seminaret):</p>
     <pre><code>
       #!/bin/bash
@@ -525,7 +525,7 @@
       fi
     </code></pre>
     <p>Dette er en såkalt <em>shell script</em>, som er et eget programmeringsspråk. Den er spesielt egnet til å binde systemprogrammene sammen for å implementere spesifikke brukertilfeller.</p>
-    <p>Etter redigering med en tekseditor har filen mest sannsynlig tilgangsrettighetene <code style="color: #cfcecc;">-rw-rw-r--</code>. En slik fil kan ikke utføres på kommandolinje. Bruk 
+    <p>Etter redigering med en teksteditor har filen mest sannsynlig (avhenger av <em>umask</em>) tilgangsrettighetene <code style="color: #cfcecc;">-rw-rw-r--</code>. En slik fil kan ikke utføres på kommandolinje. Bruk 
     <pre><code>
       $ chmod 764 pawned.sh
     </code></pre>
@@ -556,7 +556,7 @@
       <a name="gopprof"></a>
     </h2>
     
-    <p>Go har mange verktøy i verktøyboksen, som kan hjelpe en utvikler til å ha bedre kontroll på programmene som utvikleren skriver. Vi har sett <code style="color: #cfcecc;">go test</code> og nå skal bli kjent med et nyt verktøy, - <code style="color: #cfcecc;">pprof</code>.</p>
+    <p>Go har mange verktøy i verktøyboksen, som kan hjelpe en utvikler til å ha bedre kontroll på programmene som utvikleren skriver. Vi har sett <code style="color: #cfcecc;">go test</code> og nå skal bli kjent med et nytt verktøy, - <code style="color: #cfcecc;">pprof</code>.</p>
     
     <p>Utviklerverktøy kan generelt klassifiseres i følgende klasser:</p>
     <ul>
@@ -566,7 +566,7 @@
       <li>for debugging (for å utføre kode stegvis, dvs. stoppe utførelsen på spesifikke "breakpoints")</li>
     </ul>
     
-    <p>Vi skal se på benchmarking og debugging senere, men i dette seminarer introduseres det profilering. Kort sagt, er profilering en måten å stoppe programmet etter en spesifisert tidsperiode og lagre et "avtrykk" som programmet gjør på CPU eller minne. Hvis tidsperioden er valgt optimalt, kan man identifisere signifikant bruk av enten prosessor eller primært minne. Ofte skyldes slik signifikant bruk av ressurser algoritmen, dvs. hvordan utvikleren har skrevet koden. Et ofte brukt eksempel er relatert til bruken av buffer. Hvis det er lite plass til mellomlagring, må vanligvis prosessoren arbeide mer. Dette illustrerer også den mest kritiske "trade-off", som en utvikler bør være oppmerksom på, - "trade-off" mellom belastning av prosessor og belastning av minne.</p>
+    <p>Vi skal se på benchmarking og debugging senere, men i dette seminarer introduseres det profilering. Kort sagt, er profilering en måten å stoppe programmet etter en spesifisert tidsperiode og lagre et "avtrykk" som programmet gjør på CPU eller minne. Hvis tidsperioden er valgt optimalt, kan man identifisere unormal bruk av enten prosessor eller primært minne. Ofte skyldes en slik unormal bruk av ressurser måten utvikleren har brukt programmeringsspråket på. Et ofte brukt eksempel er relatert til bruken av buffer. Hvis det er lite plass til mellomlagring, må vanligvis prosessoren arbeide mer. Dette illustrerer også den mest kritiske "trade-off", som en utvikler bør være oppmerksom på, - "trade-off" mellom belastning av prosessor og belastning av minne.</p>
     
 
     <p>Dere finner all nødvendig kode i repositorien til uia-worker <a href="https://github.com/uia-worker/pprof.git" target="_blank">pprof</a>. Denne gangen skal dere gjøre forking av denne repositorien og så jobbe videre på deres egen versjon (videre omtalt som <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>). Dere skal klone den forkede versjonen i deres kontainer og jobbe videre på den. Dere må kunne pushe profilfilene (de skal være SVG-filer) til deres repository.</p>
@@ -602,14 +602,14 @@
 
     <p>Nå anbefales det å lage en ny image med <code style="color: #cfcecc;">docker commit</code> for å ta vare på alle endringene gjort i kontaineren. Stop og slett den gjeldende kontaineren og starte en ny kontainer med den nye imagen før du fortsetter.</p>
 
-    <p>Neste oppgave er å generere profiler. I repository <a href="https://github.com/uia-worker/pprof.git" target="_blank">pprof</a> er det er det tre filer, som kan brukes for å utforske profilering (koden er basert på Dave Cheney sin video (Gopher Academy, 2019)):</p>
+    <p>Neste oppgave er å generere profiler. I repository <a href="https://github.com/uia-worker/pprof.git" target="_blank">pprof</a> er det tre filer, som kan brukes for å utforske profilering (koden er basert på Dave Cheney sin video (Gopher Academy, 2019)):</p>
     <ul>
       <li><code style="color: #cfcecc;">wordcount01.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode)</li>
-      <li><code style="color: #cfcecc;">wordcount02.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode) og bruker bufio.NewReder(fd), hvor fd er fildeskriptor for input-filen</li>
-      <li><code style="color: #cfcecc;">wordcount03.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode), bruker bufio.NewReder(fd), hvor fd er fildeskriptor for input-filen og gjenbrukere buf variabelen</li>
+      <li><code style="color: #cfcecc;">wordcount02.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode) og bruker <code style="color: #cfcecc;">bufio.NewReder(fd)</code>, hvor <code style="color: #cfcecc;">fd</code> er fildeskriptor for input-filen</li>
+      <li><code style="color: #cfcecc;">wordcount03.go</code>, som tar et filnavn som argument og leser filen en byte av gangen og teller ord (basert på unicode), bruker <code style="color: #cfcecc;">bufio.NewReder(fd)</code>, hvor <code style="color: #cfcecc;">fd</code> er fildeskriptor for input-filen og gjenbruker <code style="color: #cfcecc;">buf</code> variabelen</li>
     </ul>
 
-    <p>For at det kompilerte (og lenkede) Go programmet skal kunne generere informasjon om bruken av CPU eller primært minne, må det skrives instruksjoner i kildekoden. Vi skal utforske 3 typer av profilering og instruksjoner for hver av disse er i alle wordcount-filene. Denne koden finnes i alle tre filene.</p>
+    <p>For at det kompilerte (og lenkede) Go programmet skal kunne generere informasjon om bruken av CPU eller primært minne, må det skrives instruksjoner i kildekoden. Vi skal utforske 3 typer av profilering og instruksjoner for hver av disse er i alle wordcount-filene. Denne koden finnes i alle tre filene:</p>
     <ul>
       <pre><code>
         // For å generere profiler; kun en aktivert av gangen
@@ -618,17 +618,17 @@
         //defer profile.Start(profile.MemProfile, profile.MemProfileRate(1), profile.ProfilePath(".")).Stop()
        </code></pre>
     </ul>
-    <p>Det er kun en linje av gangen som skal være aktiv. De to andre skal kommenteres ut. Den første linjen skal generere en fil med navn <code style="color: #cfcecc;">cpu.pprof</code>. De to andre skal generere en fil med navn <code style="color: #cfcecc;">mem.pprof</code>. Den første gjelder profilen for CPU, dvs. hvor mye prosessortid brukes det av de forskjellige funksjonene i programmet. De to siste gjelder profilen for RAM (primært minne). Forskjellen på de to er at den siste vil vise alle minneallokeringene, som de forskjellige funksjonene i programmet gjennomfører (det sørger argumentet <code style="color: #cfcecc;">profile.MemProfileRate(1)</code> for; standardverdien er 4096 bytes, og man kan endre verdien når man eksperimenterer).</p>
+    <p>Det er kun en linje av gangen som skal være aktiv. De to andre skal kommenteres ut. Den første linjen skal generere en fil med navn <code style="color: #cfcecc;">cpu.pprof</code>. De to andre skal generere en fil med navn <code style="color: #cfcecc;">mem.pprof</code>. Den første gjelder profilen for CPU, dvs. hvor mye prosessortid brukes det av de forskjellige funksjonene i programmet. De to siste gjelder profilen for RAM (primært minne). Forskjellen på de to er at den siste vil vise alle minneallokeringene, som de forskjellige funksjonene i programmet gjennomfører (det sørger argumentet <code style="color: #cfcecc;">profile.MemProfileRate(1)</code> for; standardverdien er 4096 bytes, og man kan endre verdien hvis man ikke får nok informasjon fra den genererte profilen).</p>
 
-    <p>Det skal genereres tre profiler for hver fil, dvs. 9 profiler tilsammen. For eksempel, men CPU profilering aktivert i <code style="color: #cfcecc;">wordcount01.go</code>, så vil det bli generert en fil med navn <code style="color: #cfcecc;">profile001.svg</code> (vi vil bruke svg alternativet her; pprof har også andre alternativer som pdf, for eksempel). Hvis du forsetter med filen <code style="color: #cfcecc;">wordcount02.go</code>, så vil det blir generert en fil med navn <code style="color: #cfcecc;">profile002.svg</code> osv. Skriv i <code style="color: #cfcecc;">README.md</code> filen hvilken profilfil som gjelder for hvilken kombinasjon av wordcount-fil og profiltype (som spesifisert i kildekoden).</p>
+    <p>Det skal genereres tre profiler for hver fil, dvs. 9 profiler tilsammen. For eksempel, med CPU profilering aktivert i <code style="color: #cfcecc;">wordcount01.go</code>, så vil det bli generert en fil med navn <code style="color: #cfcecc;">profile001.svg</code> (vi vil bruke svg alternativet her; pprof har også andre alternativer som pdf, for eksempel). Hvis du forsetter med filen <code style="color: #cfcecc;">wordcount02.go</code>, så vil det blir generert en fil med navn <code style="color: #cfcecc;">profile002.svg</code> osv. Skriv i <code style="color: #cfcecc;">README.md</code> filen hvilken profilfil som gjelder for hvilken kombinasjon av wordcount-fil og profiltype (som spesifisert i kildekoden).</p>
 
     <p>Vi bruker <code style="color: #cfcecc;">go tool pprof FILNAVN</code> for å kunne lage SVG bilder av profilene. Denne kommandoen skal føre til en egen prompt <code style="color: #cfcecc;">(pprof)</code>. I denne prompten kan man finne informasjon om alle kommandoene ved å skrive <code style="color: #cfcecc;">help</code> og man kan gå ut av denne prompten med kommando <code style="color: #cfcecc;">exit</code>.</p>
 
     <p>For å kunne lage profiler må du gjøre følgende:</p>
     <ul>
-      <li>Bygge Go filene med <code style="color: #cfcecc;">go build FILNAVN</code> (du må gjøre dette for hver fil, siden alle filene er i pakke main og alle inneholder et inngangspunkt med funksjonen main())</li>
+      <li>Bygge Go filene med <code style="color: #cfcecc;">go build FILNAVN</code> (du må gjøre dette for hver fil, siden alle filene er i pakke main og alle inneholder et inngangspunkt med funksjonen <code style="color: #cfcecc;">main()</code>)</li>
       <li>Laste ned en stor fil for å kunne eksperimentere (bruk <code style="color: #cfcecc;">wget http://gutenberg.org/files/2701/2701-0.txt</code>; hvis <code style="color: #cfcecc;">wget</code> ikke finnes må du installere det)</li>
-      <li>Installere <code style="color: #cfcecc;">graphviz</code> pakke for å kunne generer grafisk representasjon av profilene</li>
+      <li>Installere <code style="color: #cfcecc;">graphviz</code> pakke for å kunne generere grafisk representasjon av profilene</li>
       <li>Utføre følgende for hver av filene (først cpu profilering er aktivert, og så de to andre minneprofilene aktivert en om gangen; viser kun et eksempel her):
       <pre><code>
           $ ./wordcount01 2701-0.txt
@@ -639,21 +639,22 @@
        </code></pre>
       </li>
     </ul>
-    <p>Du skal ende opp med de 9 filene <code style="color: #cfcecc;">profile001.svg ... profile009.svg</code>. Når du har gjort dette så skal du pushe filene opp til <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>. Finn selv en løsning for å ikke pushe opp de binære filene (tips: husk metoden fra seminar I <code style="color: #cfcecc;">curl --output .gitignore --url https://raw.githubusercontent.com/uia-worker/is105test/main/.gitignore</code> ; dette vil kreve insallasjon av curl pakken, som du kjenner fra før).</p>
+    <p>Du skal ende opp med de 9 filene <code style="color: #cfcecc;">profile001.svg ... profile009.svg</code>. Når du har gjort dette så skal du pushe filene opp til <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>. Finn selv en løsning for å ikke pushe opp de binære filene (tips: husk metoden fra seminar I <code style="color: #cfcecc;">curl --output .gitignore --url https://raw.githubusercontent.com/uia-worker/is105test/main/.gitignore</code> ; dette vil kreve insallasjon av <code style="color: #cfcecc;">curl</code> pakken, som du kjenner fra før).</p>
     
 
 
-    <p>For å sammenligne med operativsystemets program <code style="color: #cfcecc;">wc</code> utføre følgende kommandoer (noter resultatene):</p>
+    <p>For å sammenligne med operativsystemets program <code style="color: #cfcecc;">wc</code> må du utføre følgende kommandoer (noter resultatene):</p>
     <pre><code>
       $ time wc -w STORFIL
       $ time ./wordcount01 STORFIL
       $ time ./wordcount02 STORFIL
       $ time ./wordcount03 STORFIL
     </code></pre>
+    <p>Koden for profilgenerering inngår også i tidsmålingene, så du må også gjøre målinger med all koden for profilering kommentert ut.</p>
 
     <p>Nå anbefales det igjen å lage en ny image med <code style="color: #cfcecc;">docker commit</code> for å ta vare på alle endringene gjort i kontaineren. Stop og slett den gjeldende kontaineren og starte en ny kontainer med den nye imagen før du fortsetter.</p>
 
-    <p><code style="color: #cfcecc;">pprof</code> har også en interessant funksjonalitet, som gir mulighet å analysere profilene meget detaljert i et brukergrensesnitt. Men vi kan vel ikke utføre programmer med GUI i vår kontainer? Ikke slik som den er konfigurert nå, og det er heller ikke ingen vanlig sak man gjør, siden kontainere brukes mest for backend-funksjonaliteter. Men vi kan alltid starte en server i kontainer og bruke nettleseren på vertsmaskinen som GUI. Det oppnår vi med flagget <code style="color: #cfcecc;">-p 8080:8080</code> i kommandoen <code style="color: #cfcecc;">docker run</code>. Dette flagget gjør at den prosessen som utfører på porten 8080 i kontaineren, blir publisert ut til vertsmaskinen på port 8080 (trenger ikke å være det samme).</p>
+    <p><code style="color: #cfcecc;">pprof</code> har også en interessant funksjonalitet, som gir mulighet til å analysere profilene meget detaljert i et brukergrensesnitt. Men vi kan vel ikke utføre programmer med GUI i vår kontainer? Ikke slik som den er konfigurert nå, og det er heller ikke ingen vanlig sak man gjør, siden kontainere brukes mest for backend-utvikling. Men vi kan alltid starte en server i kontainer og bruke nettleseren på vertsmaskinen som GUI. Det oppnår vi med flagget <code style="color: #cfcecc;">-p 8080:8080</code> i kommandoen <code style="color: #cfcecc;">docker run</code>. Dette flagget gjør at den prosessen som utfører på porten 8080 i kontaineren, blir publisert ut til vertsmaskinen på port 8080 (trenger ikke å være det samme).</p>
 
     <p>I kontaineren (og i den mappen hvor profilfilen ligger) gjør følgende:</p>
     <pre><code>
@@ -664,9 +665,9 @@
                  Couldn't find a suitable web browser!
                  ...
     </code></pre>
-    <p>Det er klart at programmet ikke kan finne en nettleser i kontainer, siden det ikke finnes noen. Men serveren er blitt startet i kontaineren og vi kan koble til denne serveren ved å skrive url <code style="color: #cfcecc;">http://localhost:8080</code> i nettleseren på vår vertsmaskin. Så er det bare å grave i alle dataene! Analyse av dataene skal ikke være en del av kravene for dette seminaret, men vi skal bruke profilene videre i undervisnigen og temaet kan også være relevant for eksamen. Relevant lesestoff ligger i Google sin <a href="https://github.com/google/pprof/blob/main/doc/README.md#interpreting-the-callgraph" target="_blank">pprof repository</a> (google, 2022).</p>
+    <p>Det er klart at programmet ikke kan finne en nettleser i kontaineren, siden det ikke finnes noen. Men serveren er blitt startet i kontaineren og vi kan koble til denne serveren ved å skrive url <code style="color: #cfcecc;">http://localhost:8080</code> i nettleseren på vår vertsmaskin. Så er det bare å grave i alle dataene! Analyse av dataene skal ikke være en del av kravene for dette seminaret, men vi skal bruke profilene videre i undervisnigen og temaet kan også være relevant for eksamen. Relevant lesestoff ligger i Google sin <a href="https://github.com/google/pprof/blob/main/doc/README.md#interpreting-the-callgraph" target="_blank">pprof repository</a> (google, 2022).</p>
 
-      <p>Kommandoen blokkerer kommandovinduet og når du er ferdig med utforskning av profilen, kan du avslutte serveren i kontaineren med <code style="color: #cfcecc;">Ctrl-C</code> tastkombinasjonen.</p>
+      <p>Kommandoen, som startet webserveren, blokkerer kommandovinduet og når du er ferdig med utforskning av profilen, kan du avslutte serveren i kontaineren med <code style="color: #cfcecc;">Ctrl-C</code> tastkombinasjonen.</p>
 
     <h3>
       Oppgaver for Godkjenning
