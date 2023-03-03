@@ -446,7 +446,7 @@
                     -d - spesifiserer hjemmemappen (bør ligge i /home)
                     -s - står or "shell" som settes til /bin/bash
     </code></pre>
-    <p>Vi spesifiserte ikke passord i flaggen til <code style="color: #cfcecc;">useradd</code>. Vi kunne brukt <code style="color: #cfcecc;">-p</code> flagget for å spesifisere passord, men da måtte vi ha skrevet inn passordet i klartekst på kommandolinje. Det anbefales ikke at man gjør. Derfor lager vi passord med et annet kommando (skriv inn det passordet du ønsker to ganger):</p>
+    <p>Vi spesifiserte ikke passord i flagget til <code style="color: #cfcecc;">useradd</code>. Vi kunne brukt <code style="color: #cfcecc;">-p</code> flagget for å spesifisere passord, men da måtte vi ha skrevet inn passordet i klartekst på kommandolinje. Det anbefales ikke at man gjør. Derfor lager vi passord med et annet kommando (skriv inn det passordet du ønsker to ganger):</p>
     <pre><code>
       $ passwd BRUKERNAVN
     </code></pre>
@@ -483,7 +483,7 @@
     </h3>
 
     <p>En viktig avgjørelse alltid må taes angående automatiske eller ikke automatiske oppdateringer. Automatiske oppdatering i de fleste tilfellene trenger restart av systemet. Det er ikke en god løsning hvis systemet tilbyr tjenester til mange brukere, som er avhengige av at det funksjonerer. Oppdateringer av et program kan også i noen tilfeller bryte ned andre programmer. Selv om avhengighetsadministrasjon blir stadig bedre, feil fortsatt oppstår. En god sikkerhetsstrategi er å planlegge systemoppdateringer nøye og gjøre disse så sjeldent som mulig ved annonserte tidsperioder eller i perioder med lite trafikk.</p>
-    <p>Vi ser her på et eksempel av hvordan det er mulig å få informasjon om systemoppdateringer og samtidig deaktivere automatiske oppdateringer. Det er ingen garanti at dette verktøyet vil fange opp alle sårbarheter, så man bør kombinere det med andre manueller (og eventuelt automatiske) verktøyene. Husk oversikt over sårbarheter i Docker Dashboard.</p>
+    <p>Vi ser her på et eksempel av hvordan det er mulig å få informasjon om systemoppdateringer og samtidig deaktivere automatiske oppdateringer. Det er ingen garanti at dette verktøyet vil fange opp alle sårbarheter, så man bør kombinere det med andre manuelle (og eventuelt automatiske) verktøy. Husk oversikt over sårbarheter i Docker Dashboard.</p>
 
     <p>I Ubuntu kan man installere en pakke, som lar systemadministratoren å administrere "uovervåket oppdatering" (en. unattended upgrades).</p>
     <pre><code>
