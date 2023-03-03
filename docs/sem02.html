@@ -314,7 +314,7 @@
     <ul>
       <li><code style="color: #cfcecc;">docker pull ubuntu:latest</code> for å laste ned image fra det eksterne til det lokale registeret</li>
       <li><code style="color: #cfcecc;">docker images</code> for å sjekke hvilke imager er i det lokale registeret</li>
-      <li><code style="color: #cfcecc;">docker run --name minubuntu -d -i -p 8080:8080 ubuntu</code> denne kommandoen kombinerer <code style="color: #cfcecc;">docker pull</code> med det å starte opp en kontainer på vertsmaskinen i bakgrunnen (<code style="color: #cfcecc;">-d</code>), med en åpen STDIN (<code style="color: #cfcecc;">-i</code>) og med en port (for kommunikasjon) 8080 i kontaineren (på venstre siden av :) bundet til en port 8080 på vertsmaskinen (på høyre siden av :)</li>
+      <li><code style="color: #cfcecc;">docker run --name minubuntu -d -i -p 8080:8080 ubuntu</code> denne kommandoen kombinerer <code style="color: #cfcecc;">docker pull</code> med det å starte opp en kontainer på vertsmaskinen i bakgrunnen (<code style="color: #cfcecc;">-d</code>), med en åpen STDIN (<code style="color: #cfcecc;">-i</code>) og med en port (for kommunikasjon) 8080 i kontaineren (på høyre siden av :) bundet til en port 8080 på vertsmaskinen (på venstre siden av :)</li>
       <li><code style="color: #cfcecc;">docker container ls</code> se alle kontainere som er startet på vertsmaskinen</li>
       <li><code style="color: #cfcecc;">docker exec -it minubuntu /bin/bash </code> "logge inn" i kontainer, dvs. få tilgang på CLI, som utføres i kontaineren</li>
     </ul>
@@ -569,7 +569,7 @@
     <p>Vi skal se på benchmarking og debugging senere, men i dette seminarer introduseres det profilering. Kort sagt, er profilering en måten å stoppe programmet etter en spesifisert tidsperiode og lagre et "avtrykk" som programmet gjør på CPU eller minne. Hvis tidsperioden er valgt optimalt, kan man identifisere signifikant bruk av enten prosessor eller primært minne. Ofte skyldes slik signifikant bruk av ressurser algoritmen, dvs. hvordan utvikleren har skrevet koden. Et ofte brukt eksempel er relatert til bruken av buffer. Hvis det er lite plass til mellomlagring, må vanligvis prosessoren arbeide mer. Dette illustrerer også den mest kritiske "trade-off", som en utvikler bør være oppmerksom på, - "trade-off" mellom belastning av prosessor og belastning av minne.</p>
     
 
-    <p>Dere finner all nødvendig kode i repositorien til uia-worker <a href="https://github.com/uia-worker/pprof.git" target="_blank">pprof</a>. Denne gangen skal dere gjøre forking av denne repositorien og så jobbe videre på deres egen versjon (videre omtalt som <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>). Dere skal klone den forkede versjonen i deres kontainer og jobbe videre på den. Dere må kunne pushe profilbildene til deres repository.</p>
+    <p>Dere finner all nødvendig kode i repositorien til uia-worker <a href="https://github.com/uia-worker/pprof.git" target="_blank">pprof</a>. Denne gangen skal dere gjøre forking av denne repositorien og så jobbe videre på deres egen versjon (videre omtalt som <code style="color: #cfcecc;">DIN-FORKEDE-REPOSITORY</code>). Dere skal klone den forkede versjonen i deres kontainer og jobbe videre på den. Dere må kunne pushe profilfilene (de skal være SVG-filer) til deres repository.</p>
 
     
 
