@@ -184,7 +184,7 @@
 // derfor
 - (1100)<sub>to</sub> = - 12<sub>ti</sub>
     </code></pre>
-    <p>Men vi ender opp med "fortegn og størrelse", dvs. at det trenges en ekstra bit for å reperesentere <code style="color: #cfcecc;">-12<sub>ti</sub></code> binært, siden 4 bits representasjon er allerede brukt for å representere den positive <code style="color: #cfcecc;">12<sub>ti</sub></code>. </p>
+    <p>Men vi ender opp med "fortegn og størrelse", dvs. at det trenges en ekstra bit for å reperesentere <code style="color: #cfcecc;">-12<sub>ti</sub></code> binært, siden 4 bits representasjon er allerede brukt for å representere det positive <code style="color: #cfcecc;">12<sub>ti</sub></code>. </p>
 
     <p>Løsningen var å bestemme at ledene nuller betyr positivt tall og ledende enere betyr negativt, og holde seg til samme antall bits. Det fører til halvering av størrelsen på positive tall, som man kan representere med samme antall bits. Vi kan illustrere det med følgende tabell:</p>
     <pre><code>
@@ -216,7 +216,7 @@ fmt.Println(tall + 2) // skriver ut -127
 
 var utall uint8 = 127
 fmt.Println(utall + 1) // skriver ut 128
-fmt.Println(utall + 2) // skriver ut 
+fmt.Println(utall + 2) // skriver ut 129
 
 utall = 255
 fmt.Println(utall + 1) // skriver ut 0
@@ -243,7 +243,7 @@ uint64 min - max: 0 - 18446744073709551615
 <p>Det ene er å bestemme at alle binære tall som begynner med 0 er positive og alle som begynner med 1 er negative. Det andre er, hvordan skal man kunne utføre aritmetikken med en slik representasjon? Operativsystemets programmer må ha en måte for å gjøre det på.</p>
 
 <p style="border: solid lightslategray; padding: 1em;">Definisjon</br>
-  Den matematiske definisjonen på "2s complement" er at den er en matematisk operasjon for å konvertere et positivt binærtall i et negativt binærtall med ekvivalent negativ verdi, ved å bruke, som nevnt ovenfor, den mest signinfikant bit, som indikator for fortegn (<code style="color: #cfcecc;">0 => +, 1 => -</code>).</p>
+  Den matematiske definisjonen på "2s complement" er at den er en matematisk operasjon for å konvertere et positivt binærtall til et negativt binærtall med ekvivalent negativ verdi, ved å bruke, som nevnt ovenfor, den mest signinfikante bit, som indikator for fortegn (<code style="color: #cfcecc;">0 => +, 1 => -</code>).</p>
 <p><code style="color: #cfcecc;">00001010<sub>to</sub> -> 2s-compl -> 11110110<sub>to</sub></code></p>
 <p>La oss si at vi ønsker å konvertere <code style="color: #cfcecc;">9<sub>ti</sub></code> til <code style="color: #cfcecc;">-9<sub>ti</sub></code></p>
 <p>Metoden har to steg:</p>
