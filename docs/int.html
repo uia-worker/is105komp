@@ -141,7 +141,7 @@
      <p>Når vi skriver tall, så skriver vi vanligvis ikke såkalte ledende nuller. Men i minne til datamaskinen lagres data i blokker og derfor blir ledende nuller med, når vi prøver å illustrer dette. For eksempel, hvis programmerer har valgt å bruke <code style="color: #cfcecc;">int64</code> i Go, så skal operativsystemets programmer prøve å allokere 64 bits i minne for vårt tall:</p>
     <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001 0000 1010 1110<sub>to</sub></code></p>
 
-    <p>Vi har delt opp i 4 bits blokker, som heter nibbles, med tanke på å overføre dette tallet til heksadesimalt tallsystem. Sekstentallsystemet brukes ofte for å gjøre illustrasjoner av binære tall kortere. I litteraturen og diverse data samlet under utførelse av programmer i et operativsystem, blir minneadresser og andre data ofte presentert i sekstentallssystemet:</p>
+    <p>Vi har delt opp i 4 bits blokker, som heter nibbles, med tanke på å overføre dette tallet til heksadesimalt tallsystem. Sekstentallsystemet brukes ofte for å gjøre illustrasjoner av binære tall kortere. I litteraturen om diverse data samlet under utførelse av programmer i et operativsystem, blir minneadresser og andre data ofte presentert i sekstentallssystemet:</p>
     <p><code style="color: #cfcecc;">00000000000010AE<sub>seksten</sub></code></p>
     <p>Man ser også ofte at heksadesimale tall markeres med en prefiks <code style="color: #cfcecc;">0x</code>, for eksempel, <code style="color: #cfcecc;">5270<sub>ti</sub> = 0x00000000000010AE</code>.</p>
 
@@ -184,7 +184,7 @@
 // derfor
 - (1100)<sub>to</sub> = - 12<sub>ti</sub>
     </code></pre>
-    <p>Men vi ender med "fortegn og størrelse", dvs. at det trenges en ekstra bit for å reperesentere <code style="color: #cfcecc;">-12<sub>ti</sub></code> binært, siden 4 bits representasjon er allerede brukt for å representere den positive <code style="color: #cfcecc;">12<sub>ti</sub></code>. </p>
+    <p>Men vi ender opp med "fortegn og størrelse", dvs. at det trenges en ekstra bit for å reperesentere <code style="color: #cfcecc;">-12<sub>ti</sub></code> binært, siden 4 bits representasjon er allerede brukt for å representere den positive <code style="color: #cfcecc;">12<sub>ti</sub></code>. </p>
 
     <p>Løsningen var å bestemme at ledene nuller betyr positivt tall og ledende enere betyr negativt, og holde seg til samme antall bits. Det fører til halvering av størrelsen på positive tall, som man kan representere med samme antall bits. Vi kan illustrere det med følgende tabell:</p>
     <pre><code>
