@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>IS-105 Representasjon av heltall</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
+    <script type="text/javascript" src="js/is105.js"></script>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 1em;">
+              <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="index.html" class="tocviewlink" data-pltdoc="x">Vår 2023: IS-105</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="index.html" class="tocviewlink" data-pltdoc="x">Beskrivelse og rettningslinjer</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="komp.html" class="tocviewlink" data-pltdoc="x">Kompendium</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="sem.html" class="tocviewlink" data-pltdoc="x">Seminar</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="honnor.html" class="tocviewlink" data-pltdoc="x">Honnør</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="maincolumn">
+    <h1>
+      Heltall
+      <a name="repint"></a>
+    </h1>
+
+    <p>I kvantifisering av observasjoner brukes det forskjellige benevninger. Siden de fleste datamaskiner i dag opererer i totallssystemet, finnes det egne benevninger for det. Når man leser at en datamaskin har 16 GB minne, er den egentlige verdien 16 GiB.</p>
+
+    <img src="images/binaere-prefikser.png" width="400" alt="Little- og Big-endian.">
+    <p>Figur 1. Byte størrelser og benevninger. (Bidragsytere til Wikimedia-prosjektene, 2005)</p>
+
+    <p>Hvordan er tall representer i en datamaskin?</p>
+    <p>De fleste homo sapiens har lært å tenke i titallssystemet, men tall kan bli representert i mange tallsystemer. Titallssystemet har base 10 (trolig pga. at homo sapiens har 10 fingre; base er antall tegn/symboler som blir brukt i tallsystemet), dvs. at alle tall kan skrives som en sum av multiplum av tallet 10. For eksempel, tallet <code style="color: #cfcecc;">5270</code> kan skrives som </p>
+    <p><code style="color: #cfcecc;">5 X 10<sup>3</sup> + 2 X 10<sup>2</sup> + 7 X 10<sup>1</sup> + 0 X 10<sup>0</sup></code></p>
+    <p><code style="color: #cfcecc;">5 X 1000 + 2 X 100 + 7 X 10 + 0 X 1</code></p>
+    <p><code style="color: #cfcecc;">5000 + 200 + 70 + 0 = 5270</code></p>
+    <p><code style="color: #cfcecc;">X</code> representerer multiplikasjon (multiplikasjonsoperatør)</p>
+    <p><code style="color: #cfcecc;">+</code> representerer summering (addisjonsoperatør)</p>
+    <p>Vi har også valgt å tolke (lese) tallet fra høyre til venstre, dvs. vi har bestemt at den mest signifiktante bit (som bidrar med størst verdi) er lengst til høyre. Vi kan også nummerere posisjonene til sifrene (som i dette tilfelle representerer også eksponenten til basistallet 10 på den konkrete posisjonen):</p>
+    <code style="color: seagreen;">3 2 1 0</code></br>
+    <code style="color: #cfcecc;">5 2 7 0</code>
+
+    <p>De første designskisser av regnemaskiner brukte 10-tallssystemet, men det viste seg å være ineffektivt i praksis, siden alle praktiske implementasjonene uansett endte på å bruke mange AV og PÅ tilstander for lagring av representajoner av data.</p>
+
+    <p>Totallssystemet har base 2, dvs. to symboler, <code style="color: seagreen;">0</code> og <code style="color: seagreen;">1</code> for å representere alle tall som er definert i aritmetikken.</p>
+
+    <p>For å representere det samme tallet <code style="color: #cfcecc;">5270<sub>ti</sub></code> i totallssystemet, må vi tenke på den høyeste multiplum av 2 som kan inngå i dette tallet. Her er 2 muliplumer for noen tall i titallssystemet:</p>
+
+    <pre><code>
+0 1 (samme som 2<sup>0</sup>)
+1 2
+2 4
+3 8
+4 16
+5 32
+6 64
+7 128
+8 256
+9 512
+10  1024
+11  2048
+12  4096
+13  8192
+14  16384
+15  32768
+16  65536  (samme som 2<sup>16</sup>)
+    </code></pre>
+
+    <p>Vi ser at det høyeste multiplumet, som kan inngå i <code style="color: #cfcecc;">5270<sub>ti</sub></code> er <code style="color: #cfcecc;">4096<sub>ti</sub></code>. Nå må vi finne et 2 muliplum for resten som er<code style="color: #cfcecc;">174<sub>ti</sub></code> og det er <code style="color: #cfcecc;">128<sub>ti</sub></code>. Resten er nå <code style="color: #cfcecc;">46<sub>ti</sub></code>. Minste 2 multiplum er nå <code style="color: #cfcecc;">32<sub>ti</sub></code>. Resten er <code style="color: #cfcecc;">14<sub>ti</sub></code> og 2 multiplum er <code style="color: #cfcecc;">8<sub>ti</sub></code>. Så er resten <code style="color: #cfcecc;">6<sub>ti</sub></code> og 2 multiplum <code style="color: #cfcecc;">4<sub>ti</sub></code>. Til slutt er resten <code style="color: #cfcecc;">2<sub>ti</sub></code>, som er et 2 multiplum.</p>
+
+    <p>Da kan vi skrive tallet <code style="color: #cfcecc;">5270<sub>ti</sub></code> med alle 2 multiplumer som vi har funnet:</p>
+
+    <p><code style="color: #cfcecc;">4096<sub>ti</sub></code> + <code style="color: #cfcecc;">128<sub>ti</sub></code> + <code style="color: #cfcecc;">32<sub>ti</sub></code> + <code style="color: #cfcecc;">8<sub>ti</sub></code> + <code style="color: #cfcecc;">4<sub>ti</sub></code> + <code style="color: #cfcecc;">2<sub>ti</sub></code></p>
+
+    <p>Så kan vi skrive 2 multiplumer med basis 2 og tilsvarende eksponenter:</p>
+
+    <p><code style="color: #cfcecc;">2<sup>12</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>7</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>5</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>3</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>2</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>1</sup><sub>ti</sub></code></p>
+
+    <p>Vi kan nå resonnere at det trenges minst 13 bits for å kunne representere <code style="color: #cfcecc;">5270<sub>ti</sub></code> i totallssystemet:</p>
+
+    <code style="color: seagreen;">12 11 10 9&nbsp;&nbsp;8&nbsp;&nbsp;7&nbsp;&nbsp;6&nbsp;&nbsp;5&nbsp;&nbsp;4&nbsp;&nbsp;3&nbsp;&nbsp;2&nbsp;&nbsp;1&nbsp;&nbsp;0</code></br>
+    <code style="color: #cfcecc;">1&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;0&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;0</code>
+
+    <p>Nå ser vi at tallet <code style="color: #cfcecc;">5270<sub>ti</sub></code> er <code style="color: #cfcecc;">1000010101110<sub>to</sub></code></p>
+
+    <p>I datamaskinen brukes det kun hele bytes (oktetter) for å lagre data, så derfor kan vårt tall lagres i 2 bytes (vi kunne brukt Go datatype <code style="color: #cfcecc;">int16</code>).</p>
+    <p><code style="color: #cfcecc;">0001 0000 1010 1110<sub>to</sub></code></p>
+     <p>Når vi skriver tall, så skriver vi vanligvis ikke såkalte ledende nuller. Men i minne til datamaskinen lagres data i blokker og derfor blir ledende nuller med, når vi prøver å illustrer dette. For eksempel, hvis programmerer har valgt å bruke <code style="color: #cfcecc;">int64</code> i Go, så skal operativsystemets programmer prøve å allokere 64 bits i minne for vårt tall:</p>
+    <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001 0000 1010 1110<sub>to</sub></code></p>
+
+    <p>Vi har delt opp i 4 bits blokker, som heter nibbles, med tanke på å overføre dette tallet til heksadesimalt tallsystem. Sekstentallsystemet brukes ofte for å gjøre illustrasjoner av binære tall kortere. I litteraturen og diverse data samlet under utførelse av programmer i et operativsystem, blir minneadresser og andre data ofte presentert i sekstentallssystemet:</p>
+    <p><code style="color: #cfcecc;">00000000000010AE<sub>seksten</sub></code></p>
+    <p>Man ser også ofte at heksadesimale tall markeres med en prefiks <code style="color: #cfcecc;">0x</code>, for eksempel, <code style="color: #cfcecc;">5270<sub>ti</sub> = 0x00000000000010AE</code>.</p>
+
+    <p>Nå kan vi konkludere med at, hvis vi har 64 posisjoner tilgjengelig, definerer bit lengst til venstre som den mest signifikante bit, så kan vi representere tall fra <code style="color: #cfcecc;">0<sub>ti</sub></code> til <code style="color: #cfcecc;">(18 446 744 073 709 551 616 - 1)<sub>ti</sub></code> eller <code style="color: #cfcecc;">(2<sup>64</sup> - 1)<sub>ti</sub></code>.</p>
+    
+    <p>La oss illustrere dette med 64 bit for hvert tall</p>
+    <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000<sub>to</sub> = 0<sub>ti</sub></code></p>
+    <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001<sub>to</sub> = 1<sub>ti</sub></code></p>
+    <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0010<sub>to</sub> = 2<sub>ti</sub></code></p>
+    <p><code style="color: #cfcecc;">... ... ... ...</code></p>
+    <p><code style="color: #cfcecc;">1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1101<sub>to</sub> = 18 446 744 073 709 551 613<sub>ti</sub></code></p>
+    <p><code style="color: #cfcecc;">1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1110<sub>to</sub> = 18 446 744 073 709 551 614<sub>ti</sub></code></p>
+    <p><code style="color: #cfcecc;">1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111<sub>to</sub> = 18 446 744 073 709 551 615<sub>ti</sub></code></p>
+
+    <p>En kompilator kan generere en feilmelding (eller avbrudd), hvis tallet som en prosessor prøver å lagre i minne er for stort (<em>overflyt</em>). Men hva hvis tallet er ikke kjent når kompileringen skjer, men blir beregnet av programmet basert på andre, lovlige, tall? Da må prosessor sende ut en melding om (<em>overflyt</em>), og programmet bør kunne fange den opp og enten avslutte på en best mulig måte eller, eventuelt, gi melding tilbake til brukerrommet og fortsette utførelsen av neste instruksjon.</p>
+
+    <p>Dette illustrerer at det er ikke nok å sette grenser for hvilke tall kan man lagre i datamaskinens minne (her mener vi alle typer minne, inkludert registrene, som kun kan presentere begrenset antall bits på grunn av begrensningene i maskinvaren). Vi må også betrakte hvilke operasjoner datamaskinen kan gjennomføre, og hva kan mulige resultater av operasjonene være? Vi må med andre ord se på minnebegrensningene i lys av operasjoner, som er tillatt (i designet) på dataene i minne.</p>
+
+    <p>Hva skjer hvis vi gjør en subtraksjon av to positive heltall, og prøver å subtrahere et større tall fra et mindre tall? I matematikken har man innført negative tall for å kunne tillate en slik operasjon. Hvordan kan vi presentere negative tall i en datamaskin?</p>
+    <p>En mulig design er å dedikere en bit for å representere fortegn til tallet. En slik tilnærming kalles for "fortegn og størrelse"-metoden. Det er flere ulemper med denne metoden:</p>
+    <ul>
+      <li>
+        først er det ikke åpenbart hvor i bit-sekvensen er det best å plassere fortegn-bit; først, sist?
+      </li>
+      <li>kretsene som adderer må gjennomføre en ekstra steg for å sette fortegn</li>
+      <li>introduserer problemet med positiv og negativ null (0), som kan skape problemer for programmerere</li>
+    </ul>
+    <p>"fortegn og størrelse"-metoden ble derfor forkastet. I søket for et bedre design, spørsmålet som kom opp var, hva skulle resultatet være for et tall uten fortegn (positive), hvis man prøvde å subtrahere et stort tall fra et lite. Svaret er at man skulle da "låne" fra de ledende nullene og resultatet skulle da bli en sekvens av ledende enere.</p>
+    <p>La oss prøve å subtrahere <code style="color: #cfcecc;">1111<sub>to</sub> = 15<sub>ti</sub></code> fra <code style="color: #cfcecc;">0011<sub>to</sub> = 3<sub>ti</sub></code></p>
+    <pre><code>
+// Ifølge aritmetikken
+0011 - 1111
+// er det samme som
+- (1111 - 0011)
+// substitusjon mindre tall fra større tall
+   1111
+ - 0011
+ -------
+   1100
+// derfor
+- (1100)<sub>to</sub> = - 12<sub>ti</sub>
+    </code></pre>
+    <p>Men vi ender med "fortegn og størrelse", dvs. at det trenges en ekstra bit for å reperesentere <code style="color: #cfcecc;">-12<sub>ti</sub></code> binært, siden 4 bits representasjon er allerede brukt for å representere den positive <code style="color: #cfcecc;">12<sub>ti</sub></code>. </p>
+
+    <p>Løsningen var å bestemme at ledene nuller betyr positivt tall og ledende enere betyr negativt, og holde seg til samme antall bits. Det fører til halvering av størrelsen på positive tall, som man kan representere med samme antall bits. Vi kan illustrere det med følgende tabell:</p>
+    <pre><code>
+Bin   Pos   Pos&Neg
+0000   0      0
+0001   1      1
+0010   2      2
+0011   3      3
+0100   4      4
+0101   5      5
+0110   6      6
+0111   7      7
+1000   8     -8
+1001   9     -7
+1010  10     -6
+1011  11     -5
+1100  12     -4
+1101  13     -3
+1110  14     -2
+1111  15     -1
+    </code></pre>
+<p>Legg merke til at denne representasjonen er ikke symmetrisk, dvs. man kan ikke inkludere en +8, siden 0 opptar den ene positive plassen.</p>
+
+<p>Her er et kodeeksempel hvor en Go programmerer, som ikke kjenner til representasjon av tall i minne, kan få seg en overraskelse:</p>
+<pre><code> 
+var tall int8 = 127
+fmt.Println(tall + 1) // skriver ut -128
+fmt.Println(tall + 2) // skriver ut -127
+
+var utall uint8 = 127
+fmt.Println(utall + 1) // skriver ut 128
+fmt.Println(utall + 2) // skriver ut 
+
+utall = 255
+fmt.Println(utall + 1) // skriver ut 0
+
+</code></pre>
+<p>Disse er ulempene må man leve med, hvis man bruker en såkalt "2s complement"-metode istedenfor "fortegn og størrelse"-metoden. Så begge metodene har sine ulemper, men "2s complement" er dominerende i dag. Typen <code style="color: #cfcecc;">uint8</code> er en såkalt "8 bits unsigned int". Vi kan også resonnere oss til at grenseverdiene for de forskjellige heltallstypene i Go er:</p>
+
+<pre><code>
+int    min - max: -9223372036854775808 - 9223372036854775807
+int8   min - max: -128 - 127
+int16  min - max: -32768 - 32767
+int32  min - max: -2147483648 - 2147483647
+int64  min - max: -9223372036854775808 - 9223372036854775807
+uint   min - max: 0 - 18446744073709551615
+uint8  min - max: 0 - 255
+uint16 min - max: 0 - 65535
+uint32 min - max: 0 - 4294967295
+uint64 min - max: 0 - 18446744073709551615
+
+</code></pre>
+
+<p>Så hva er "2s complement" metode?</p>
+
+<p>Det ene er å bestemme at alle binære tall som begynner med 0 er positive og alle som begynner med 1 er negative. Det andre er, hvordan skal man kunne utføre aritmetikken med en slik representasjon? Operativsystemets programmer må ha en måte for å gjøre det på.</p>
+
+<p style="border: solid lightslategray; padding: 1em;">Definisjon</br>
+  Den matematiske definisjonen på "2s complement" er at den er en matematisk operasjon for å konvertere et positivt binærtall i et negativt binærtall med ekvivalent negativ verdi, ved å bruke, som nevnt ovenfor, den mest signinfikant bit, som indikator for fortegn (<code style="color: #cfcecc;">0 => +, 1 => -</code>).</p>
+<p><code style="color: #cfcecc;">00001010<sub>to</sub> -> 2s-compl -> 11110110<sub>to</sub></code></p>
+<p>La oss si at vi ønsker å konvertere <code style="color: #cfcecc;">9<sub>ti</sub></code> til <code style="color: #cfcecc;">-9<sub>ti</sub></code></p>
+<p>Metoden har to steg:</p>
+<ul>
+  <li>konverter alle bit til det motsatte, dvs. alle 0 til 1 og alle 1 til 0: 
+    <pre><code>
+      00001010 => inverter
+      11110101
+    </code></pre>
+  </li>
+  <li>og legg til 1 (1 og 1 gir null og 1 går i mente til neste posisjon):
+    <pre><code>
+            1    <- i mente (en. carry)
+      11110101
+    + 00000001
+    ----------
+      11110110
+    </code></pre>
+  </li>
+</ul>
+<p>Vi kan også observere et mønster, - hvis vi kun inverterer et positivt binært tall, så for vi et negativt tall med den absolutte verdien som er den absolutte verdien til det positive tallet plus 1. For eksempel, hvis vi inverterer 0, så får vi -1, hvis vi inverterer 1, så får vi -2 osv.</p>
+
+<p>Hvordan kan vi vise at subtraksjon er gyldig også med "2s complement"?</p>
+<p>La oss subtrahere <code style="color: #cfcecc;">11<sub>ti</sub></code> fra <code style="color: #cfcecc;">9<sub>ti</sub></code>, som i titallssystemet har resultat <code style="color: #cfcecc;">-2<sub>ti</sub></code>. Vi bruker 8-bit for hvert tall i det binære systemet.</p>
+<pre><code>
+   9<sub>ti</sub> = 00001010<sub>to</sub>
+  11<sub>ti</sub> = 00001101<sub>to</sub>
+   9<sub>ti</sub> - 11<sub>ti</sub> = 9<sub>ti</sub> + (-11<sub>ti</sub>) = -2<sub>ti</sub>
+
+  00001101<sub>to</sub> =  11<sub>ti</sub>
+  11110010<sub>to</sub> = -12<sub>ti</sub>
+ +       1
+ --------- 
+  11110011<sub>to</sub> = -11<sub>ti</sub>
+
+       1  <- carry
+  00001010<sub>to</sub> =   9<sub>ti</sub>
++ 11110010<sub>to</sub> = -11<sub>ti</sub>
+----------
+  11111100<sub>to</sub> =  -2<sub>ti</sub>
+
+</code></pre>
+
+<h2>
+      Referanser
+      <a name="referanser"></a>
+    </h1>
+<u2>
+  <li>Bidragsytere til Wikimedia-prosjektene. (2005, March 26). Gibibyte. Wikipedia.org; Wikimedia Foundation, Inc. https://no.wikipedia.org/wiki/Gibibyte</li>
+</ul>
+
+  </div>
+
+</body>
+</html>
