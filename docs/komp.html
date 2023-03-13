@@ -126,6 +126,12 @@
               <a href="#fil" class="tocsubseclink" data-pltdoc="x">Filer og strømmer</a>
             </td>
           </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
+              <a href="#mem" class="tocsubseclink" data-pltdoc="x">Minne og prosess</a>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -159,7 +165,7 @@
       <ul>
         <li><a href="automater.html">Automater</a></li>
         <li><a href="fil.html">Filer og strømmer</a></li>
-        <li><a href="#">...</a></li>
+        <li><a href="mem.html">Minne og prosess</a></li>
       </ul>
     </p>
 
@@ -176,6 +182,12 @@
     <p>Fil er den mest grunnleggende abstraksjon for arbeid med informasjons i datasystemer. Programmerer skriver all kode i en teksteditor (som er en applikasjon som allokerer en mellomlagringsplass i for informasjon i RAM mens arbeidet med teksten foregår) og lagrer koden i en fil. Så starter man et annet program (kompilator eller fortolker), som også ligger i en fil og tar i bruk maskinvaren på datassystemet og ofte lagrer resultater til en fil. Grunnleggende designide i UNIX er <a href="https://en.wikipedia.org/wiki/Everything_is_a_file">Everything is a file</a>. Typisk for en "fil" er at den kan leses fra og skrives til som en <a href="https://en.wikipedia.org/wiki/Stream_(computing)">strøm</a> av bytes. Filnavn (eller filidentifikator (en. file descriptor)) er da abstraksjonen man bruker for å åpne og lukke kilde eller "sluk". Filer er typisk lagret på det sekundære (bestandige) minne, men i UNIX brukes også filabstraksjon på informasjon lagret i RAM. For eksempel, kan man strømme informasjon om prosesser fra et pseudo- eller virtuelt filssystem med mappenavn <code style="color: #cfcecc;">&#47;proc</code> (dette gjelder ikke Windows og macOS).
     </p>
     <p>I kompendiet forklares det noen grunnleggende systemkall i Linux for filbehandling og det vises noen eksempler av arbeid med filer ved hjelp av Go pakker (som os, for eksempel).</p>
+
+    <h2>
+      3 Minne og prosess
+      <a name="#mem"></a>
+    </h2>
+    <p>Introduksjon i hvordan minne og prosess representeres i en datamaskin.</p>
 
 
   </div>
