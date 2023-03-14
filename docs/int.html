@@ -89,7 +89,7 @@
     <p><code style="color: #cfcecc;">5000 + 200 + 70 + 0 = 5270</code></p>
     <p><code style="color: #cfcecc;">X</code> representerer multiplikasjon (multiplikasjonsoperatør)</p>
     <p><code style="color: #cfcecc;">+</code> representerer summering (addisjonsoperatør)</p>
-    <p>Vi har også valgt å tolke (lese) tallet fra venstre til høyre, dvs. vi har bestemt at den mest signifiktante bit (som bidrar med størst verdi) er lengst til venstre. Vi kan også nummerere posisjonene til sifrene (som i dette tilfelle representerer eksponenten til basistallet 10 den konkrete posisjonen i tallet):</p>
+    <p>Vi har også valgt å tolke (lese) tallet fra venstre til høyre, dvs. vi har bestemt at den mest signifikante bit (som bidrar med størst verdi) er lengst til venstre. Vi kan også nummerere posisjonene til sifrene tallet slik at de representerer eksponenten til basistallet 10, dvs. sifferet på posisjon 3 skal multipliseres med <p><code style="color: #cfcecc;">10<sup>3</sup></code>:</p>
     <code style="color: seagreen;">3 2 1 0</code></br>
     <code style="color: #cfcecc;">5 2 7 0</code>
 
@@ -246,24 +246,24 @@ uint64 min - max: 0 - 18446744073709551615
 <p>Det ene er å bestemme at alle binære tall som begynner med 0 er positive og alle som begynner med 1 er negative. Det andre er, hvordan skal man kunne utføre aritmetikken med en slik representasjon? Operativsystemets programmer må ha en måte for å gjøre det på.</p>
 
 <p style="border: solid lightslategray; padding: 1em;">Definisjon</br>
-  Den matematiske definisjonen på "2s complement" er at den er en matematisk operasjon for å konvertere et positivt binærtall til et negativt binærtall med ekvivalent negativ verdi, ved å bruke, som nevnt ovenfor, den mest signinfikante bit, som indikator for fortegn (<code style="color: #cfcecc;">0 => +, 1 => -</code>).</p>
-<p><code style="color: #cfcecc;">00001010<sub>to</sub> -> 2s-compl -> 11110110<sub>to</sub></code></p>
+  Den matematiske definisjonen på "2s complement" er at den er en matematisk operasjon for å konvertere et positivt binærtall til et negativt binærtall med ekvivalent negativ verdi, ved å bruke, som nevnt ovenfor, den mest signifikante bit, som indikator for fortegn (<code style="color: #cfcecc;">0 => +, 1 => -</code>).</p>
+<p><code style="color: #cfcecc;">00001001<sub>to</sub> -> 2s-compl -> 11110110<sub>to</sub></code></p>
 <p>La oss si at vi ønsker å konvertere <code style="color: #cfcecc;">9<sub>ti</sub></code> til <code style="color: #cfcecc;">-9<sub>ti</sub></code></p>
 <p>Metoden har to steg:</p>
 <ul>
   <li>konverter alle bit til det motsatte, dvs. alle 0 til 1 og alle 1 til 0: 
     <pre><code>
-      00001010 => inverter
-      11110101
+      00001001 => inverter
+      11110110
     </code></pre>
   </li>
   <li>og legg til 1 (1 og 1 gir null og 1 går i mente til neste posisjon):
     <pre><code>
-            1    <- i mente (en. carry)
-      11110101
+                 <- i mente (en. carry)
+      11110110
     + 00000001
     ----------
-      11110110
+      11110111
     </code></pre>
   </li>
 </ul>
