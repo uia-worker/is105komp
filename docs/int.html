@@ -119,34 +119,47 @@
 16  65536  (samme som 2<sup>16</sup>)
     </code></pre>
 
-    <p>Vi ser at det høyeste multiplumet, som kan inngå i <code style="color: #cfcecc;">5270<sub>ti</sub></code> er <code style="color: #cfcecc;">4096<sub>ti</sub></code>. Nå må vi finne et 2 muliplum for resten som er<code style="color: #cfcecc;">174<sub>ti</sub></code> og det er <code style="color: #cfcecc;">128<sub>ti</sub></code>. Resten er nå <code style="color: #cfcecc;">46<sub>ti</sub></code>. Minste 2 multiplum er nå <code style="color: #cfcecc;">32<sub>ti</sub></code>. Resten er <code style="color: #cfcecc;">14<sub>ti</sub></code> og 2 multiplum er <code style="color: #cfcecc;">8<sub>ti</sub></code>. Så er resten <code style="color: #cfcecc;">6<sub>ti</sub></code> og 2 multiplum <code style="color: #cfcecc;">4<sub>ti</sub></code>. Til slutt er resten <code style="color: #cfcecc;">2<sub>ti</sub></code>, som er et 2 multiplum.</p>
+    <p style="color: #ff99cc;">OBS! Rettelse</p> 
+    <p>Paragrafene under inneholdt feil. En korrekt onvertering av <code style="color: #cfcecc;">5270<sub>ti</sub></code> til binært tallssystem er følgende:</p>
+    <ul>
+      <li><code style="color: #cfcecc;">4096<sub>ti</sub></code> er det største 2 multiplumet som passer inn i <code style="color: #cfcecc;">5270<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">5270<sub>ti</sub> - 4096<sub>ti</sub> = 1174<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">1024<sub>ti</sub></code> er det største 2 multiplumet som passer inn i <code style="color: #cfcecc;">1174<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">1174<sub>ti</sub> - 1024<sub>ti</sub> = 150<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">128<sub>ti</sub></code> er det største 2 multiplumet som passer inn i <code style="color: #cfcecc;">150<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">150<sub>ti</sub> - 128<sub>ti</sub> = 22<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">16<sub>ti</sub></code> er det største 2 multiplumet som passer inn i <code style="color: #cfcecc;">22<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">22<sub>ti</sub> - 16<sub>ti</sub> = 6<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">4<sub>ti</sub></code> er det største 2 multiplumet som passer inn i <code style="color: #cfcecc;">6<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">6<sub>ti</sub> - 4<sub>ti</sub> = 2<sub>ti</sub></code></li>
+      <li><code style="color: #cfcecc;">2<sub>ti</sub></code> er et 2 multiplum og prosessene er ferdig</li>
+    </ul>
+
+    <p>Fra prosessen ovenfor</p>
+    <p><code style="color: #cfcecc;">5270<sub>ti</sub> = 4096<sub>ti</sub></code> + <code style="color: #cfcecc;">1024<sub>ti</sub></code> +<code style="color: #cfcecc;">128<sub>ti</sub></code> + <code style="color: #cfcecc;">16<sub>ti</sub></code> + <code style="color: #cfcecc;">4<sub>ti</sub></code> + <code style="color: #cfcecc;">2<sub>ti</sub></code></p>
 
     <p>Da kan vi skrive tallet <code style="color: #cfcecc;">5270<sub>ti</sub></code> med alle 2 multiplumer som vi har funnet:</p>
 
-    <p><code style="color: #cfcecc;">4096<sub>ti</sub></code> + <code style="color: #cfcecc;">128<sub>ti</sub></code> + <code style="color: #cfcecc;">32<sub>ti</sub></code> + <code style="color: #cfcecc;">8<sub>ti</sub></code> + <code style="color: #cfcecc;">4<sub>ti</sub></code> + <code style="color: #cfcecc;">2<sub>ti</sub></code></p>
-
-    <p>Så kan vi skrive 2 multiplumer med basis 2 og tilsvarende eksponenter:</p>
-
-    <p><code style="color: #cfcecc;">2<sup>12</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>7</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>5</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>3</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>2</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>1</sup><sub>ti</sub></code></p>
+    <p><code style="color: #cfcecc;">5270<sub>ti</sub> = 2<sup>12</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>10</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>7</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>4</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>2</sup><sub>ti</sub></code> + <code style="color: #cfcecc;">2<sup>1</sup><sub>ti</sub></code></p>
 
     <p>Vi kan nå resonnere at det trenges minst 13 bits for å kunne representere <code style="color: #cfcecc;">5270<sub>ti</sub></code> i totallssystemet:</p>
     <pre><code> 
   12 11 10  9  8  7  6  5  4  3  2  1  0  <- posisjon
 
-   1  0  0  0  0  1  0  1  0  1  1  1  0
+   1  0  1  0  0  1  0  0  1  0  1  1  0
 
     </code></pre>
 
-    <p>Nå ser vi at tallet <code style="color: #cfcecc;">5270<sub>ti</sub></code> er <code style="color: #cfcecc;">1000010101110<sub>to</sub></code></p>
+    <p>Nå ser vi at tallet <code style="color: #cfcecc;">5270<sub>ti</sub></code> er <code style="color: #cfcecc;">1010010010110<sub>to</sub></code></p>
 
     <p>I datamaskinen brukes det kun hele bytes (oktetter) for å lagre data, så derfor kan vårt tall lagres i 2 bytes (vi kunne brukt Go datatype <code style="color: #cfcecc;">int16</code>).</p>
-    <p><code style="color: #cfcecc;">0001 0000 1010 1110<sub>to</sub></code></p>
+    <p><code style="color: #cfcecc;">0001 0100 1001 0110<sub>to</sub></code></p>
      <p>Når vi skriver tall, så skriver vi vanligvis ikke såkalte ledende nuller. Men i minne til datamaskinen lagres data i blokker og derfor blir ledende nuller med, når vi prøver å illustrer dette. For eksempel, hvis programmerer har valgt å bruke <code style="color: #cfcecc;">int64</code> i Go, så skal operativsystemets programmer prøve å allokere 64 bits i minne for vårt tall:</p>
-    <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001 0000 1010 1110<sub>to</sub></code></p>
+    <p><code style="color: #cfcecc;">0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0001 0100 1001 0110<sub>to</sub></code></p>
 
     <p>Vi har delt opp i 4 bits blokker, som heter nibbles, med tanke på å overføre dette tallet til heksadesimalt tallsystem. Sekstentallsystemet brukes ofte for å gjøre illustrasjoner av binære tall kortere. I litteraturen om diverse data samlet under utførelse av programmer i et operativsystem, blir minneadresser og andre data ofte presentert i sekstentallssystemet:</p>
-    <p><code style="color: #cfcecc;">00000000000010AE<sub>seksten</sub></code></p>
-    <p>Man ser også ofte at heksadesimale tall markeres med en prefiks <code style="color: #cfcecc;">0x</code>, for eksempel, <code style="color: #cfcecc;">5270<sub>ti</sub> = 0x00000000000010AE</code>.</p>
+    <p><code style="color: #cfcecc;">0000000000001496<sub>seksten</sub></code></p>
+    <p>Man ser også ofte at heksadesimale tall markeres med en prefiks <code style="color: #cfcecc;">0x</code>, for eksempel, <code style="color: #cfcecc;">5270<sub>ti</sub> = 0x0000000000001496</code>.</p>
 
     <p>Nå kan vi konkludere med at, hvis vi har 64 posisjoner tilgjengelig, definerer bit lengst til venstre som den mest signifikante bit, så kan vi representere tall fra <code style="color: #cfcecc;">0<sub>ti</sub></code> til <code style="color: #cfcecc;">(18 446 744 073 709 551 616 - 1)<sub>ti</sub></code> eller <code style="color: #cfcecc;">(2<sup>64</sup> - 1)<sub>ti</sub></code>.</p>
     
