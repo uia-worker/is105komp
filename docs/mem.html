@@ -218,9 +218,9 @@
     <img src="images/minne-prosess-eksempel-transportering.svg" width="500" alt="Minne-prosess eksempel">
     <p>Figur 8. Minne-prosess eksempel.</p>
 
-    <p>Vi kjenner at enhver datamaskin har en hovedprosess (prosess 0), som er opphavet for alle andre prosesser på enheten. I transporteringscaset kan prosessen i hjernen til en individ være en slik prosess 0. Individet har behov for transportering, lager en plan for det (program) og allokerer ressurser i miljøet for å realisere planen. Variablene i miljøet (analogt med datamaskin) er rom, tid, tilgjengelige materialer og eventuelt andre individer som ønsker å realisere sine planer. Analogi i et datasystem er flere prosesser som deler på ressurser, samt prosesser som administrerer andre prosesser (hierarki).</p>
+    <p>Vi kjenner at enhver datamaskin har en hovedprosess (prosess 0), som er opphavet for alle andre prosesser på enheten. I transporteringscaset kan prosessen i hjernen til et individ være en slik prosess 0. Individet har behov for transportering, lager en plan for det (program) og allokerer ressurser i miljøet for å realisere planen. Variablene i miljøet (analogt med datamaskin) er rom, tid, tilgjengelige materialer og eventuelt andre individer som ønsker å realisere sine planer. Analogi i et datasystem er flere prosesser som deler på ressurser, samt prosesser som administrerer andre prosesser (hierarki).</p>
 
-    <p>I Go programmeringsmiljøet så har vi allerede hovedprosessen med ID 0 lastet inn på platformen og flere andre prosesser, som hovedprosessen har skapt (vanligvis under oppstarten av datasystemet nå operativsystemprogrammer bli lastet inn). Du som programmerer ønsker å realisere din plan, som du uttrykker i Go programmeringsspråket (i en tekstfil). Du bruker et annet program (Go kompilator) for å oversette din plan til en plan som din platform kan gjennomføre, dvs. allokere de nødvendige ressursene, ta input og levere en output. Du kan også bruke ekisterende programmer (planer) i Go, for å utforske miljøet som dine egne planer vil realiseres.</p>
+    <p>I Go programmeringsmiljøet så har vi allerede hovedprosessen med ID 0 lastet inn på platformen og flere andre prosesser, som hovedprosessen har skapt (vanligvis under oppstarten av datasystemet nå operativsystemprogrammer bli lastet inn). Du som programmerer ønsker å realisere din plan, som du uttrykker i Go programmeringsspråket (i en tekstfil). Du bruker et annet program (Go kompilator) for å oversette din plan til en plan som din platform kan gjennomføre, dvs. allokere de nødvendige ressursene, ta input og levere en output. Du kan også bruke ekisterende programmer (planer) i Go, for å utforske miljøet, som dine egne planer vil realiseres i.</p>
 
     <p>Først må vi forstå modellen som blir brukt for å lagre og adminstrere informasjon om prosesser i arbeidsminne. Et (eller flere) programmer sørger for å administrere hvilken prosess som er aktiv og hvilken må eventuelt vente på tur (på engelsk kaller man et slikt program for <em>scheduler</em>. En <em>scheduler</em> har egne datastrukturer i minne, hvor all informasjon om prosesser er lagret (<code style="color: #cfcecc;">/proc</code> mappen). Man har tilgang til denne informasjonen fra kommandolinjen med kommandoen <code style="color: #cfcecc;"><a href="https://man7.org/linux/man-pages/man1/ps.1.html" target="_blank">ps</a></code>. Siden hver prosess må dele ressurser med andre prosesser, kan ingen prosess regne med å fullføre alle instruksjonene i programmet uavbrutt. Linux operativsystemet har en <em>preemtive</em> eller prevantiv tidsfordeling mellom prosessene. Ingen prosess får prosessortid lengre en et spesifikt tidsperiode (1ms er vanlig). Når tiden for prosessen er ute, gjør CPU-en en kontekstendring (en. context switch), dvs. begynner å utføre en annen prosess, enten fra begynnelsen eller der den forlot den under forrige runden. Disse administrative oppgavene blir modellert med en tilstandsautomat. Figur 9 illustrerer mulige tilstander og overgangene mellom dem for en Linux prosess.</p>
 
@@ -230,11 +230,18 @@
     <p style="border: solid greenyellow; padding: 1em;">Øvelse</br>
       Eksperimenter med prosesser i Linux OS.
     </p>
+    <p style="border: solid indianred; padding: 1em;">
+      OBS!<br /> En student oppgadet at det ikke er mulig å bruke Ctrl-z tastkombinasjon for å endre prosesstilstand til en i forgrunn kjørende prosess (en som blokkerer STDIN for shell) fra S til T når man har koblet til (en. attach) en kjørende Docker kontainer "kontainernavn" med kommanodo "docker exec -it kontainernavn /bin/bash" fra Windows terminal-applikasjoner Powershell eller cmd.<br /> <br />
+      Det betyr at de første to eksperimenter i den påfølgende koden kan ikke bli gjennomført i Windows, siden Ctrl-z tastkombinasjon vil koble fra (en. detach) kontaineren. Prosessen som ble startet (med "sleep 100", som betyr å sove i 100 sekunder) vil fortsette å utføre i kontaineren, med minder kontaineren blir eksplisitt stoppet.<br /><br />
+      Det siste eksperimentet hvor man starter "sleep" prosessen som bakgrunnsprosess (med &), vil funksjonere også i Windows. Der bruker man "kill" programmet for å sende signaler til prosessen og ikke spesifikke tastkombinasjoner.
+    </p>
+
+
     <pre><code>
       $ sleep 100
             Trykk Ctrl-z (sender SIGSTOP signal 
-            forgrunnsprosessen; ekvivalent med 
-            bg/fg og kill -STOP pid og 
+            til forgrunnsprosessen; ekvivalent 
+            med bg/fg og kill -STOP pid og 
             kill -CONT pid
       $ ps -o ppid,pid,state,command
       # Fortsette prosessen
@@ -242,7 +249,7 @@
 
       # For å se tilstand R
       $ yes > /dev/null
-      Tryll Ctrl-z
+      Trykk Ctrl-z
       $ ps -o ppid,pid,state,command
 
       $ sleep 100 &
@@ -360,6 +367,8 @@ func init() {
        VSZ       virtual memory size of the process in KiB (1024-byte units). Device mappings are currently excluded; this is subject to change.
     </code></pre>
 
+    <p>Rob Pike om samtidighet og parallelisme ((gnbitcom, 2015), (Concurrency Is Not Parallelism, 2023)).</p>
+
      <h2>
        6 Referanser
        <a name="referanser"></a>
@@ -375,6 +384,8 @@ func init() {
        <li>NCI Dictionary of Cancer Terms. (2023). National Cancer Institute; Cancer.gov. https://www.cancer.gov/publications/dictionaries/cancer-terms/def/crispr-cas9</li>
        <li>egonelbre. (2020, June 18). egonelbre/gophers: Free gophers. GitHub. https://github.com/egonelbre/gophers</li>
        <li>Linux man pages online. (2023). Man7.org. https://man7.org/linux/man-pages/index.html</li>
+       <li>Concurrency is not Parallelism. (2023). Go.dev. https://go.dev/talks/2012/waza.slide#1</li>
+       <li>gnbitcom. (2015). Concurrency is not Parallelism by Rob Pike [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=oV9rvDllKEg</li>
   </div>
 
 </body>
