@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="no-NB">
+<head>
+    <meta charset="utf-8">
+    <title>IS-105 Seminar III</title>
+    <link href='https://fonts.googleapis.com/css?family=IBM Plex Serif' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="styles/is105-style.css" title="default">
+    <script type="text/javascript" src="js/is105.js"></script>
+</head>
+<body>
+  <div class="tocset">
+    <div class="tocview">
+      <div class="tocviewlist tocviewlisttopspace">
+        <div class="tocviewtitle">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td style="width: 1em;">
+              <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_0&quot;);">▼</a>
+                </td>
+                <td>
+                </td>
+                <td>
+                  <a href="index.html" class="tocviewlink" data-pltdoc="x">Vår 2023: IS-105</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tocviewsublisttop" style="display: block;" id="tocview_0">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="index.html" class="tocviewlink" data-pltdoc="x">Beskrivelse og rettningslinjer</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="komp.html" class="tocviewlink" data-pltdoc="x">Kompendium</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="sem.html" class="tocviewselflink" data-pltdoc="x">Seminar</a>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+              </td>
+              <td>
+                <a href="honnor.html" class="tocviewlink" data-pltdoc="x">Honnør</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="oppgaver.html" class="tocviewlink" data-pltdoc="x">Oppgaver</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="leserefl.html" class="tocviewlink" data-pltdoc="x">Lese og reflektere</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="tolkekode.html" class="tocviewlink" data-pltdoc="x">Tolke kode</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="testimpl.html" class="tocviewlink" data-pltdoc="x">Teste og implementere</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tocviewlist">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="width: 1em;">
+                <a href="javascript:void(0);" title="Expand/Collapse" class="tocviewtoggle" onclick="TocviewToggle(this,&quot;tocview_1&quot;);">▼</a>
+              </td>
+              <td>
+              </td>
+              <td>
+                <a href="sem.html" class="tocviewlink" data-pltdoc="x">Seminar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="tocviewsublistbottom" style="display: block;" id="tocview_1">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="sem01.html" class="tocviewlink" data-pltdoc="x">Seminar I</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="sem02.html" class="tocviewlink" data-pltdoc="x">Seminar II</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <a href="sem03.html" class="tocviewselflink" data-pltdoc="x">Seminar III</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="tocsub">
+      <div class="tocsubtitle">På denne siden:</div>
+      <table class="tocsublist" cellspacing="0">
+        <tbody>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">1<tt>&nbsp;</tt></span>
+              <a href="#plan" class="tocsubseclink" data-pltdoc="x">Plan for seminaret</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">2<tt>&nbsp;</tt></span>
+              <a href="#sniffing" class="tocsubseclink" data-pltdoc="x">tcpdump og Wireshark</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">3<tt>&nbsp;</tt></span>
+              <a href="#crypt" class="tocsubseclink" data-pltdoc="x">Kryptering</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">4<tt>&nbsp;</tt></span>
+              <a href="#proxy" class="tocsubseclink" data-pltdoc="x">Proxy</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="tocsublinknumber">5<tt>&nbsp;</tt></span>
+              <a href="#referanser" class="tocsubseclink" data-pltdoc="x">Referanser</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="maincolumn">
+
+    <h1>
+      Seminar III: TCP, kryptering
+    </h1>
+    <p>Forkunnskapskrav: grunnleggende systemadministrasjon fra CLI, grunnleggende Git og Github, Go moduler, go build, go test og grunnleggende programmering i Go (forstå package, import, func main() og noen funksjoner fra pakker fmt, os, io, log, bufio, math, bytes, strings, strconv, net, sync).</p>
+    <p>Aktivitetene og mål på seminaret III er:</p>
+      <ul>
+      <li>Installere Wireshark på vertssystemet og tcpdump på det virtuelle systemet.</li>
+      <li>Kjenne til klient/server og node-til-node (en. peer to peer) arkitekturer for kommunikasjon og fordeler og ulemper med disse.</li>
+      <li>Kunne konfigurere og utføre klient-, server- og proxyprosesser i adskilte Docker kontainere.</li>
+      <li>Kunne implementere primitiv kryptering i en gitt kodebase.</li>
+      <li>Kunne fange opp og tolke TCP pakker, som sendes mellom to prosesser ved å "sniffe" på en prosess og ved å "sniffe" fra en tredje prosess, som er mellom to prosesser (proxyprosess).</li>
+      <li>Kunne forklare utfordringene med sikkerhet i åpne nettverk ved hjelp av simulering i et Docker nettverk.</li>
+      <li>Demonstrere kunnskap fra <a href="sem01.html">seminar I</a> og <a href="sem02.html">seminar II</a>.</li>
+      
+    </ul>
+
+    <p>VIKTIG! Det kan være feil i all eksempelkode, derfor er det viktig å teste koden både manuelt og eventuelt med enhetstester. Det er ikke garantert at eksemplene som er beskrevet her, vil gi nøyaktig samme output på deres vertssystemer. Instruksjonene som er gitt i Seminar III er ikke like detaljerte som i Seminarene I og II. Det forventes at studentene skal forsøke å finne løsning selv i tilfeller hvor noen av detaljene i instruksjonene er utelatt.</p>
+
+    <h2>
+      1 Plan for seminaret
+      <a name="plan"></a>
+    </h2>
+
+    <table class="table1">
+      <thead>
+        <tr >
+            <th colspan="4">Plan for seminar I</th>
+
+        </tr>
+        <tr >
+            <th>Dato</th>
+            <th>Tid</th>
+            <th>Aktivitet</th>
+            <th>Godkjenningskrav</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        <td>17.04 (aud B1 018)</td>
+        <td>8:15 - 8:30</td>
+        <td>Introduksjon og registrering.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>17.04</td>
+        <td>8:30 - 9:00</td>
+        <td>Vi danner en adskilt gruppe for de som har utfordringer med installasjon og konfigurasjon av programvaren på sin platform. De som har fått sin datamaskin konfigurert, oppfordres til å bidra til at andre får det gjort.</td>
+        <td>Temaene for dette seminaret blir implementering av kommunikasjonssesjoner mellom to eller flere noder, kryptering og overvåkning.</td>
+      </tr>
+      <tr>
+        <td>17.04</td>
+        <td>9:15 - 9:30</td>
+        <td>Presentasjon av programvare for overvåkning av nettverkstrafikk.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>17.04</td>
+        <td>9:30 - 10:00</td>
+        <td><a href="#sniffing">tcpdump og Wireshark</a> (oppgavesett #1)</td>
+        <td>Demonstrere at man kan sette opp et nettverk ved hjelp av Docker kontainere (finne IP adresser til kontainere og bestemme seg for portnummer for at prosessene kan samarbeide mellom kontainere). Konfigurere og utføre <code style="color: #cfcecc;">tcp_client.go</code> og <code style="color: #cfcecc;">tcp_server.go</code>. Demonstrere at man kan fange opp pakker fra trafikken mellom klient- og serverprosesser, som utfører i forskjellige Docker kontainere.</td>
+      </tr>
+      <tr>
+        <td>17.04</td>
+        <td>10:15 - 11:00</td>
+        <td>Fortsetter med <a href="#sniffing">tcpdump og Wireshark</a> (oppgavesett #2)</td>
+        <td></td>
+      </tr>
+        <td>17.04</td>
+        <td>11:15 - 12:00</td>
+        <td><a href="#crypt">Kryptering</a> (oppgavesett #2)</td>
+        <td>Demonstrere at man forstår og kan implementere primitiv kryptering i en gitt kodebase.</td>
+      </tr>
+      <tr>
+        <td>21.04 (aud B1 007)</td>
+        <td>8:15 - 8:30</td>
+        <td><a href="#proxy">Proxy-server</a> (oppgavesett #3)</td>
+        <td>Demonstrere at man forstår og kan konfigurere en "dum" proxyserver og fange datapakker som går gjennom en virtuell instans av Linux operativsystem (Docker kontainer).</td>
+      </tr>
+      <tr>
+        <td>21.04</td>
+        <td>8:30 - 9:00</td>
+        <td>Fortsetter med <a href="#proxy">Proxy-server</a> (oppgavesett #3)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>21.04</td>
+        <td>09:15 - 10:00</td>
+        <td>Fortsetter med <a href="#proxy">Proxy-server</a> (oppgavesett #3)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>21.04</td>
+        <td>10:15 - 12:00</td>
+        <td>Godkjenning</td>
+        <td></td>
+      </tr>
+      <tbody>
+    </table>
+
+   <h2>
+      2 tcpdump og Wireshark
+      <a name="sniffing"></a>
+    </h2>
+    <p><a href="https://www.wireshark.org/download.html" target="_blank">Wireshark</a> er et verktøy for overvåkning av nettverkstrafikk mellom noder i et nettverk. <a href="https://www.tcpdump.org/" target="_blank">tcpdump</a> er et kommandolinjeverktøy for samling av datapakkene sendt mellom noder i et nettverk. I dette seminaret skal <i>tcpdump</i> brukes for å fange opp datapakker sendt mellom to virtuelle noder i et virtuelt nettverk innen Docker applikasjonen. <i>Wireshark</i> skal brukes for å vise frem pakkefangst på en brukbar måte på vertssystemet. <i>Vertssystemet</i> her betegner det systemet som er installert på brukerens datamaskin (i vår gruppe er det nesten utelukkende MS Windows eller macOS). <i>Virtuelle noder</i> betegner kontainere skapt fra en image i Docker applikasjonen, som utfører på vertssystemet (se <i>Figur 1</i>).</p>
+
+    <img src="images/overview-docker-containers-sem03.svg" width="600" alt="Oversikt over Docker kontainere for Seminar III.">
+     <p><i>Figur 1.</i> Oversikt over Docker kontainere for Seminar III.</p>
+
+    <ul> 
+      <li>Gjør en fork av repositorien REP01: <code style="color: #cfcecc;">https://github.com/uia-worker/sem03simpleserver.git</code></li>
+      <li>Gjør en fork av repositorien REP02: <code style="color: #cfcecc;">https://github.com/uia-worker/sem03simpleclient.git</code></li>
+      <li>Antar følgende tilstand for Docker images på vertssystemet (for deg vil tilstanden være annerledes):
+<pre><code>
+$ docker images
+REPOSITORY   TAG        IMAGE ID       CREATED        SIZE
+minubuntu    version6   4d140b9650cb   2 weeks ago    268MB
+ubuntu       latest     58db3edaf2be   2 months ago   77.8MB
+
+</code></pre>
+      </li>
+      <li><code style="color: #cfcecc;">docker run --name alice -d -i ubuntu</code></li>
+      <li><code style="color: #cfcecc;">docker run --name bob -d -i ubuntu</code></li>
+      <li>Eksempel på tilstand for Docker kontainere  (for deg vil tilstanden være annerledes):
+<pre><code>
+$ docker container ls
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
+76d3491f8427   ubuntu    "/bin/bash"   11 seconds ago   Up 10 seconds             bob
+f2416d5010d9   ubuntu    "/bin/bash"   2 minutes ago    Up 2 minutes              alice
+
+</code></pre>
+      </li>
+      <li>"Gå inn i" både <i>alice</i> og <i>bob</i> ved hjelp av kommandoen <code style="color: #cfcecc;">docker exec ...</code> (du får to terminalvinduer for hver av disse Docker kontainerene)</li>
+      <li>I både <i>alice</i> og <i>bob</i> installer de nødvendige verktøyene (hvis du bruker en "fersk" ubuntu image):
+<pre><code>
+$ apt-get update
+$ apt-get install -y tcpdump
+$ apt-get install -y iproute2
+$ apt-get install -y git
+$ apt-get install -y golang
+$ apt-get install -y nano
+
+</code></pre>
+      </li>
+      <li>I <i>alice</i> klone koden fra din fork av REP02 (klientapplikasjonen)</li>
+      <li>Gå inn i mappen "sem03simpleclient"</li>
+      <li>I <i>bob</i> klone koden fra din fork av REP01 (serverapplikasjonen)</li>
+      <li>Gå inn i mappen "sem03simpleserver"</li>
+      <li>Ved hjelp av kommandoen <code style="color: #cfcecc;">ip addr show</code> finn IP adresse som både <i>alice</i> og <i>bob</i> har i Docker nettverket</li>
+      <li>På vertssystemet kan man også finne informasjon om alle nodene i Docker nettverket ved hjelp av kommandoen <code style="color: #cfcecc;">docker network inspect bridge</code></li>
+      <li>Gjør de nødvendige endringene i både klient- og serverkoden (IP adresser og porter må endres)</li>
+      <li>Starte serverapplikasjonen på <i>bob</i> med kommandoen <code style="color: #cfcecc;">go run tcp_server.go</code></li>
+      <li>Teste at klienten i kontaineren <i>alice</i> kan kommunisere med serveren i kontaineren <i>bob</i> (kommandoen er <code style="color: #cfcecc;">go run tcp_client.go ping</code>)</li>
+      <li></li>
+    </ul>
+
+    <p>Neste delen av oppgavene gjelder "sniffing" ved hjelp av <code style="color: #cfcecc;">tcpdump</code>. "Sniffing" skal gjennomføres i kontainener <i>bob</i>.</p>
+    <ul>
+      <li>Åpne et nytt terminalvindu og "gå inn" i kontainerene <i>bob</i>.</li>
+      <li>Først se om <code style="color: #cfcecc;">tcpdump</code> funksjonerer ved å utføre <code style="color: #cfcecc;">tcpdump --version</code>.</li>
+      <li>Så starte "sniffing" med kommandoen <code style="color: #cfcecc;">tcpdump</code></li>
+      <li>Generere trafikk mellom <i>alice</i> og <i>bob</i> ved å utføre klientapplikasjonen i kontaineren <i>alice</i> (informasjon skal bli skrevet til stdout og vil være vanskelig å tolke); avslutte tcpdump prosessen med tastkombinasjonen Ctrl-C</li>
+      <li>Gjør innsamling av data, som går mellom <i>alice</i> og <i>bob</i>, til en fil ved å bruke kommandoen <code style="color: #cfcecc;">tcpdump -i eth0 -w packets_alice_bob_01.pcap</code> </li>
+      <li>Lage en ny mappe i repositorien "sem03simpleserver" med navn "pcap" og kopiere filen "packets_alice_bob_01.pcap" inn i denne mappen</li>
+      <li>For å kunne gjøre en "push" tilbake til din fork av REP01, må du lage en fil med navn ".gitconfig" i hjemmemappen til den brukeren som du er pålogget som i /bin/bash applikasjonen i Docker kontaineren; et mal for innholdet i denne filen er følgende og du må legge inn "access token" (se også Seminar II):
+      
+<pre><code>
+[user]
+        email = dittepost@domen.com
+        name = Ditt Navn
+[url "https://ghp_...............:@github.com/"]
+        insteadOf = https://github.com/
+
+</code></pre>        
+      </li>
+      <li>Gjør en <code style="color: #cfcecc;">git add</code>, <code style="color: #cfcecc;">git commit -m "kommentar"</code> og <code style="color: #cfcecc;">git push</code> til din fork av REP01</li>
+      <li>I terminalen på vertssystemet (cmd eller Terminal), klone din oppdaterte fork av REP01</li>
+      <li>Åpne filen packets_alice_bob_01.pcap i Wireshark.</li>
+      <li>Analysere detaljene i det grafiske brukergrensesnittet til Wireshark (se godkjenningskriteriene)</li>
+    </ul>
+
+    <p>For flere detaljer om bruken av <i>tcpdump</i> kommandolinjeverktøyet se dokumentet i Canvas under Moduler <a href="https://uia.instructure.com/courses/12085/files/2155960?module_item_id=476243">Chapter 6_ Packet Analysis on the Command Line _ Practical Packet Analysis, 3rd Edition.pdf</a> (lenken krever autentisering i Feide).</p>
+
+    
+
+    
+
+    
+
+    <h3>
+      Oppgaver for Godkjenning
+    </h3>
+    <ul>
+      <li>Wireshark installert på vertssystemet.</li>
+      <li>To Docker kontainere med navn <i>alice</i> og <i>bob</i> utføres.</li>
+      <li>To terminalvinduer på vertssystemer brukt for å logge seg inn i begge kontainere.</li>
+      <li>tcpdump, iproute2, git, golang, nano (eller annen teksteditor) installert i begge kontainere.</li>
+      <li>REP01 forket og klonet i Docker kontaineren <i>bob</i></li>
+      <li>REP02 forket og klonet i Docker kontaineren <i>alice</i></li>
+      <li>Bevise oppsett at Docker nettverk og vise frem måten man kan finne IP-adresser for begge kontainere i Docker nettverket.</li>
+      <li>Bevise pakkefangst med <code style="color: #cfcecc;">tcpdump</code> i Docker kontaineren <i>bob</i>, som er lagret til en fil med navn <code style="color: #cfcecc;">packets_alice_bob_01.pcap</code> i mappen til den REP01 (forket og klonet).</li>
+      <li>Bevise at din fork av REP01 på Github inneholder mappen <code style="color: #cfcecc;">pcap</code> med filen <code style="color: #cfcecc;">packets_alice_bob_01.pcap</code></li>
+      <li>Vise innholdet i filen <code style="color: #cfcecc;">packets_alice_bob_01.pcap</code> frem i det Grafiske brukergrensesnittet til Wireshark på vertssystemet.</li>
+      <li>Forklare data basert på OSI-modellen.</li>
+      <li>Forklare 3-veis håndtrykk basert på dataene.</li>
+      <li>Forklare variablene Seq, Ack, Win og Len i dataene.</li>
+      <li>Finne data fra det høyeste laget ("ping" og "pong") som ble sendt mellom prosessene "tcp_client" (i Docker kontainer <i>alice</i>) og "tcp_server" (i Docker kontainer <i>bob</i>) i Wireshart grensesnittet for pakkeanalyse.</li>
+      <li>Hva returnerer "tcp_server" prosessen, hvis man skriver inn noe annet enn "ping" og hvorfor? (må forklare basert på analyse av Go kode)</li>
+      <li>Hvilke åpenbare svakheter har tcp_client.go og tcp_server.go? (hint: input-kontroll, avslutningsstrategi)</li>
+
+     </ul>
+
+    
+    
+    <h2>
+      3 Kryptering
+      <a name="crypt"></a>
+    </h2>
+    <p>Som dere fant ut i forrige avsnittet, så kan alle data, som sendes over et nettverk som ren tekst, sees av alle noder dataene skal gjennom. Slike noder kan være rutere, men etthvert nettverk kan også deployere noder med andre kapabiliteter enn kun ruting. For eksempel er det vanlig å deployere såkalte "proxy-servere" i et nettverk for større organisasjoner. Slike "proxy-servere" kan filtrere og overvåke trafikken mellom Internett og organisasjonsnettverk, samt også fungere som mellomlagringsplass (cache) for informasjon som ofte forespørres i organisasjonsnettverket.</p>
+
+    <p>La oss først se på en måte vi kan gjøre det vanskeligere for uvedkommende å tolke våre data, - kryptering. Kryptering er sterkt forankret i matematikken, og kan være avansert, men prinsippene for kryptering er forholdsvis enkle. For at andre ikke skal lese våre meldinger, må vi endre de slik (chiffrere) at de er uleselige. En betingelse er at den som skal kunne lese vår melding, trenger å gjøre den leselig igjen (dechiffrere).</p>
+
+    <p>Så et enkelt forløp er at RENTEKST gjøres til CHIFFERTEKST ved hjelp av CHIFFER (regler for endring av tekst eller informasjon generelt) og så kan CHIFFERTEKST igjen trasformeres til RENTEKST ved hjelp av den samme CHIFFER. Så meningen med kryptering er å skjule meningen i meldingen og ikke selve meldingen. Det er to måter å endre tekst basert på symboler (ofte en alfabet) på, - <i>substitusjon</i> (erstatter hvert symbol med en annen symbol) og <i>transponering</i> (endrer ikke symbolene, men endrer posisjoner til symbolene). Vi skal kun se på det enkleste tilfelle av substitusjon, hvor vi skal ta et utgangspunkt i et posisjonsbasert alfabet (mengde av symboler) og ersatte hvert symbol i teksten med et symbol i en annen posisjon i alfabetet, som er relatert til symbolets posisjon. </p>
+
+    <p>For eksempel, hvis alfabetet er <code style="color: #cfcecc;">abcde</code>, kan lage en CHIFFER slik at hvert symbol i teksten erstattes med et symbol 4 posisjoner til høyre fra symbolets posisjon i alfabetet. Siden alfabetet er endelig, må vi også legge inn en regel om rotasjon, dvs. hvis summen av posisjon til symbolet i teksten og antall posisjoner (4 i vårt eksempel), vi har valgt å forskyve teksten med er større enn lengden på alfabetet må vi begynne å telle fra begynnelsen igjen, dvs. fra venstre siden. For eksempel, hvis RENTEKST er <code style="color: #cfcecc;">ada</code>, så CHIFFERTEKST basert på vår CHIFFER <code style="color: #cfcecc;">ece</code>, siden 4 posisjoner fra <code style="color: #cfcecc;">a</code> er <code style="color: #cfcecc;">e</code> og 4 posisjoner fra <code style="color: #cfcecc;">d</code> er <code style="color: #cfcecc;">c</code>, på grunn av at det er en posisjon fra <code style="color: #cfcecc;">d</code> til <code style="color: #cfcecc;">e</code> og så teller vi 3 posisjoner til som gir oss en <code style="color: #cfcecc;">c</code>.</p>
+
+    <p>Implementasjon av en slik forskyvningsalgoritme ligger i REP03: https://github.com/uia-worker/is105sem03.git</p>
+
+    <ul>
+      <li>Gjør en fork av REP03. Du kan klone denne forken hvor du ønsker, dvs. enten på vertssystemet eller i en Docker kontainer, siden du skal inkludere koden gjennom import og koden skal være tilgjengelig på Github.</li> 
+      <li>Funksjonene i <code style="color: #cfcecc;">mycrypt.go</code> avhenger av alfabetet, som er definert i samme filen. Din oppgave er å gjøre endringene i funksjonene i <code style="color: #cfcecc;">mycrypt.go</code> for å tilfredstille alle testene i <code style="color: #cfcecc;">mycrypt_test.go</code>. I REP03 er det også en <code style="color: #cfcecc;">main.go</code> fil, hvor noen manuelle tester er gjort. Prøv å finne ut hvorfor testene ikke går gjennom og gjør endringene, slik at alle testene går gjennom.</li>
+      <li>Husk også å lage en ny <code style="color: #cfcecc;">go.mod</code>, slik at den har korrekt modulenavn i forhold til din fork. Når du har gjort det, push endringene til din fork av REPO3.</li> 
+      <li>Studer koden i <code style="color: #cfcecc;">tcp_client.go</code> (REP02) og tenk hvordan kan man gå frem for å kryptere input fra kommandolinje ("ping" i det eksemplet vi så på tidligere) før den blir sendt over til serveren (<i>bob</i>).</li>
+      <li>Gå til Docker kontainer <i>alice</i> og legg inn følgende linjer i filen tcp_client.go for å kunne sjekke at krypteringen funksjonerer: 
+<pre><code>
+kryptertMelding := mycrypt.Krypter([]rune(os.Args[1]), mycrypt.ALF_SEM03, 4)
+log.Println("Kryptert melding: ", string(kryptertMelding))
+_, err = conn.Write([]byte(string(kryptertMelding)))
+
+</code></pre>
+      Du må også legge inn korrekt modulenavn i import setningen i filen tcp_client.go. 
+      </li>
+      <li>Siden prosessen i Docker kontaineren <i>bob</i> må dekryptere meldingen så trenger man å gjøre endringer i <code style="color: #cfcecc;">tcp_server.go</code>. Denne koden kan hjelpe til å gjøre disse endringene:
+<pre><code>
+dekryptertMelding := mycrypt.Krypter([]rune(string(buf[:n]))), mycrypt.ALF_SEM03, len(mycrypt.ALF_SEM03)-4)
+log.Println("Dekrypter melding: ", string(dekryptertMelding))
+switch msg := string(dekrypterMelding) { ...
+
+</code></pre>
+      </li>
+      <li>"Gå inn i Docker kontainer <i>bob</i> og utføre kommandoen <code style="color: #cfcecc;">tcpdump -i eth0 -w packets_alice_bob_crypt_01.pcap</code></li>
+      <li>Starte serverprosessen (med koden for dekryptering) i Docker kontainer <i>bob</i> og utføre klientprosessen (med koden for kryptering) i Docker kontainer <i>alice</i>.</li>
+      <li>Stoppe pakkefangst og kopiere filen over til Github repository.</li>
+      <li>Klone (eller gjøre <code style="color: #cfcecc;">git pull</code> hvis repository allerede er klonet på vertssystemet) Github repository med filen <code style="color: #cfcecc;">packets_alice_bob_crypt_01.pcap</code> i.</li>
+      <li>Åpne filer <code style="color: #cfcecc;">packets_alice_bob_crypt_01.pcap</code> i Wireshark på vertssystemet og analysere den.</li>
+    </ul>
+
+    <h3>
+      Oppgaver for Godkjenning
+    </h3>
+    <ul>
+      <li>Vise en forket versjon av REP03 som sin egen i Github med de aktueller endringene for kryptering av trafikken.</li>
+      <li>Bevise at alle testene går gjennom og forklare endringene som ble gjort.</li>
+      </li>
+      <li>Bevise ved å vise frem filen <code style="color: #cfcecc;">packets_alice_bob_crypt_01.pcap</code> at trafikken er kryptert en vei, men ikke begge veier.</li>
+      <li>Hvordan kunne man implementre kryptering av trafikken begge veier.</li>
+
+    </ul>
+
+    <h2>
+      4 Proxy
+      <a name="proxy"></a>
+    </h2>
+
+    <p>I denne delen av oppgaven skal dere konfigurere en proxy-server. Som nevnt i forrige kapittel, en "proxy-servere" kan brukes for å filtrere og overvåke trafikken mellom Internett og et organisasjonsnettverk, samt også fungere som mellomlagringsplass (cache) for informasjon som ofte forespørres i organisasjonsnettverket. I vårt eksempel vil vi kun se på en "dum" "proxy-server", som kopierer alt den får fra en node, til en annen node. Med dette mønstre kan man relativt enkelt implementere både filtrering og caching. Et slik mønster kan også være et godt utgangspunkt for å bygge en "chat-server", hvor da "proxy-serveren" fungerer som en sentral master.</p>
+
+    <p>Den distribuerte applikasjonen, som dere skal konfigurere og implementere skal kunne gi mulighet til Alice å sende en linje til Bob gjennom en Coach (proxy) med temperaturmåling på formatet som vi allerede kjenner fra oppgaven <code style="color: #cfcecc;">minyr</code>
+<pre><code>
+Kjevik;SN39040;18.03.2022 01:50;6
+
+</code></pre>
+Applikasjonen skal være en simulering av et nettverk, som kan inneholde diverse noder (proxy, rutere, gateways osv.) som alle kan overvåke dataene som de mottar og sender videre til neste node. En overvåker kan installere en sniffer av typen <code style="color: #cfcecc;">tcpdump</code> på nodene som er mellom Alice og Bob og lese meldingene som Alice sender til Bob. Applikasjonen skal implementere en enkel kryptering, som gjør det vanskeligener for et mellomledd å få innsikt i innholdet i meldingene. Coach kan fortsatt se meldingene, men de vil umiddelbart ikke gi noen mening. Coach trenger å finne en chiffer, for å dechiffrere meldingene. Se <i>Figur 2</i> for en oversikt.</p>
+
+      <img src="images/total-overview-proxy-sem03.svg" width="1000" alt="Oversikt nettverksapplikasjonen for Seminar III.">
+     <p><i>Figur 2.</i> Oversikt nettverksapplikasjonen for Seminar III.</p> 
+
+    <ul>
+      <li>Lage en fork fra REP04: <code style="color: #cfcecc;">https://github.com/uia-worker/sem03proxyserver.git</code></li>
+      <li>Starte en Docker kontainer med navn <i>coach</i>. Du kan velge om du starter fra en "ren" ubuntu image eller bruker en eksisterende image hvor verktøyene er allerede installert.</li>
+      <li></li>
+      <li>"Gå inn" i Docker kontaineren <i>coach</i>.</li>
+      <li>Klone din fork av REP04.</li>
+      <li>Endre IP og portnummer (du må selv finne IP adresser og velge portnummere for alle tre nodene, slik at de kan kommunisere med hverandre) i filen <code style="color: #cfcecc;">tcp_proxyserver.go</code></li>
+      <li>Ordne også alt relatert til Go moduler (trenger <code style="color: #cfcecc;">go.mod</code> for å kunne importere <code style="color: #cfcecc;">go.mod</code> pakken.</li>
+      <li>Implementere kryptering av trafikken også andre veien, dvs. kryptere responsen fra <i>bob</i>  (filen <code style="color: #cfcecc;">tcp_server.go</code>)og dekryptere det i <i>alice</i> (filen <code style="color: #cfcecc;">tcp_client.go</code>).</li>
+      
+      <li>Implementere en ny case i switch-setningen i filen <code style="color: #cfcecc;">tcp_server.go</code> for en input, som begynner med "Kjevik". Inn i setningen koverter temperaturverdien fra Celsius til Fahrenheit ved hjelp av relevant funksjon fra pakken <code style="color: #cfcecc;">conv</code> fra <code style="color: #cfcecc;">funtemps</code> oppgaven. Hvis du har implementert funksjoner som hadde en enkel linje som input-argument i <code style="color: #cfcecc;">minyr</code> oppgaven, bruk pakken <code style="color: #cfcecc;">yr</code>.</li>
+
+      <li>Starte prosessen fra filen <code style="color: #cfcecc;">tcp_proxyserver.go</code> med kommando <code style="color: #cfcecc;">go run tcp_proxyserver.go</code></li>
+      <li>Vi antar her at Docker kontainere <i>alice</i> og <i>bob</i> allerede utfører.</li>
+      <li>Gjør også endringene i filene <code style="color: #cfcecc;">tcp_client.go</code> og <code style="color: #cfcecc;">tcp_server.go</code>, slik at IP adresser og portnummere er korrekte.</li>
+      <li>Åpne et nytt terminalvindu på vertssystemet og "gå inn i" Docker kontainer <i>coach</i> (nå har du to <code style="color: #cfcecc;">/bin/bash</code> vinduer mot denne kontaineren).</li>
+      <li>Utføre kommandoen <code style="color: #cfcecc;">tcpdump -i eth0 -w packets_alice_bob_coach_01.pcap</code></li>
+      <li>Starte serverprosessen (med koden for dekryptering) i Docker kontainer <i>bob</i> og utføre klientprosessen (med koden for kryptering) i Docker kontainer <i>alice</i>.</li>
+      <li>Stoppe pakkefangst og kopiere filen over til Github repository.</li>
+      <li>Klone (eller gjøre <code style="color: #cfcecc;">git pull</code> hvis repository allerede er klonet på vertssystemet) Github repository med filen <code style="color: #cfcecc;">tcpdump -i eth0 -w packets_alice_bob_coach_01.pcap</code> i.</li>
+      <li>Åpne filen <code style="color: #cfcecc;">packets_alice_bob_coach_01.pcap</code> i Wireshark på vertssystemet og analysere den.</li>
+
+
+    </ul>
+
+    <h3>
+      Oppgaver for Godkjenning
+    </h3>
+    <ul>
+      <li>Vise din modifiserte fork av REP04 i Github.</li>
+      <li>Bevise at tre Docker kontainere utfører og bevise at kommandoen <code style="color: #cfcecc;">go run tcp_client.go ping</code> returnerer meldingen (tidsverdier vil være forskjellige)
+<pre><code>
+2023/04/16 19:33:58 os.Args[1] =  ping
+2023/04/16 19:33:58 reply from proxy: pong
+
+</code></pre>
+       </li>
+       <li>Bevise at kommandoen <code style="color: #cfcecc;">go run tcp_client.go "Kjevik;SN39040;18.03.2022 01:50;6"</code> returnerer meldingen (tidsverdier vil være forskjellige)
+<pre><code>
+2023/04/16 19:34:22 os.Args[1] =  Kjevik;SN39040;18.03.2022 01:50;6
+2023/04/16 19:34:22 reply from proxy: Kjevik;SN39040;18.03.2022 01:50;42.8
+
+</code></pre>
+       </li>
+       <li>Bevise at informasjon er kryptert begge veier ved hjelp av pakkefangst fra Docker kontainer <i>coach</i> (filen <code style="color: #cfcecc;">packets_alice_bob_coach_01.pcap</code>).</li>
+       <li>Forklare portnummere og IP-adresser i pakkefangsten.</li>
+       <li>Forklare 3-veis håndtrykk i pakkefangsten.</li>
+      <li>Forklare variablene Seq, Ack, Win og Len i pakkefangsten.</li>
+
+    </ul>
+
+<p>Koden i figurene og REP01, REP02, REP03 og REP04 er delvis basert på (Woodbeck, 2021).</p>
+<p>SLUTT.</p>
+
+<h2>
+      5 Referanser
+      <a name="referanser"></a>
+    </h2>
+<ul style="list-style-type:none;">  
+<li>Woodbeck, A. (2021). Network programming with Go : code secure and reliable network services from scratch. No Starch Press.</li>
+</ul>
+ 
+
+  </div>
+</body>
+</html>
