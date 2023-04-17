@@ -454,16 +454,20 @@ switch msg := string(dekrypterMelding) { ...
       <li>Vise en forket versjon av REP03 som sin egen i Github med de aktueller endringene for kryptering av trafikken.</li>
       <li><s>Bevise at alle testene går gjennom og forklare endringene som ble gjort.</s><br />
       Dette punktet utgår, siden det må til en uhensiktsmessig programmering for å kunne tilfredsstillen disse testene. Dere må slette de testene som er der og implementere egne tester. Slett disse testene fra <code style="color: #cfcecc;">mycrypt_test.go</code>:
-      <code><pre>
+
+<code><pre>
 {inputMessage: []rune("Kjevik;SN39040;18.03.2022 01:50;6"), chiffer: 4, want: []rune("dnizmocdd7;484c5: 47 6466d45b94c.")},
 {inputMessage: []rune("dnizmocdd7;484c5: 47 6466d45b94c."), chiffer: len(ALF_SEM03) - 4, want: []rune("Kjevik;SN39040;18.03.2022 01:50;6")},
 
-      </pre></code>
+</pre></code>
+
       For å kunne kryptere og dekryptere <code style="color: #cfcecc;">"Kjevik;SN39040;18.03.2022 01:50;6"</code>, så må dere legge inn minst tre storbokstaver, - <code style="color: #cfcecc;">KSN</code>. Så kan en manuel test utføres, slik at dere får den krypterte versjonen av klarteksten. For eksempel, i tilfelle hvor <code style="color: #cfcecc;">KSN</code> er lagt på slutten av alfabetstrengen <code style="color: #cfcecc;">ALF_SEM03</code>, så vil følgende tester passere:
-      <code><pre>
+<code><pre>
 {inputMessage: []rune("Kjevik;SN39040;18.03.2022 01:50;6"), chiffer: 4, want: []rune("bnizmoNcd7;484N5: 47 6466a45S94N.")},
 {inputMessage: []rune("bnizmoNcd7;484N5: 47 6466a45S94N."), chiffer: len(ALF_SEM03) - 4, want: []rune("Kjevik;SN39040;18.03.2022 01:50;6")},
-      </pre></code>
+
+</pre></code>
+
 Ellers står dere selvsagt fri til å implementere egne tester og også forbedre koden i funksjonene for kryptering. Det er flere ulemper med de gitte testene, blant annet at de forutsetter et spesifikt alfabet. Navnet på krypteringsfunksjonen <code style="color: #cfcecc;">Krypter</code> er ikke helt passende, siden denne funksjonen kan brukes for både kryptering og dekryptering, slik som vi har brukt disse verbene så langt i konteksten av denne oppgaven.
       </li>
       </li>
